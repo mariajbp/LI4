@@ -15,4 +15,8 @@
 ## Directory Tree
 
 ```
+.
+├── LICENSE
+├── README.md
+└── .gitignore
 ```
