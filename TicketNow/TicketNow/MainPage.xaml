@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TicketNow.MainPage">
+    <StackLayout>
+        <!-- Place new controls here -->
+
+        <Image Source="logo8.png" />
+
+       
+        <Button Text="EMAIL"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" 
+               BackgroundColor="#FFFFFF"
+               CornerRadius="17" 
+               TextColor="#000000" 
+               HeightRequest="38" WidthRequest="200" FontAttributes="Bold"  />
+
+
+        <Button Text="PASSWORD"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" 
+               BackgroundColor="#FFFFFF"
+               CornerRadius="17"
+               TextColor="#000000" 
+               HeightRequest="38" WidthRequest="200" FontAttributes="Bold"/>
+
+        <Button Text="LOGIN"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" 
+               BackgroundColor="#FFFFFF"
+               CornerRadius="17"
+               TextColor="#000000" 
+               HeightRequest="36" WidthRequest="90" FontAttributes="Bold"
+               Clicked="onLoginButtonClicked"
+               />
+
+        <Button Text="CREATE ACCOUNT"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" 
+               BackgroundColor="#FFFFFF"
+               CornerRadius="17"
+               TextColor="#000000" 
+               HeightRequest="36" WidthRequest="90" FontAttributes="Bold"/>
+
+    </StackLayout>
+</ContentPage> 

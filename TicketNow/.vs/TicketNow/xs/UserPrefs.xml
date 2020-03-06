@@ -1,0 +1,34 @@
+﻿<Properties StartupConfiguration="{75864FFA-22C1-4DDF-9041-8A49A7F723C7}|Default">
+  <MonoDevelop.Ide.ItemProperties.TicketNow.Android AndroidDesignerPreferredTheme="Theme.AppCompat.Light.NoActionBar" PreferredExecutionTarget="Android.pixel_2_pie_9_0_-_api_28" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="TicketNow/MainPage.xaml">
+    <Files>
+      <File FileName="TicketNow/MainPage.xaml.cs" Line="15" Column="35" />
+      <File FileName="TicketNow/MainPage.xaml" Line="11" Column="41" />
+      <File FileName="TicketNow/App.xaml.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="TicketNow" expanded="True">
+            <Node name="TicketNow" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+              <Node name="App.xaml" expanded="True" />
+              <Node name="MainPage.xaml" expanded="True" selected="True" />
+              <Node name="Perfil.xaml" expanded="True" />
+            </Node>
+            <Node name="TicketNow.Android" expanded="True">
+              <Node name="Resources" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.TicketNow.iOS FirstBuild="True" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

@@ -1,0 +1,14 @@
+/Users/susanamarques/Documents/TicketNow/TicketNow/bin/Debug/netstandard2.0/TicketNow.deps.json
+/Users/susanamarques/Documents/TicketNow/TicketNow/bin/Debug/netstandard2.0/TicketNow.dll
+/Users/susanamarques/Documents/TicketNow/TicketNow/bin/Debug/netstandard2.0/ref/TicketNow.dll
+/Users/susanamarques/Documents/TicketNow/TicketNow/bin/Debug/netstandard2.0/TicketNow.pdb
+/Users/susanamarques/Documents/TicketNow/TicketNow/obj/Debug/netstandard2.0/TicketNow.csprojAssemblyReference.cache
+/Users/susanamarques/Documents/TicketNow/TicketNow/obj/Debug/netstandard2.0/App.xaml.g.cs
+/Users/susanamarques/Documents/TicketNow/TicketNow/obj/Debug/netstandard2.0/MainPage.xaml.g.cs
+/Users/susanamarques/Documents/TicketNow/TicketNow/obj/Debug/netstandard2.0/Perfil.xaml.g.cs
+/Users/susanamarques/Documents/TicketNow/TicketNow/obj/Debug/netstandard2.0/TicketNow.AssemblyInfoInputs.cache
+/Users/susanamarques/Documents/TicketNow/TicketNow/obj/Debug/netstandard2.0/TicketNow.AssemblyInfo.cs
+/Users/susanamarques/Documents/TicketNow/TicketNow/obj/Debug/netstandard2.0/XamlC.stamp
+/Users/susanamarques/Documents/TicketNow/TicketNow/obj/Debug/netstandard2.0/TicketNow.dll
+/Users/susanamarques/Documents/TicketNow/TicketNow/obj/Debug/netstandard2.0/ref/TicketNow.dll
+/Users/susanamarques/Documents/TicketNow/TicketNow/obj/Debug/netstandard2.0/TicketNow.pdb
