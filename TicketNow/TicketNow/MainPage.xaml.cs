@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-
 using Xamarin.Forms;
 
 namespace TicketNow
@@ -9,6 +7,7 @@ namespace TicketNow
     {
         public MainPage()
         {
+            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
         }
 
@@ -17,6 +16,14 @@ namespace TicketNow
             await Navigation.PushAsync(new Perfil());
 
         }
+
+        private async void onCreateAccountButtonClicked(object sender, EventArgs args)
+        {
+            await Navigation.PushAsync(new CreateAccount());
+
+        }
+
+       
     }
 }
 

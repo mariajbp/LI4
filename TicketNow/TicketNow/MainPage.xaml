@@ -1,45 +1,93 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TicketNow.MainPage">
-    <StackLayout>
-        <!-- Place new controls here -->
-
-        <Image Source="logo8.png" />
-
+<ContentPage 
+       xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+       x:Class="TicketNow.MainPage"
+       BackgroundImage ="bg.png" > 
+        <RelativeLayout>
        
-        <Button Text="EMAIL"
-               HorizontalOptions="Center"
-               VerticalOptions="CenterAndExpand" 
-               BackgroundColor="#FFFFFF"
-               CornerRadius="17" 
-               TextColor="#000000" 
-               HeightRequest="38" WidthRequest="200" FontAttributes="Bold"  />
+        <!-- Place new controls here -->
+            
 
+        <Image Source="logobg.png"/>
+   
 
-        <Button Text="PASSWORD"
+        <Entry
+               Placeholder="EMAIL"
+               PlaceholderColor="#FFFFFF"
+               RelativeLayout.XConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-125}"
+               RelativeLayout.YConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.5,
+                             Constant=-15}"
+               TextColor="#FFFFFF"
+               BackgroundColor="Transparent"
                HorizontalOptions="Center"
-               VerticalOptions="CenterAndExpand" 
-               BackgroundColor="#FFFFFF"
-               CornerRadius="17"
-               TextColor="#000000" 
-               HeightRequest="38" WidthRequest="200" FontAttributes="Bold"/>
+               HeightRequest="43" WidthRequest="250" FontAttributes="Bold" ClearButtonVisibility="WhileEditing" 
+               />
+ 
+   
+                 <Entry
+               Placeholder="PASSWORD"
+               PlaceholderColor="#FFFFFF"
+               RelativeLayout.XConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-125}"
+               RelativeLayout.YConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.5,
+                             Constant=27}"
+               TextColor="#FFFFFF"
+               BackgroundColor="Transparent"
+               IsPassword="True"
+               HeightRequest="43" WidthRequest="250" FontAttributes="Bold" ClearButtonVisibility="WhileEditing" 
+               />
+         
+       
+
 
         <Button Text="LOGIN"
-               HorizontalOptions="Center"
-               VerticalOptions="CenterAndExpand" 
                BackgroundColor="#FFFFFF"
+                RelativeLayout.XConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-80}"
+               RelativeLayout.YConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.5,
+                             Constant=130}"
                CornerRadius="17"
-               TextColor="#000000" 
-               HeightRequest="36" WidthRequest="90" FontAttributes="Bold"
+               TextColor="#5B0604"
+               HeightRequest="43" WidthRequest="160" FontAttributes="Bold"
                Clicked="onLoginButtonClicked"
                />
 
         <Button Text="CREATE ACCOUNT"
-               HorizontalOptions="Center"
-               VerticalOptions="CenterAndExpand" 
-               BackgroundColor="#FFFFFF"
+               RelativeLayout.XConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-80}"
+               RelativeLayout.YConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.5,
+                             Constant=250}"
+               BackgroundColor="#96120F"
                CornerRadius="17"
-               TextColor="#000000" 
-               HeightRequest="36" WidthRequest="90" FontAttributes="Bold"/>
+               TextColor="#FFFFFF"
+               HeightRequest="35" WidthRequest="160" FontAttributes="Bold"
+               Clicked="onCreateAccountButtonClicked"
+                />
 
-    </StackLayout>
+    </RelativeLayout>
 </ContentPage> 

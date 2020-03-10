@@ -16,7 +16,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Perfil.cs" />
-    <Compile Remove="MyPage.cs" />
     <Compile Remove="Pefil.cs" />
+    <Compile Remove="EmptyClass.cs" />
+    <Compile Remove="CustomEntry.cs" />
+    <Compile Remove="EntryRendCustom.cs" />
   </ItemGroup>
 </Project>

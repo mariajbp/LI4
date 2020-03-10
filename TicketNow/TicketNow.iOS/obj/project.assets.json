@@ -1021,11 +1021,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/susanamarques/Documents/TicketNow/TicketNow.iOS/TicketNow.iOS.csproj",
+      "projectUniqueName": "/Users/susanamarques/LI4/TicketNow/TicketNow.iOS/TicketNow.iOS.csproj",
       "projectName": "TicketNow.iOS",
-      "projectPath": "/Users/susanamarques/Documents/TicketNow/TicketNow.iOS/TicketNow.iOS.csproj",
+      "projectPath": "/Users/susanamarques/LI4/TicketNow/TicketNow.iOS/TicketNow.iOS.csproj",
       "packagesPath": "/Users/susanamarques/.nuget/packages/",
-      "outputPath": "/Users/susanamarques/Documents/TicketNow/TicketNow.iOS/obj/",
+      "outputPath": "/Users/susanamarques/LI4/TicketNow/TicketNow.iOS/obj/",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
@@ -1040,8 +1040,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "/Users/susanamarques/Documents/TicketNow/TicketNow/TicketNow.csproj": {
-              "projectPath": "/Users/susanamarques/Documents/TicketNow/TicketNow/TicketNow.csproj"
+            "/Users/susanamarques/LI4/TicketNow/TicketNow/TicketNow.csproj": {
+              "projectPath": "/Users/susanamarques/LI4/TicketNow/TicketNow/TicketNow.csproj"
             }
           }
         }

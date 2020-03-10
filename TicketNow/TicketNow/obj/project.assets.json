@@ -572,11 +572,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/susanamarques/Documents/TicketNow/TicketNow/TicketNow.csproj",
+      "projectUniqueName": "/Users/susanamarques/LI4/TicketNow/TicketNow/TicketNow.csproj",
       "projectName": "TicketNow",
-      "projectPath": "/Users/susanamarques/Documents/TicketNow/TicketNow/TicketNow.csproj",
+      "projectPath": "/Users/susanamarques/LI4/TicketNow/TicketNow/TicketNow.csproj",
       "packagesPath": "/Users/susanamarques/.nuget/packages/",
-      "outputPath": "/Users/susanamarques/Documents/TicketNow/TicketNow/obj/",
+      "outputPath": "/Users/susanamarques/LI4/TicketNow/TicketNow/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/susanamarques/.config/NuGet/NuGet.Config"

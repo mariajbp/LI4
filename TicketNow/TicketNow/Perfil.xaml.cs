@@ -8,7 +8,9 @@ namespace TicketNow
     {
         public Perfil()
         {
+            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
+            
         }
     }
 }

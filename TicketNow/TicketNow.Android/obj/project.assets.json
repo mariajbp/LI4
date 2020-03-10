@@ -1937,11 +1937,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/susanamarques/Documents/TicketNow/TicketNow.Android/TicketNow.Android.csproj",
+      "projectUniqueName": "/Users/susanamarques/LI4/TicketNow/TicketNow.Android/TicketNow.Android.csproj",
       "projectName": "TicketNow.Android",
-      "projectPath": "/Users/susanamarques/Documents/TicketNow/TicketNow.Android/TicketNow.Android.csproj",
+      "projectPath": "/Users/susanamarques/LI4/TicketNow/TicketNow.Android/TicketNow.Android.csproj",
       "packagesPath": "/Users/susanamarques/.nuget/packages/",
-      "outputPath": "/Users/susanamarques/Documents/TicketNow/TicketNow.Android/obj/",
+      "outputPath": "/Users/susanamarques/LI4/TicketNow/TicketNow.Android/obj/",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
@@ -1956,8 +1956,8 @@
       "frameworks": {
         "monoandroid90": {
           "projectReferences": {
-            "/Users/susanamarques/Documents/TicketNow/TicketNow/TicketNow.csproj": {
-              "projectPath": "/Users/susanamarques/Documents/TicketNow/TicketNow/TicketNow.csproj"
+            "/Users/susanamarques/LI4/TicketNow/TicketNow/TicketNow.csproj": {
+              "projectPath": "/Users/susanamarques/LI4/TicketNow/TicketNow/TicketNow.csproj"
             }
           }
         }
