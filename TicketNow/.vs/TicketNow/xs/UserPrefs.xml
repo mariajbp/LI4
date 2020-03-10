@@ -2,11 +2,11 @@
   <MonoDevelop.Ide.ItemProperties.TicketNow.Android AndroidDesignerPreferredTheme="Theme.AppCompat.Light.NoActionBar" PreferredExecutionTarget="Android.pixel_2_pie_9_0_-_api_28" />
   <MonoDevelop.Ide.Workbench ActiveDocument="TicketNow/MainPage.xaml">
     <Files>
-      <File FileName="TicketNow/MainPage.xaml" Line="89" Column="25" IsPinned="True" />
-      <File FileName="TicketNow/CreateAccount.xaml" Line="33" Column="1" />
-      <File FileName="TicketNow/MainPage.xaml.cs" Line="10" Column="13" />
-      <File FileName="TicketNow/Perfil.xaml.cs" Line="1" Column="1" />
-      <File FileName="TicketNow/CreateAccount.xaml.cs" Line="17" Column="1" />
+      <File FileName="TicketNow/MainPage.xaml" Line="33" Column="4" IsPinned="True" />
+      <File FileName="TicketNow/CreateAccount.xaml" />
+      <File FileName="TicketNow/MainPage.xaml.cs" />
+      <File FileName="TicketNow/Perfil.xaml.cs" />
+      <File FileName="TicketNow/CreateAccount.xaml.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
