@@ -23,7 +23,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `umclinic`.`Doctor`
+-- Table `ticketnow`.`Ticket`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `ticketnow`.`Ticket`;
 CREATE TABLE IF NOT EXISTS `ticketnow`.`Ticket` (
@@ -37,7 +37,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `umclinic`.`Modality`
+-- Table `ticketnow`.`History`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ticketnow`.`History` (
   `used_datetime` DATETIME NOT NULL,
