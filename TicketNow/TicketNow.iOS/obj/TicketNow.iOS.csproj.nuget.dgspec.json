@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/susanamarques/LI4/TicketNow/TicketNow.iOS/TicketNow.iOS.csproj": {}
+    "/Users/susanamarques/Desktop/LI4/TicketNow/TicketNow.iOS/TicketNow.iOS.csproj": {}
   },
   "projects": {
-    "/Users/susanamarques/LI4/TicketNow/TicketNow.iOS/TicketNow.iOS.csproj": {
+    "/Users/susanamarques/Desktop/LI4/TicketNow/TicketNow.iOS/TicketNow.iOS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/susanamarques/LI4/TicketNow/TicketNow.iOS/TicketNow.iOS.csproj",
+        "projectUniqueName": "/Users/susanamarques/Desktop/LI4/TicketNow/TicketNow.iOS/TicketNow.iOS.csproj",
         "projectName": "TicketNow.iOS",
-        "projectPath": "/Users/susanamarques/LI4/TicketNow/TicketNow.iOS/TicketNow.iOS.csproj",
+        "projectPath": "/Users/susanamarques/Desktop/LI4/TicketNow/TicketNow.iOS/TicketNow.iOS.csproj",
         "packagesPath": "/Users/susanamarques/.nuget/packages/",
-        "outputPath": "/Users/susanamarques/LI4/TicketNow/TicketNow.iOS/obj/",
+        "outputPath": "/Users/susanamarques/Desktop/LI4/TicketNow/TicketNow.iOS/obj/",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [
@@ -26,8 +26,8 @@
         "frameworks": {
           "xamarinios10": {
             "projectReferences": {
-              "/Users/susanamarques/LI4/TicketNow/TicketNow/TicketNow.csproj": {
-                "projectPath": "/Users/susanamarques/LI4/TicketNow/TicketNow/TicketNow.csproj"
+              "/Users/susanamarques/Desktop/LI4/TicketNow/TicketNow/TicketNow.csproj": {
+                "projectPath": "/Users/susanamarques/Desktop/LI4/TicketNow/TicketNow/TicketNow.csproj"
               }
             }
           }
@@ -38,11 +38,19 @@
           "dependencies": {
             "Xamarin.Essentials": {
               "target": "Package",
-              "version": "[1.3.1, )"
+              "version": "[1.5.1, )"
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[4.3.0.908675, )"
+              "version": "[4.5.0.396, )"
+            },
+            "ZXing.Net.Mobile": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            },
+            "ZXing.Net.Mobile.Forms": {
+              "target": "Package",
+              "version": "[2.4.1, )"
             }
           }
         }
@@ -59,14 +67,14 @@
         }
       }
     },
-    "/Users/susanamarques/LI4/TicketNow/TicketNow/TicketNow.csproj": {
+    "/Users/susanamarques/Desktop/LI4/TicketNow/TicketNow/TicketNow.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/susanamarques/LI4/TicketNow/TicketNow/TicketNow.csproj",
+        "projectUniqueName": "/Users/susanamarques/Desktop/LI4/TicketNow/TicketNow/TicketNow.csproj",
         "projectName": "TicketNow",
-        "projectPath": "/Users/susanamarques/LI4/TicketNow/TicketNow/TicketNow.csproj",
+        "projectPath": "/Users/susanamarques/Desktop/LI4/TicketNow/TicketNow/TicketNow.csproj",
         "packagesPath": "/Users/susanamarques/.nuget/packages/",
-        "outputPath": "/Users/susanamarques/LI4/TicketNow/TicketNow/obj/",
+        "outputPath": "/Users/susanamarques/Desktop/LI4/TicketNow/TicketNow/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/susanamarques/.config/NuGet/NuGet.Config"
@@ -99,11 +107,19 @@
             },
             "Xamarin.Essentials": {
               "target": "Package",
-              "version": "[1.3.1, )"
+              "version": "[1.5.1, )"
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[4.3.0.908675, )"
+              "version": "[4.5.0.396, )"
+            },
+            "ZXing.Net.Mobile": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            },
+            "ZXing.Net.Mobile.Forms": {
+              "target": "Package",
+              "version": "[2.4.1, )"
             }
           },
           "imports": [

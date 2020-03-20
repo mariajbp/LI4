@@ -8,10 +8,10 @@
         <!-- Place new controls here -->
             
 
-        <Image Source="logobg.png"/>
+        <Image Source="logob.png"/>
    
 
-        <Entry
+        <Entry 
                Placeholder="EMAIL"
                PlaceholderColor="#FFFFFF"
                RelativeLayout.XConstraint =
@@ -31,7 +31,7 @@
                />
  
    
-                 <Entry
+                 <Entry 
                Placeholder="PASSWORD"
                PlaceholderColor="#FFFFFF"
                RelativeLayout.XConstraint =
@@ -64,12 +64,13 @@
                "{ConstraintExpression Type=RelativeToParent,
                              Property=Height,
                              Factor=0.5,
-                             Constant=130}"
+                             Constant=115}"
                CornerRadius="17"
                TextColor="#5B0604"
                HeightRequest="43" WidthRequest="160" FontAttributes="Bold"
-               Clicked="onLoginButtonClicked"
-               />
+               Clicked="onLoginButtonClicked">
+          
+            </Button>
 
         <Button Text="CREATE ACCOUNT"
                RelativeLayout.XConstraint =
@@ -81,7 +82,7 @@
                "{ConstraintExpression Type=RelativeToParent,
                              Property=Height,
                              Factor=0.5,
-                             Constant=250}"
+                             Constant=220}"
                BackgroundColor="#96120F"
                CornerRadius="17"
                TextColor="#FFFFFF"

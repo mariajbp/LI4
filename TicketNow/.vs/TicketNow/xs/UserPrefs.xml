@@ -1,25 +1,26 @@
 ﻿<Properties StartupConfiguration="{75864FFA-22C1-4DDF-9041-8A49A7F723C7}|Default">
   <MonoDevelop.Ide.ItemProperties.TicketNow.Android AndroidDesignerPreferredTheme="Theme.AppCompat.Light.NoActionBar" PreferredExecutionTarget="Android.pixel_2_pie_9_0_-_api_28" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="TicketNow/MainPage.xaml">
-    <Files>
-      <File FileName="TicketNow/MainPage.xaml" Line="33" Column="4" IsPinned="True" />
-      <File FileName="TicketNow/CreateAccount.xaml" />
-      <File FileName="TicketNow/MainPage.xaml.cs" />
-      <File FileName="TicketNow/Perfil.xaml.cs" />
-      <File FileName="TicketNow/CreateAccount.xaml.cs" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="TicketNow" expanded="True">
             <Node name="TicketNow" expanded="True">
+              <Node name="BuyTickets.xaml" expanded="True" />
+              <Node name="BuyTickets2.xaml" expanded="True" />
               <Node name="CreateAccount.xaml" expanded="True" />
-              <Node name="MainPage.xaml" expanded="True" selected="True" />
+              <Node name="MainPage.xaml" expanded="True" />
               <Node name="Perfil.xaml" expanded="True" />
+              <Node name="Settings.xaml" expanded="True" />
+              <Node name="Statistics.xaml" expanded="True" />
+              <Node name="WeeklyMeal.xaml" expanded="True" />
             </Node>
-            <Node name="TicketNow.Android" expanded="True">
-              <Node name="Resources" expanded="True" />
+            <Node name="TicketNow.Android" expanded="True" selected="True">
+              <Node name="Resources" expanded="True">
+                <Node name="drawable" expanded="True" />
+              </Node>
             </Node>
+            <Node name="TicketNow.iOS" expanded="True" />
           </Node>
         </State>
       </Pad>

@@ -3,6 +3,7 @@ public class MonoPackageManager_Resources {
 	public static String[] Assemblies = new String[]{
 		/* We need to ensure that "TicketNow.Android.dll" comes first in this list. */
 		"TicketNow.Android.dll",
+		"FastAndroidCamera.dll",
 		"FormsViewGroup.dll",
 		"TicketNow.dll",
 		"Xamarin.Android.Arch.Core.Common.dll",
@@ -47,6 +48,11 @@ public class MonoPackageManager_Resources {
 		"Xamarin.Forms.Platform.Android.dll",
 		"Xamarin.Forms.Platform.dll",
 		"Xamarin.Forms.Xaml.dll",
+		"ZXing.Net.Mobile.Core.dll",
+		"ZXing.Net.Mobile.Forms.Android.dll",
+		"ZXing.Net.Mobile.Forms.dll",
+		"zxing.portable.dll",
+		"ZXingNetMobile.dll",
 	};
 	public static String[] Dependencies = new String[]{
 	};
