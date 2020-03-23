@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS `ticketnow`.`User` (
   `id_user` VARCHAR(10) NOT NULL,
   `email` VARCHAR(320) NOT NULL,
   `password_hash` VARCHAR(64) NOT NULL,
-  `name` VARCHAR(100) NOT NULL,
+  `name` VARCHAR(100),
   PRIMARY KEY (`id_user`))
 ENGINE = InnoDB;
 
@@ -45,7 +45,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ticketnow`.`History` (
   `used_datetime` DATETIME NOT NULL,
-  `id_ticket` VARCHAR(100) NOT NULL,
+  `id_ticket` INT NOT NULL,
   `id_user` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`used_datetime`),
   INDEX used_datetime_idx (`used_datetime` ASC),
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `ticketnow`.`History` (
     ON UPDATE NO ACTION,
   CONSTRAINT `id_user`
   FOREIGN KEY (`id_user`)
-  REFERENCES `ticketnow`.`User` (`idExpertise`)
+  REFERENCES `ticketnow`.`User` (`id_user`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
