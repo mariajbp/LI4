@@ -17,10 +17,11 @@ USE `ticketnow` ;
 -- -----------------------------------------------------
 -- Table `ticketnow`.`User`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `ticketnow`.`User`;
 CREATE TABLE IF NOT EXISTS `ticketnow`.`User` (
   `id_user` VARCHAR(10) NOT NULL,
   `email` VARCHAR(320) NOT NULL,
-  `password_hash` VARCHAR(64) NOT NULL,
+  `password_hash` VARCHAR(200) NOT NULL,
   `name` VARCHAR(100),
   PRIMARY KEY (`id_user`))
 ENGINE = InnoDB;
@@ -43,6 +44,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `umclinic`.`Modality`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `ticketnow`.`History`;
 CREATE TABLE IF NOT EXISTS `ticketnow`.`History` (
   `used_datetime` DATETIME NOT NULL,
   `id_ticket` INT NOT NULL,
@@ -60,3 +62,4 @@ CREATE TABLE IF NOT EXISTS `ticketnow`.`History` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
