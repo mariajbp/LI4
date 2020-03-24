@@ -1,0 +1,36 @@
+﻿<Properties StartupConfiguration="{75864FFA-22C1-4DDF-9041-8A49A7F723C7}|Default">
+  <MonoDevelop.Ide.ItemProperties.TicketNow.Android AndroidDesignerPreferredTheme="Theme.AppCompat.Light.NoActionBar" PreferredExecutionTarget="Android.pixel_2_pie_9_0_-_api_28" />
+  <MonoDevelop.Ide.Workbench>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="TicketNow" expanded="True">
+            <Node name="TicketNow" expanded="True">
+              <Node name="BuyTickets.xaml" expanded="True" />
+              <Node name="BuyTickets2.xaml" expanded="True" />
+              <Node name="CreateAccount.xaml" expanded="True" />
+              <Node name="MainPage.xaml" expanded="True" />
+              <Node name="Perfil.xaml" expanded="True" />
+              <Node name="Settings.xaml" expanded="True" />
+              <Node name="Statistics.xaml" expanded="True" />
+              <Node name="WeeklyMeal.xaml" expanded="True" />
+            </Node>
+            <Node name="TicketNow.Android" expanded="True" selected="True">
+              <Node name="Resources" expanded="True">
+                <Node name="drawable" expanded="True" />
+              </Node>
+            </Node>
+            <Node name="TicketNow.iOS" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.TicketNow.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.D3E12D24-CD62-48E7-A1EE-9AA319895D97" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TicketNow.BuyTickets2"
+    BackgroundImage ="bg.png" >
+
+
+
+        <AbsoluteLayout>
+
+
+            <Image Source="whiteline.png"
+                AbsoluteLayout.LayoutBounds="-.06,.1,.52,.5"
+               AbsoluteLayout.LayoutFlags="All"
+               />
+            <Image Source="whiteline.png"
+                AbsoluteLayout.LayoutBounds=".99,.1,.52,.5"
+               AbsoluteLayout.LayoutFlags="All"
+               />
+
+            <Image Source="buytickets.png"
+                AbsoluteLayout.LayoutBounds=".16,-.0001,.1,.5"
+               AbsoluteLayout.LayoutFlags="All"
+               />
+
+            <Label Text="BUY TICKETS" HorizontalOptions="CenterAndExpand" 
+                  TextColor="#FFFFFF" FontAttributes="Bold"
+                  FontSize="Title"
+                  AbsoluteLayout.LayoutBounds="0.5,0.46,0.8,.5"
+                  AbsoluteLayout.LayoutFlags="All" />
+
+             
+
+            <Label HorizontalOptions="Center" Text="CHOOSE THE NUMBER OF TICKETS YOU WANT TO BUY"
+                  TextColor="#FFFFFF" FontAttributes="Bold"
+                  FontSize="Body" IsVisible="True"
+                   LineBreakMode="WordWrap" XAlign="Center"
+                  AbsoluteLayout.LayoutBounds=".5,.85,0.7,.5"
+                  AbsoluteLayout.LayoutFlags="All" />
+
+           
+
+            <Button x:Name="quantity" Text="1"
+               AbsoluteLayout.LayoutBounds=".5,.6,.2,.1"
+               AbsoluteLayout.LayoutFlags="All" 
+               BackgroundColor="White"
+               CornerRadius="17" 
+               TextColor="#96120F" FontSize="Title"
+               HeightRequest="35" WidthRequest="35" FontAttributes="Bold"
+                />
+
+            <Image Source="menos.png"
+                AbsoluteLayout.LayoutBounds=".29,.6,.1,.1"
+               AbsoluteLayout.LayoutFlags="All"
+               />
+
+          
+
+            <Image Source="mais.png"
+                AbsoluteLayout.LayoutBounds=".71,.6,.1,.1"
+               AbsoluteLayout.LayoutFlags="All"
+               />
+
+            <Button Text="menos"
+               AbsoluteLayout.LayoutBounds=".25,.6,.2,.1"
+               AbsoluteLayout.LayoutFlags="All" 
+               BackgroundColor="Transparent"
+               CornerRadius="17"
+               TextColor="Transparent" FontSize="Title"
+               HeightRequest="35" WidthRequest="35" FontAttributes="Bold"
+               Clicked="onMinusButtonClicked"
+                />
+
+            <Button Text="mais"
+               AbsoluteLayout.LayoutBounds=".75,.6,.2,.1"
+               AbsoluteLayout.LayoutFlags="All" 
+               BackgroundColor="Transparent"
+               CornerRadius="17"
+               TextColor="Transparent" FontSize="Title"
+               HeightRequest="35" WidthRequest="35" FontAttributes="Bold"
+               Clicked="onPlusButtonClicked"/>
+
+            
+
+            <Label x:Name="total" HorizontalOptions="Center" Text=""
+                  TextColor="#FFFFFF" FontAttributes="Bold"
+                  FontSize="Body" IsVisible="True"
+                  AbsoluteLayout.LayoutBounds=".5,1.4,1.4,.5"
+                  AbsoluteLayout.LayoutFlags="All" />
+
+            <Button Text="PAYMENT"
+               AbsoluteLayout.LayoutBounds=".5,.85,.5,.065"
+               AbsoluteLayout.LayoutFlags="All" 
+               BackgroundColor="#96120F"
+               CornerRadius="17"
+               TextColor="#FFFFFF" FontSize="Body"
+               HeightRequest="35" WidthRequest="160" FontAttributes="Bold"
+                />
+      
+
+
+        </AbsoluteLayout>
+
+
+
+</ContentPage>
+

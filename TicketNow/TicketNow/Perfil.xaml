@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TicketNow.Perfil"
+             xmlns:forms="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             xmlns:zx="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             xmlns:zxcm="clr-namespace:ZXing.Common;assembly=zxing.portable"
+             BackgroundImage ="bg.png" >
+
+
+
+        <AbsoluteLayout>
+
+       
+            <forms:ZXingBarcodeImageView x:Name="barcod" BackgroundColor="Transparent" 
+                                         AbsoluteLayout.LayoutBounds=".5,.09,160,160"
+                                         AbsoluteLayout.LayoutFlags="PositionProportional" 
+                                         BarcodeValue="12333345" BarcodeFormat="QR_CODE">
+
+        <forms:ZXingBarcodeImageView.BarcodeOptions>
+            <zxcm:EncodingOptions Width="160" Height="160" Margin="0" />
+
+        </forms:ZXingBarcodeImageView.BarcodeOptions>
+            </forms:ZXingBarcodeImageView>
+
+            <Label x:Name="meals" Text="" HorizontalOptions="CenterAndExpand" 
+                  TextColor="#FFFFFF" FontAttributes="Bold"
+                  FontSize="Small"
+                  AbsoluteLayout.LayoutBounds=".5,0.69,0.8,.5"
+                  AbsoluteLayout.LayoutFlags="All" />
+
+
+        <Image x:Name="left" Source="left.png"
+               AbsoluteLayout.LayoutBounds=".2,-.11,.05,.5"
+               AbsoluteLayout.LayoutFlags="All"
+               Opacity="0.5"/>
+
+            <Image x:Name="right" Source="right.png"
+               AbsoluteLayout.LayoutBounds=".8,-.11,.05,.5"
+               AbsoluteLayout.LayoutFlags="All" />
+
+            
+         
+
+
+        <!-- Place new controls here -->
+
+        <Image Source="logob.png"
+               AbsoluteLayout.LayoutBounds=".5,.40,.6,.5"
+               AbsoluteLayout.LayoutFlags="All" />
+               
+         <Image Source="whiteline.png"
+                AbsoluteLayout.LayoutBounds="-.06,.40,.32,.5"
+               AbsoluteLayout.LayoutFlags="All"
+               />
+
+
+        <Image Source="whiteline.png"
+                AbsoluteLayout.LayoutBounds="1.03,.40,.32,.5"
+               AbsoluteLayout.LayoutFlags="All"
+               />
+
+         <Image Source="settings.png"
+               AbsoluteLayout.LayoutBounds=".25,.7,.26,.5"
+               AbsoluteLayout.LayoutFlags="All" 
+               />
+
+         <Label Text="SETTINGS" HorizontalOptions="CenterAndExpand" 
+                  TextColor="#FFFFFF" FontAttributes="Bold"
+                  FontSize="Body"
+                  AbsoluteLayout.LayoutBounds="0.1,1.35,.5,0.5"
+                  AbsoluteLayout.LayoutFlags="All" 
+                 
+              />
+
+            <Image Source="utensils.png"
+               AbsoluteLayout.LayoutBounds=".75,.7,.17,.5"
+               AbsoluteLayout.LayoutFlags="All" 
+            
+               />
+
+             <Label Text="WEEKLY MEALS" HorizontalOptions="CenterAndExpand" 
+                  TextColor="#FFFFFF" FontAttributes="Bold"
+                  FontSize="Body"
+                  AbsoluteLayout.LayoutBounds="0.9,1.35,.5,.5"
+                  AbsoluteLayout.LayoutFlags="All" 
+                 
+              />
+
+            <Image Source="buytickets.png"
+               AbsoluteLayout.LayoutBounds=".22,1.14,.23,.5"
+               AbsoluteLayout.LayoutFlags="All" />
+
+            <Label Text="BUY TICKETS" HorizontalOptions="CenterAndExpand" 
+                  TextColor="#FFFFFF" FontAttributes="Bold"
+                  FontSize="Body"
+                  AbsoluteLayout.LayoutBounds="0.13,1.80,.5,.5"
+                  AbsoluteLayout.LayoutFlags="All" 
+                 
+              />
+
+            <Image Source="stats.png"
+               AbsoluteLayout.LayoutBounds="0.75,1.15,.22,.5"
+               AbsoluteLayout.LayoutFlags="All" />
+           
+
+          
+            <Label Text="STATISTICS" HorizontalOptions="CenterAndExpand" 
+                  TextColor="#FFFFFF" FontAttributes="Bold"
+                  FontSize="Body"
+                  AbsoluteLayout.LayoutBounds="0.9,1.80,0.5,.5"
+                  AbsoluteLayout.LayoutFlags="All" 
+                 
+              />
+
+
+
+       
+               <Button Text="settings"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" 
+               BackgroundColor="Transparent"
+               TextColor="Transparent"
+               HeightRequest="100" WidthRequest="100"
+               AbsoluteLayout.LayoutBounds=".25,.7,.26,.5"
+               AbsoluteLayout.LayoutFlags="All"
+               Clicked="onSettingsButtonClicked"/>
+
+
+             <Button Text="weeklymeals"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" 
+               BackgroundColor="Transparent"
+               TextColor="Transparent"
+               HeightRequest="100" WidthRequest="100"
+               AbsoluteLayout.LayoutBounds=".75,.7,.17,.5"
+               AbsoluteLayout.LayoutFlags="All"
+               Clicked="onWeeklymealsButtonClicked"/>
+
+
+
+            <Button Text="buytickets"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" 
+               BackgroundColor="Transparent"
+               TextColor="Transparent"
+               HeightRequest="100" WidthRequest="100"
+               AbsoluteLayout.LayoutBounds=".22,1.14,.23,.5"
+               AbsoluteLayout.LayoutFlags="All"
+               Clicked="onBuyticketsButtonClicked"/>
+
+
+
+            <Button Text="statistics"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" 
+               BackgroundColor="Transparent"
+               TextColor="Transparent"
+               HeightRequest="100" WidthRequest="100"
+               AbsoluteLayout.LayoutBounds="0.75,1.15,.22,.5"
+               AbsoluteLayout.LayoutFlags="All"
+               Clicked="onStatsButtonClicked"/>
+
+               <Button Text="right"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" 
+               BackgroundColor="Transparent"
+               TextColor="Transparent"
+               HeightRequest="100" WidthRequest="100"
+               AbsoluteLayout.LayoutBounds=".8,-.17,.05,.5"
+               AbsoluteLayout.LayoutFlags="All"
+               Clicked="onRightButtonClicked"/>
+
+             <Button Text="left"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" 
+               BackgroundColor="Transparent"
+               TextColor="Transparent"
+               HeightRequest="100" WidthRequest="100"
+               AbsoluteLayout.LayoutBounds=".2,-.17,.05,.5"
+               AbsoluteLayout.LayoutFlags="All"
+               Clicked="onLeftButtonClicked"/>
+
+
+
+            </AbsoluteLayout>
+
+          
+
+  
+</ContentPage>
+

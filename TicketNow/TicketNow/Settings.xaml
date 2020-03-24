@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TicketNow.Settings"
+    BackgroundImage ="bg.png" > 
+        <RelativeLayout>
+
+
+         <!-- Place new controls here -->
+          
+            <Button Text="SETTINGS"
+               RelativeLayout.XConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-140}"
+               RelativeLayout.YConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.5,
+                             Constant=-225}"
+               BackgroundColor="Transparent"
+               TextColor="#FFFFFF"
+               HeightRequest="60" WidthRequest="270" FontAttributes="Bold"
+               FontSize="Title"
+                />
+
+             <Image Source="whiteline.png"
+               HeightRequest="43" WidthRequest="240"
+               RelativeLayout.XConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.1,
+                             Constant=-45}"
+               RelativeLayout.YConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.5,
+                             Constant=-180}"
+               />
+
+
+             <Image Source="whiteline.png"
+               HeightRequest="43" WidthRequest="240"
+               RelativeLayout.XConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-20}"
+               RelativeLayout.YConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.5,
+                             Constant=-180}"
+               />
+           
+
+            <Image Source="settings.png"
+                HeightRequest="43" WidthRequest="250"
+               RelativeLayout.XConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-230}"
+               RelativeLayout.YConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.5,
+                             Constant=-220}"
+               />
+
+           
+
+
+
+          <Entry
+               Placeholder="CURRENT PASSWORD"
+               PlaceholderColor="#FFFFFF"
+               RelativeLayout.XConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-125}"
+               RelativeLayout.YConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.5,
+                             Constant=-40}"
+               TextColor="#FFFFFF"
+               BackgroundColor="Transparent"
+               IsPassword="True"
+               HeightRequest="43" WidthRequest="250" FontAttributes="Bold" ClearButtonVisibility="WhileEditing" 
+               />
+
+
+         <Entry
+               Placeholder="NEW PASSWORD"
+               PlaceholderColor="#FFFFFF"
+               RelativeLayout.XConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-125}"
+               RelativeLayout.YConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.5,
+                             Constant=40}"
+               TextColor="#FFFFFF"
+               BackgroundColor="Transparent"
+               IsPassword="True"
+               HeightRequest="43" WidthRequest="250" FontAttributes="Bold" ClearButtonVisibility="WhileEditing" 
+               />
+
+        <Entry
+               Placeholder="CONFIRM PASSWORD"
+               PlaceholderColor="#FFFFFF"
+               RelativeLayout.XConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-125}"
+               RelativeLayout.YConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.5,
+                             Constant=120}"
+               TextColor="#FFFFFF"
+               BackgroundColor="Transparent"
+               IsPassword="True"
+               HeightRequest="43" WidthRequest="250" FontAttributes="Bold" ClearButtonVisibility="WhileEditing" 
+               />
+
+
+            <Button Text="CHANGE PASSWORD"
+               RelativeLayout.XConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-80}"
+               RelativeLayout.YConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.5,
+                             Constant=210}"
+               BackgroundColor="#96120F"
+               CornerRadius="17"
+               TextColor="#FFFFFF"
+               HeightRequest="35" WidthRequest="160" FontAttributes="Bold"
+                />
+
+
+        </RelativeLayout>
+</ContentPage>
+
