@@ -23,11 +23,9 @@
     <Compile Remove="CustomEntry.cs" />
     <Compile Remove="EntryRendCustom.cs" />
     <Compile Remove="Settings.cs" />
-    <Compile Remove="MyPage.xaml.cs" />
     <Compile Remove="Perfil1.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Remove="MyPage.xaml" />
     <EmbeddedResource Remove="Perfil1.xaml" />
   </ItemGroup>
 </Project>

@@ -2007,20 +2007,20 @@
     ]
   },
   "packageFolders": {
-    "/Users/susanamarques/.nuget/packages/": {}
+    "/Users/mariapires/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/susanamarques/Desktop/LI4/TicketNow/TicketNow.Android/TicketNow.Android.csproj",
+      "projectUniqueName": "/Users/mariapires/Desktop/LI4/TicketNow/TicketNow.Android/TicketNow.Android.csproj",
       "projectName": "TicketNow.Android",
-      "projectPath": "/Users/susanamarques/Desktop/LI4/TicketNow/TicketNow.Android/TicketNow.Android.csproj",
-      "packagesPath": "/Users/susanamarques/.nuget/packages/",
-      "outputPath": "/Users/susanamarques/Desktop/LI4/TicketNow/TicketNow.Android/obj/",
+      "projectPath": "/Users/mariapires/Desktop/LI4/TicketNow/TicketNow.Android/TicketNow.Android.csproj",
+      "packagesPath": "/Users/mariapires/.nuget/packages/",
+      "outputPath": "/Users/mariapires/Desktop/LI4/TicketNow/TicketNow.Android/obj/",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "/Users/susanamarques/.config/NuGet/NuGet.Config"
+        "/Users/mariapires/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "monoandroid90"
@@ -2031,8 +2031,8 @@
       "frameworks": {
         "monoandroid90": {
           "projectReferences": {
-            "/Users/susanamarques/Desktop/LI4/TicketNow/TicketNow/TicketNow.csproj": {
-              "projectPath": "/Users/susanamarques/Desktop/LI4/TicketNow/TicketNow/TicketNow.csproj"
+            "/Users/mariapires/Desktop/LI4/TicketNow/TicketNow/TicketNow.csproj": {
+              "projectPath": "/Users/mariapires/Desktop/LI4/TicketNow/TicketNow/TicketNow.csproj"
             }
           }
         }

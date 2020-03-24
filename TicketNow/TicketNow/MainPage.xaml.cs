@@ -23,7 +23,16 @@ namespace TicketNow
 
         }
 
-       
+        private async void onErrorButtonClicked(object sender, EventArgs args)
+        {
+            await DisplayAlert("Error","Invalid Credentials","Try Again");
+        }
+
+        private async void onAdminButtonClicked(object sender, EventArgs args)
+        {
+            await Navigation.PushAsync(new Admin());
+        }
+
     }
 }
 

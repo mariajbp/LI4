@@ -61,7 +61,7 @@
                />
 
          <Image Source="settings.png"
-               AbsoluteLayout.LayoutBounds=".25,.7,.26,.5"
+               AbsoluteLayout.LayoutBounds=".25,.7,.18,.5"
                AbsoluteLayout.LayoutFlags="All" 
                />
 
@@ -74,7 +74,7 @@
               />
 
             <Image Source="utensils.png"
-               AbsoluteLayout.LayoutBounds=".75,.7,.17,.5"
+               AbsoluteLayout.LayoutBounds=".75,.7,.12,.5"
                AbsoluteLayout.LayoutFlags="All" 
             
                />
@@ -88,7 +88,7 @@
               />
 
             <Image Source="buytickets.png"
-               AbsoluteLayout.LayoutBounds=".22,1.14,.23,.5"
+               AbsoluteLayout.LayoutBounds=".22,1.14,.17,.5"
                AbsoluteLayout.LayoutFlags="All" />
 
             <Label Text="BUY TICKETS" HorizontalOptions="CenterAndExpand" 
@@ -100,7 +100,7 @@
               />
 
             <Image Source="stats.png"
-               AbsoluteLayout.LayoutBounds="0.75,1.15,.22,.5"
+               AbsoluteLayout.LayoutBounds="0.75,1.15,.17,.5"
                AbsoluteLayout.LayoutFlags="All" />
            
 

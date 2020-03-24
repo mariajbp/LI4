@@ -12,5 +12,11 @@ namespace TicketNow
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
         }
+
+        private async void onCreateAccountButtonClicked(object sender, EventArgs args)
+        {
+            await DisplayAlert("", "Your account has been created, please check your institutional email", "Ok");
+            //await DisplayAlert("Erro", "Invalid Email", "Try Again");
+        }
     }
 }

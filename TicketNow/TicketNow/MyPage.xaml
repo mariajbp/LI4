@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+       xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+       x:Class="TicketNow.Admin"
+       BackgroundImage ="bg.png" > 
+        <RelativeLayout>
+
+        <!-- Header -->
+         <Button Text="Administrator"
+               RelativeLayout.XConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-130}"
+               RelativeLayout.YConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.5,
+                             Constant=-250}"
+               BackgroundColor="Transparent"
+               TextColor="#FFFFFF"
+               HeightRequest="60" WidthRequest="270" FontAttributes="Bold"
+               FontSize="Title"
+                />
+
+             <Image Source="whiteline.png"
+               HeightRequest="43" WidthRequest="240"
+               RelativeLayout.XConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.1,
+                             Constant=-45}"
+               RelativeLayout.YConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.5,
+                             Constant=-200}"
+               />
+
+
+             <Image Source="whiteline.png"
+               HeightRequest="43" WidthRequest="240"
+               RelativeLayout.XConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-20}"
+               RelativeLayout.YConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.5,
+                             Constant=-200}"
+               />
+           
+
+            <Image Source="logoutensils.png"
+                HeightRequest="43" WidthRequest="250"
+               RelativeLayout.XConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-245}"
+               RelativeLayout.YConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.5,
+                             Constant=-240}"
+               />
+
+
+            <!-- Buttons -->
+
+                 
+
+
+            
+    </RelativeLayout>
+</ContentPage> 

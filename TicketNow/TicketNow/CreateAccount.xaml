@@ -6,9 +6,7 @@
 
          <!-- Place new controls here -->
             
-
         <Image Source="logob.png"/>
-
 
 
          <Entry
@@ -42,12 +40,11 @@
                              Property=Height,
                              Factor=0.5,
                              Constant=70}"
-               BackgroundColor="#FFFFFF"
+               BackgroundColor="#5B0604"
                CornerRadius="17"
-               TextColor="#5B0604"
-               HeightRequest="35" WidthRequest="160" FontAttributes="Bold"  />
-
-
+               TextColor="#FFFFFF"
+               HeightRequest="35" WidthRequest="160" FontAttributes="Bold"
+               Clicked="onCreateAccountButtonClicked" />
 
 
         </RelativeLayout>

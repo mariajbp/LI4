@@ -89,7 +89,7 @@
             <Button Text="PAYMENT"
                AbsoluteLayout.LayoutBounds=".5,.85,.5,.065"
                AbsoluteLayout.LayoutFlags="All" 
-               BackgroundColor="#96120F"
+               BackgroundColor="#5B0604"
                CornerRadius="17"
                TextColor="#FFFFFF" FontSize="Body"
                HeightRequest="35" WidthRequest="160" FontAttributes="Bold"

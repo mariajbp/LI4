@@ -6,21 +6,13 @@
         <State name="__root__">
           <Node name="TicketNow" expanded="True">
             <Node name="TicketNow" expanded="True">
-              <Node name="BuyTickets.xaml" expanded="True" />
-              <Node name="BuyTickets2.xaml" expanded="True" />
+              <Node name="Admin.xaml" expanded="True" />
               <Node name="CreateAccount.xaml" expanded="True" />
-              <Node name="MainPage.xaml" expanded="True" />
-              <Node name="Perfil.xaml" expanded="True" />
-              <Node name="Settings.xaml" expanded="True" />
-              <Node name="Statistics.xaml" expanded="True" />
-              <Node name="WeeklyMeal.xaml" expanded="True" />
-            </Node>
-            <Node name="TicketNow.Android" expanded="True" selected="True">
-              <Node name="Resources" expanded="True">
-                <Node name="drawable" expanded="True" />
+              <Node name="Perfil.xaml" expanded="True">
+                <Node name="Perfil.xaml.cs" selected="True" />
               </Node>
+              <Node name="Settings.xaml" expanded="True" />
             </Node>
-            <Node name="TicketNow.iOS" expanded="True" />
           </Node>
         </State>
       </Pad>

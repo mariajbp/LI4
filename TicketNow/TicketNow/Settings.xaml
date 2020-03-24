@@ -141,11 +141,11 @@
                              Property=Height,
                              Factor=0.5,
                              Constant=210}"
-               BackgroundColor="#96120F"
+               BackgroundColor="#5B0604"
                CornerRadius="17"
                TextColor="#FFFFFF"
                HeightRequest="35" WidthRequest="160" FontAttributes="Bold"
-                />
+               Clicked="onChangePasswordClicked"/>
 
 
         </RelativeLayout>
