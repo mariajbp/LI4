@@ -3,7 +3,9 @@
 ## Index
 
 * [Topics](#Topics)
-* [Directory Tree](#Directory-Tree)
+* [Server](#Server)
+    * [Installing](#Installing)
+    * [Executing](#Executing)
 
 ## Topics
 
@@ -12,11 +14,24 @@
 * Tickets
 * Statistics
 
-## Directory Tree
+## Server
+
+### Installing
+
+```bash
+python3 -m venv ticketnow-env
+
+# Windows
+ticketnow-env\Scripts\activate.bat
+
+# Unix / MacOS
+source ticketnow-env/bin/activate
+
+pip install -r requirements.txt
+```
+
+### Executing
 
 ```
-.
-├── LICENSE
-├── README.md
-└── .gitignore
+python3 src/main.py
 ```
