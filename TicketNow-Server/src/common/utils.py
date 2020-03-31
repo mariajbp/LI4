@@ -30,9 +30,7 @@ class ErrorCodeException(BaseException):
         return self.error_code.message()
 
     
-
-
-
+    
 def auth_required(f):
     @wraps(f)
     def api_method(*args, **kwargs):

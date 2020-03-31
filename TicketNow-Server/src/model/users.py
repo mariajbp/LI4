@@ -39,17 +39,17 @@ class User(db.Model):
 
         u = User.query.filter(User.id_user==id_user)
         
-        if not u and u.delete() != 1:
+        if u.delete() == 1:
             db.session.commit()
-            return
-        raise ErrorCodeException(ErrorCode.USER_DOESNT_EXISTS)
-            
+        else:
+            raise ErrorCodeException(ErrorCode.USER_DOESNT_EXISTS)
+
 
 
     def to_json(self):
         return { 
             "id_user" : self.id_user,
-            "email" : self.id_user,
+            "email" : self.email,
             "name" : self.name
         }
 
