@@ -33,7 +33,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `ticketnow`.`Ticket`;
 CREATE TABLE IF NOT EXISTS `ticketnow`.`Ticket` (
   `id_ticket` INT NOT NULL,
-  `price` INT NOT NULL,
+  `price` DECIMAL(6,2) NOT NULL,
   `type` ENUM('simple','complete') NOT NULL,
   `purchased_datetime` DATETIME NOT NULL,
   `used` BOOLEAN NOT NULL,
