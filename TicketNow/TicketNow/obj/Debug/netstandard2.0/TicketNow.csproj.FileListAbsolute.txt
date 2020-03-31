@@ -70,3 +70,4 @@
 /Users/mariapires/Desktop/LI4/TicketNow/TicketNow/obj/Debug/netstandard2.0/TicketNow.csproj.CoreCompileInputs.cache
 /Users/mariapires/Desktop/LI4/TicketNow/TicketNow/obj/Debug/netstandard2.0/Admin.xaml.g.cs
 /Users/mariapires/Desktop/LI4/TicketNow/TicketNow/obj/Debug/netstandard2.0/MyPage.xaml.g.cs
+/Users/susanamarques/Desktop/LI4/TicketNow/TicketNow/obj/Debug/netstandard2.0/Admin.xaml.g.cs

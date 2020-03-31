@@ -1116,20 +1116,20 @@
     ]
   },
   "packageFolders": {
-    "/Users/mariapires/.nuget/packages/": {}
+    "/Users/susanamarques/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/mariapires/Desktop/LI4/TicketNow/TicketNow.iOS/TicketNow.iOS.csproj",
+      "projectUniqueName": "/Users/susanamarques/Desktop/LI4/TicketNow/TicketNow.iOS/TicketNow.iOS.csproj",
       "projectName": "TicketNow.iOS",
-      "projectPath": "/Users/mariapires/Desktop/LI4/TicketNow/TicketNow.iOS/TicketNow.iOS.csproj",
-      "packagesPath": "/Users/mariapires/.nuget/packages/",
-      "outputPath": "/Users/mariapires/Desktop/LI4/TicketNow/TicketNow.iOS/obj/",
+      "projectPath": "/Users/susanamarques/Desktop/LI4/TicketNow/TicketNow.iOS/TicketNow.iOS.csproj",
+      "packagesPath": "/Users/susanamarques/.nuget/packages/",
+      "outputPath": "/Users/susanamarques/Desktop/LI4/TicketNow/TicketNow.iOS/obj/",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "/Users/mariapires/.config/NuGet/NuGet.Config"
+        "/Users/susanamarques/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "xamarinios10"
@@ -1140,8 +1140,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "/Users/mariapires/Desktop/LI4/TicketNow/TicketNow/TicketNow.csproj": {
-              "projectPath": "/Users/mariapires/Desktop/LI4/TicketNow/TicketNow/TicketNow.csproj"
+            "/Users/susanamarques/Desktop/LI4/TicketNow/TicketNow/TicketNow.csproj": {
+              "projectPath": "/Users/susanamarques/Desktop/LI4/TicketNow/TicketNow/TicketNow.csproj"
             }
           }
         }

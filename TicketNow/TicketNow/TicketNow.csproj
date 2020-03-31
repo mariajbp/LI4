@@ -27,5 +27,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Remove="Perfil1.xaml" />
+    <EmbeddedResource Remove="MyPage.xaml" />
   </ItemGroup>
 </Project>
