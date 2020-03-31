@@ -8,15 +8,13 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- Schema ticketnow
 -- -----------------------------------------------------
 
--- -----------------------------------------------------
--- Schema ticketnow
--- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `ticketnow` DEFAULT CHARACTER SET utf8 ;
 USE `ticketnow` ;
 
 -- -----------------------------------------------------
 -- Table `ticketnow`.`User`
 -- -----------------------------------------------------
+
 DROP TABLE IF EXISTS `ticketnow`.`User`;
 CREATE TABLE IF NOT EXISTS `ticketnow`.`User` (
   `id_user` VARCHAR(10) NOT NULL,
@@ -26,10 +24,10 @@ CREATE TABLE IF NOT EXISTS `ticketnow`.`User` (
   PRIMARY KEY (`id_user`))
 ENGINE = InnoDB;
 
-
 -- -----------------------------------------------------
 -- Table `umclinic`.`Doctor`
 -- -----------------------------------------------------
+
 DROP TABLE IF EXISTS `ticketnow`.`Ticket`;
 CREATE TABLE IF NOT EXISTS `ticketnow`.`Ticket` (
   `id_ticket` INT NOT NULL,
@@ -62,4 +60,3 @@ CREATE TABLE IF NOT EXISTS `ticketnow`.`History` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
