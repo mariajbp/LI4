@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TicketNow.WeeklyMeal"
+
+                BackgroundImage ="bg.png" >
+        
+        <AbsoluteLayout>
+
+            <Label x:Name="normalmeal" Text="Meals" FontSize="Subtitle" FontAttributes="Bold"
+                   TextColor="White"
+                   AbsoluteLayout.LayoutBounds=".3,.2,.32,.15"
+                   AbsoluteLayout.LayoutFlags="All"/>
+
+              <Label x:Name= "veg" Text="Vegetarian" FontSize="Subtitle" FontAttributes="Bold"
+                   TextColor="White"
+                   AbsoluteLayout.LayoutBounds=".999,.2,.32,.15"
+                   AbsoluteLayout.LayoutFlags="All"
+                   Opacity="0.5"/>
+
+            <Image x:Name="utensesq" Source="utensils.png"
+               AbsoluteLayout.LayoutBounds=".11,.01,.06,.35"
+               AbsoluteLayout.LayoutFlags="All"/>
+
+            <Image x:Name="utensdir" Source="utensils.png"
+               AbsoluteLayout.LayoutBounds=".62,.01,.06,.35"
+               AbsoluteLayout.LayoutFlags="All"
+               Opacity="0.5"/>
+
+            <Image x:Name="linhaesq" Source="whiteline.png"
+                AbsoluteLayout.LayoutBounds="-.213,.06,.32,.35"
+               AbsoluteLayout.LayoutFlags="All"
+              
+               /> 
+
+            <Image x:Name="linhaesq1" Source="whiteline.png"
+                AbsoluteLayout.LayoutBounds=".258,.06,.32,.35"
+               AbsoluteLayout.LayoutFlags="All"
+              
+               />
+
+
+            <Image x:Name="linhadir" Source="whiteline.png"
+                AbsoluteLayout.LayoutBounds="1.201,.06,.32,.35"
+               AbsoluteLayout.LayoutFlags="All"
+               Opacity="0.5" 
+               />
+
+            <Image x:Name="linhadir1" Source="whiteline.png"
+                AbsoluteLayout.LayoutBounds=".73,.06,.32,.35"
+               AbsoluteLayout.LayoutFlags="All"
+               Opacity="0.5"
+                
+               />
+
+            <Button Text="vegetarian"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" 
+               BackgroundColor="Transparent"
+               TextColor="Transparent"
+               HeightRequest="50" WidthRequest="250"
+               AbsoluteLayout.LayoutBounds=".83,.1,.3,.2"
+               AbsoluteLayout.LayoutFlags="All"
+               Clicked="onVegetarianButtonClicked"/>
+
+            <Button Text="meals"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" 
+               BackgroundColor="Transparent"
+               TextColor="Transparent"
+               HeightRequest="50" WidthRequest="250"
+               AbsoluteLayout.LayoutBounds=".13,.1,.3,.2"
+               AbsoluteLayout.LayoutFlags="All"
+               Clicked="onMealsButtonClicked"/>
+
+
+             <ListView x:Name="lv" SeparatorColor="White"
+                SeparatorVisibility="Default" 
+                AbsoluteLayout.LayoutBounds=".5,1,1,.75"
+               AbsoluteLayout.LayoutFlags="All"
+                HasUnevenRows="true" ItemsSource="{Binding Meal}">
+                 <ListView.ItemTemplate>
+                    <DataTemplate>
+                          <ViewCell IsEnabled="False">
+                        <StackLayout Orientation="Vertical" Padding="20" IsEnabled="False"
+                                     HorizontalOptions="StartAndExpand">
+                        
+                        <Label Text="{Binding Day}" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" FontSize="Title"/>
+                      
+
+
+                <ListView ItemsSource="{Binding Mealss}" 
+                HasUnevenRows="true"
+                HeightRequest="295" 
+                > 
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                      <ViewCell IsEnabled="False">
+                        <StackLayout Orientation="Vertical"  Padding="20" IsEnabled="False"
+                                     HorizontalOptions="Start">
+                        
+                        <Label Text="{Binding Lun_din}" TextColor="White" FontAttributes="Bold" FontSize="Medium"
+                               HorizontalTextAlignment="Start" VerticalTextAlignment="Start" />
+                        <Label Text="{Binding Content}" TextColor="White" FontSize="Medium"
+                               HorizontalTextAlignment="Start" VerticalTextAlignment="Start" />
+                        </StackLayout>
+                        </ViewCell>
+                        </DataTemplate>
+                </ListView.ItemTemplate>
+               </ListView>
+                             </StackLayout>
+                        </ViewCell>
+                        </DataTemplate>
+                     </ListView.ItemTemplate>
+                 </ListView>
+
+    </AbsoluteLayout>
+
+  
+       
+</ContentPage>

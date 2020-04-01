@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TicketNow.BuyTickets"
+    BackgroundImage ="bg.png" >
+
+
+
+        <AbsoluteLayout>
+
+
+            <Image Source="whiteline.png"
+                AbsoluteLayout.LayoutBounds="-.06,.1,.52,.5"
+               AbsoluteLayout.LayoutFlags="All"
+               />
+            <Image Source="whiteline.png"
+                AbsoluteLayout.LayoutBounds=".99,.1,.52,.5"
+               AbsoluteLayout.LayoutFlags="All"
+               />
+
+            <Image Source="buytickets.png"
+                AbsoluteLayout.LayoutBounds=".16,-.0001,.1,.5"
+               AbsoluteLayout.LayoutFlags="All"
+               />
+
+            <Label Text="BUY TICKETS" HorizontalOptions="CenterAndExpand" 
+                  TextColor="#FFFFFF" FontAttributes="Bold"
+                  FontSize="Title"
+                  AbsoluteLayout.LayoutBounds="0.5,0.46,0.8,.5"
+                  AbsoluteLayout.LayoutFlags="All" />
+
+
+             <Button Text=""
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand"
+               BackgroundColor="#f49351"
+               TextColor="White"
+               HeightRequest="100" WidthRequest="300"
+               AbsoluteLayout.LayoutBounds=".5,.50,.8,.5"
+               AbsoluteLayout.LayoutFlags="All"
+               CornerRadius="17"
+               />
+
+            <Button Text=""
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" 
+               BackgroundColor="#7f012b"
+               TextColor="White"
+               HeightRequest="100" WidthRequest="300"
+               AbsoluteLayout.LayoutBounds=".5,.95,.8,.5"
+               AbsoluteLayout.LayoutFlags="All"
+               CornerRadius="17"
+               />
+
+             
+
+            <Label Text="COMPLETE MEAL"
+                  TextColor="#FFFFFF" FontAttributes="Bold"
+                  FontSize="Body" IsVisible="True"
+                  AbsoluteLayout.LayoutBounds=".99,0.93,0.8,.5"
+                  AbsoluteLayout.LayoutFlags="All" />
+
+            <Label Text="2,75€ per unit" 
+                  TextColor="#FFFFFF" FontAttributes="Bold"
+                  FontSize="Small"
+                  AbsoluteLayout.LayoutBounds=".99,0.98,0.8,.5"
+                  AbsoluteLayout.LayoutFlags="All" />
+
+            <Label Text="25€ per 10 units (block)" 
+                  TextColor="#FFFFFF" FontAttributes="Bold"
+                  FontSize="Small"
+                  AbsoluteLayout.LayoutBounds=".99,1.02,0.8,.5"
+                  AbsoluteLayout.LayoutFlags="All" />
+
+              <Label Text="SIMPLE MEAL" 
+                  TextColor="#FFFFFF" FontAttributes="Bold"
+                  FontSize="Body"
+                  AbsoluteLayout.LayoutBounds=".99,1.40,0.8,.5"
+                  AbsoluteLayout.LayoutFlags="All" />
+
+                        <Label Text="2,05€ per unit" 
+                  TextColor="#FFFFFF" FontAttributes="Bold"
+                  FontSize="Small"
+                  AbsoluteLayout.LayoutBounds=".99,1.45,0.8,.5"
+                  AbsoluteLayout.LayoutFlags="All" />
+
+
+            <Image Source="logouni.png"
+                
+                AbsoluteLayout.LayoutBounds=".76,.50,.25,.5"
+               AbsoluteLayout.LayoutFlags="All"
+               />
+
+             <Image Source="logouni.png"
+                
+                AbsoluteLayout.LayoutBounds=".76,.95,.25,.5"
+               AbsoluteLayout.LayoutFlags="All"
+               />
+
+            <Button Text=""
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" 
+               BackgroundColor="Transparent"
+               TextColor="White"
+               HeightRequest="100" WidthRequest="300"
+               AbsoluteLayout.LayoutBounds=".5,.95,.8,.5"
+               AbsoluteLayout.LayoutFlags="All"
+               CornerRadius="17"
+               Clicked="onSimpleMealButtonClicked"/>
+
+            <Button Text=""
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand"
+               BackgroundColor="Transparent"
+               TextColor="White"
+               HeightRequest="100" WidthRequest="300"
+               AbsoluteLayout.LayoutBounds=".5,.50,.8,.5"
+               AbsoluteLayout.LayoutFlags="All"
+               CornerRadius="17"
+               Clicked="onCompleteMealButtonClicked"/>
+
+
+        </AbsoluteLayout>
+
+
+
+</ContentPage>

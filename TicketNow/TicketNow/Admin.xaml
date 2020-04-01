@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+       xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+       x:Class="TicketNow.Admin"
+       BackgroundImage ="bg.png" >
+            <RelativeLayout>
+        <!-- Header -->
+         <Button Text="Administrator"
+               RelativeLayout.XConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-130}"
+               RelativeLayout.YConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.5,
+                             Constant=-250}"
+               BackgroundColor="Transparent"
+               TextColor="#FFFFFF"
+               HeightRequest="60" WidthRequest="270" FontAttributes="Bold"
+               FontSize="Title"
+                />
+
+             <Image Source="whiteline.png"
+               HeightRequest="43" WidthRequest="240"
+               RelativeLayout.XConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.1,
+                             Constant=-45}"
+               RelativeLayout.YConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.5,
+                             Constant=-200}"
+               />
+
+
+             <Image Source="whiteline.png"
+               HeightRequest="43" WidthRequest="240"
+               RelativeLayout.XConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-20}"
+               RelativeLayout.YConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.5,
+                             Constant=-200}"
+               />
+           
+
+            <Image Source="logoutensils.png"
+                HeightRequest="43" WidthRequest="250"
+               RelativeLayout.XConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-245}"
+               RelativeLayout.YConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.5,
+                             Constant=-240}"
+               />
+
+            
+            <!-- Buttons -->
+            <AbsoluteLayout>
+             <Image Source="settings.png"
+               AbsoluteLayout.LayoutBounds=".023,.15,.03,.5"
+               AbsoluteLayout.LayoutFlags="All" 
+               />
+
+         <Label Text="SETTINGS" HorizontalOptions="CenterAndExpand" 
+                  TextColor="#FFFFFF" FontAttributes="Bold"
+                  FontSize="Body"
+                  AbsoluteLayout.LayoutBounds=".01,.48,.055,.2"
+                  AbsoluteLayout.LayoutFlags="All" 
+                 
+              />
+
+            <Image Source="utensils.png"
+               AbsoluteLayout.LayoutBounds=".11,.15,.02,.5"
+               AbsoluteLayout.LayoutFlags="All" 
+            
+               />
+
+             <Label Text="WEEKLY MEALS" HorizontalOptions="CenterAndExpand" 
+                  TextColor="#FFFFFF" FontAttributes="Bold"
+                  FontSize="Body"
+                  AbsoluteLayout.LayoutBounds=".01,.48,.223,.2"
+                  AbsoluteLayout.LayoutFlags="All" 
+                 
+              />
+
+             <Image Source="stats.png"
+               AbsoluteLayout.LayoutBounds=".065,.48,.03,.5"
+               AbsoluteLayout.LayoutFlags="All" />
+
+
+
+            <Label Text="STATISTICS" HorizontalOptions="CenterAndExpand" 
+                  TextColor="#FFFFFF" FontAttributes="Bold"
+                  FontSize="Body"
+                  AbsoluteLayout.LayoutBounds=".01,.68,.141,.2"
+                  AbsoluteLayout.LayoutFlags="All" 
+                 
+              />
+
+
+             <Button Text="settings"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" 
+               BackgroundColor="Transparent"
+               TextColor="Transparent"
+               HeightRequest="100" WidthRequest="100"
+               AbsoluteLayout.LayoutBounds=".016,.33,.05,.14"
+               AbsoluteLayout.LayoutFlags="All"
+               Clicked="onSettingsButtonClicked"/>
+
+
+             <Button Text="weeklymeals"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" 
+               BackgroundColor="Transparent"
+               TextColor="Transparent"
+               HeightRequest="100" WidthRequest="100"
+               AbsoluteLayout.LayoutBounds=".1,.32,.05,.14"
+               AbsoluteLayout.LayoutFlags="All"
+               Clicked="onWeeklymealsButtonClicked"/>
+
+               <Button Text="statistics"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" 
+               BackgroundColor="Transparent"
+               TextColor="Transparent"
+               HeightRequest="100" WidthRequest="100"
+               AbsoluteLayout.LayoutBounds=".058,.52,.05,.14"
+               AbsoluteLayout.LayoutFlags="All"
+               Clicked="onStatsButtonClicked"/>
+
+
+            
+    </AbsoluteLayout>
+   </RelativeLayout>
+</ContentPage>
