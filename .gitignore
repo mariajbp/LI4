@@ -2,3 +2,5 @@
 
 TicketNow-Server/ticketnow_env/
 __pycache__/
+
+db_init_new.sql

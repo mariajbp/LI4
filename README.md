@@ -2,23 +2,15 @@
 
 ## Index
 
-* [Topics](#Topics)
 * [Server](#Server)
     * [Installing](#Installing)
     * [Executing](#Executing)
-
-## Topics
-
-* Groups
-* Users
-* Tickets
-* Statistics
 
 ## Server
 
 ### Installing
 
-```bash
+```shell
 python3 -m venv ticketnow-env
 
 # Windows
@@ -32,6 +24,7 @@ pip install -r requirements.txt
 
 ### Executing
 
-```
-python3 src/main.py
+```shell
+# Preferentially with super user permitions
+python3 src/app.py
 ```
