@@ -9,27 +9,16 @@ from common.app_init import app , api , db
 from common.utils import auth_required
 from endpoints.login import LoginAPI
 from endpoints.user import UserAPI
+from endpoints.ticket import TicketAPI
 from model.users import User
 
-#########################################################################
-""" 
-@app.route('/hello/', methods=['GET'])
-def hello_world():
-    return { 'message' : 'Hello!' } #current_user.id_user
-
-@app.route('/private_hello/', methods=['GET'])
-@auth_required
-def hello_user(current_user):
-    return { 
-        'message' : 'Hello {}!'.format(current_user.id_user),
-        'user' : current_user.to_json() 
-        } """
-        
+#########################################################################    
 
 base_endpoint = app.config['BASE_ENDPOINT']
 
 
 api.add_resource(UserAPI, base_endpoint + '/user')
+api.add_resource(TicketAPI, base_endpoint + '/ticket')
 api.add_resource(LoginAPI, base_endpoint + '/login')
 #########################################################################
 

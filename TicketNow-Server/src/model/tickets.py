@@ -1,25 +1,41 @@
 from common.app_init import db
 
 class Ticket(db.Model):
-    __tablename__ = "User"
+    __tablename__ = "Ticket"
     
-    id_ticket = db.Column(db.Integer(10), primary_key=True)
-    price = db.Column(db.Float(),nullable=False)
+    id_ticket = db.Column(db.String(16), primary_key=True)
+    id_user = db.Column(db.String(10), nullable=False)
+    type = db.Column(db.Integer(), nullable=False)
+    used = db.Column(db.Boolean(), nullable=False,default=True)
 
+    def __init__(self,id_ticket,id_user,type,used=None):
+        self.id_ticket = id_ticket
+        self.id_user = id_user
+        self.type = type
+        self.used = used
 
-    email = db.Column(db.String(320))
-    password_hash = db.Column(db.String(200))
-    name = db.Column(db.String(100))
+    @staticmethod
+    def get_ticket(id_ticket):
+        return Ticket.query.filter_by(id_ticket=id_ticket).first()
 
-    def get_user(id_user):
-        return User.query.filter_by(id_user=id_user).first()
+    @staticmethod
+    def get_all():
+        return Ticket.query.all()
 
+    @staticmethod
+    def add_ticket(ticket):
+        from common.utils import ErrorCode, ErrorCodeException
+        
+        if Ticket.get_user(ticket.id_user):
+            raise ErrorCodeException(ErrorCode.USER_EXISTS)
 
+        db.session.add(ticket)
+        db.session.commit()
 
-""" 
-class Ticket(db.Model):
-    __tablename__ = "User"
-    
-    id_ticket = db.Column(db.Integer(10), primary_key=True)
-    price = db.Float 
-"""
+    def to_json(self):
+        return { 
+            "id_ticket" : self.id_ticket,
+            "id_user" : self.id_user,
+            "type" : self.type,
+            "used" : self.used
+        }

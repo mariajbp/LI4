@@ -9,8 +9,8 @@ from common.responses import success , error_code
 class UserAPI(Resource):
     parser = reqparse.RequestParser()
     parser.add_argument('id_user', type=str, required=False, help='User Identifier')
-    parser.add_argument('old_password', type=str, required=False, help='User Identifier')
-    parser.add_argument('new_password', type=str, required=False, help='User Identifier')
+    parser.add_argument('old_password', type=str, required=False, help='Old Password')
+    parser.add_argument('new_password', type=str, required=False, help='New Password')
     
     @jwt_required
     def get(self):

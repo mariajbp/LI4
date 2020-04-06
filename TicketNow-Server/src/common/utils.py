@@ -6,6 +6,24 @@ from common.app_init import app
 
 from enum import Enum , unique
 
+
+class Permissions:
+    USER             = 0b00000001
+    VALIDATOR        = 0b00000010
+    ADMIN            = 0b00000100
+    CONTENT_PROVIDER = 0b00001000
+
+    @staticmethod
+    def has_permission(value,a) -> bool:
+        return value & a
+
+    @staticmethod
+    def bit_at(value,index):
+        return value & pow(2,index)
+
+def bit_at(value,index):
+    return value & pow(2,index)
+
 @unique
 class ErrorCode(Enum):
     UNKNOWN = 0
@@ -39,16 +57,14 @@ def auth_required(f):
         print(token)
 
         if not token:
-            return jsonify({'message' : 'Token is missing!'}), 403
+            return jsonify({'message' : 'Token is missing!'}), 401
 
         try: 
-            print("Debug 2")
             data = jwt.decode(token, app.config['TOKEN_GEN_KEY'])
             current_user = User.get_user(data['id_user'])
         except:
-            return jsonify({'message' : 'Token is invalid!'}), 403
+            return jsonify({'message' : 'Token is invalid!'}), 401
 
-        print("Debug 3")
         return f(current_user, *args, **kwargs)
 
     return api_method
