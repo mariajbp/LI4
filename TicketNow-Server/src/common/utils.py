@@ -6,7 +6,7 @@ from common.app_init import app
 
 from enum import Enum , unique
 
-
+############## Testing ############## 
 class Permissions:
     USER             = 0b00000001
     VALIDATOR        = 0b00000010
@@ -23,7 +23,8 @@ class Permissions:
 
 def bit_at(value,index):
     return value & pow(2,index)
-
+#####################################
+""" 
 @unique
 class ErrorCode(Enum):
     UNKNOWN = 0
@@ -46,7 +47,7 @@ class ErrorCodeException(BaseException):
 
     def message(self):
         return self.error_code.message()
-
+ """
     
     
 def auth_required(f):

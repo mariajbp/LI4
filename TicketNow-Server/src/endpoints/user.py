@@ -2,7 +2,7 @@ from flask_restful import Resource , reqparse
 from flask import request
 from model.users import User
 from flask_jwt_extended import jwt_required , get_jwt_identity
-from common.utils import ErrorCodeException
+from common.error import ErrorCodeException
 from common.responses import success , error_code
 
 

@@ -5,7 +5,7 @@ from flask_restful import Resource
 from flask import request , jsonify , make_response
 from model.users import User
 from common.app_init import app
-from common.utils import ErrorCode
+from common.error import ErrorCode
 from common.responses import error_code
 
 class LoginAPI(Resource):
