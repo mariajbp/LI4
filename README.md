@@ -10,7 +10,11 @@
 
 ### Installing
 
+Required: MySQL / MariaDB client
+
 ```shell
+cd TicketNow-Server
+
 python3 -m venv ticketnow-env
 
 # Windows

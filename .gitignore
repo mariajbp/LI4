@@ -1,6 +1,11 @@
 #testing/
 
 TicketNow-Server/ticketnow_env/
+
 __pycache__/
+
+TicketNow-Server/ticketnow_env/
+
+ticketnow-env/
 
 db_init_new.sql
