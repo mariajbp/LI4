@@ -21,7 +21,7 @@ class UserAPI(Resource):
         id_user = args['id_user']
 
         
-
+        
         if id_user:
             if (not User.get_user(get_jwt_identity()).check_permission(Permissions.ADMIN)) and (not id_user == get_jwt_identity()):
                 return { "error" : "Unauthorized!" } , 401
