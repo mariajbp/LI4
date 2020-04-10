@@ -58,5 +58,8 @@ class User(db.Model):
     def check_password(self,password):
         return check_password_hash(self.password_hash,password)
 
+    def check_permission(self,const_permition):
+        return self.permissions & const_permition
+
     def __str__(self):
         return  self.id_user

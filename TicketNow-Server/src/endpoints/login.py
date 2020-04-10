@@ -6,7 +6,7 @@ from flask import request , jsonify , make_response
 from model.users import User
 from common.app_init import app
 from common.utils import ErrorCode
-from common.responses import error_code
+from common.responses import error_code , unauthorized
 
 class LoginAPI(Resource):
     def get(self):
@@ -15,7 +15,7 @@ class LoginAPI(Resource):
         #generate_password_hash("epah_mas_que_chatice")
 
         if not auth or not auth.username or not auth.password:
-            return make_response('Could not verify', 401, {'WWW-Authenticate' : 'Basic realm="Login required!"'})
+            return make_response(unauthorized("Unable to login"), 401, {'WWW-Authenticate' : 'Basic realm="Login required!"'})
 
         user = User.get_user(auth.username)
 

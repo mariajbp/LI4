@@ -2,7 +2,7 @@ from flask_restful import Resource , reqparse
 from flask import request
 from model.users import User
 from flask_jwt_extended import jwt_required , get_jwt_identity
-from common.utils import ErrorCodeException
+from common.utils import ErrorCodeException , admin_required , auth_required , Permissions
 from common.responses import success , error_code
 
 
@@ -12,14 +12,27 @@ class UserAPI(Resource):
     parser.add_argument('old_password', type=str, required=False, help='Old Password')
     parser.add_argument('new_password', type=str, required=False, help='New Password')
     
-    @jwt_required
+    
+    @auth_required
     def get(self):
         args = UserAPI.parser.parse_args()
+        
+        
         id_user = args['id_user']
 
-        return { "users" : [ u.to_json() for u in User.get_all() ] } if not id_user  \
-            else { "user" : User.get_user(id_user).to_json() }      
+        
 
+        if id_user:
+            if (not User.get_user(get_jwt_identity()).check_permission(Permissions.ADMIN)) and (not id_user == get_jwt_identity()):
+                return { "error" : "Unauthorized!" } , 401
+            return { "user" : User.get_user(id_user).to_json() }
+        else:
+            if not User.get_user(get_jwt_identity()).check_permission(Permissions.ADMIN):
+                return { "error" : "Unauthorized!" } , 401
+            return { "users" : [ u.to_json() for u in User.get_all() ] }
+
+
+    @admin_required
     def post(self):
         body = request.json
         if not body:
@@ -31,7 +44,8 @@ class UserAPI(Resource):
         except ErrorCodeException as ec:
             return error_code(ec)
 
-    @jwt_required
+
+    @admin_required
     def delete(self):
         args = UserAPI.parser.parse_args()
         id_user = args['id_user']
@@ -51,7 +65,7 @@ class UserAPI(Resource):
             return error_code(ec)
         
 
-    @jwt_required
+    @admin_required
     def put(self):
         id_user = get_jwt_identity()
         args = UserAPI.parser.parse_args()
