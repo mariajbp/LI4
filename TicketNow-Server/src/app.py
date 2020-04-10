@@ -9,30 +9,39 @@ from common.app_init import app , api , db
 from common.utils import auth_required
 from endpoints.login import LoginAPI
 from endpoints.user import UserAPI
+from endpoints.ticket import TicketAPI
 from model.users import User
 
-#########################################################################
-""" 
-@app.route('/hello/', methods=['GET'])
-def hello_world():
-    return { 'message' : 'Hello!' } #current_user.id_user
-
-@app.route('/private_hello/', methods=['GET'])
-@auth_required
-def hello_user(current_user):
-    return { 
-        'message' : 'Hello {}!'.format(current_user.id_user),
-        'user' : current_user.to_json() 
-        } """
-        
+#########################################################################    
 
 base_endpoint = app.config['BASE_ENDPOINT']
 
 
 api.add_resource(UserAPI, base_endpoint + '/user')
+api.add_resource(TicketAPI, base_endpoint + '/ticket')
 api.add_resource(LoginAPI, base_endpoint + '/login')
 #########################################################################
+def populate():
+    try:
+        User.add_user(User("a12345","a12345@alunos.uminho.pt","epah_mas_que_chatice","António Barosa"))
+    except:
+        pass
+    try:
+        User.add_user(User("a11111","a11111@alunos.uminho.pt","epah_mas_que_chatice","Adelino Costa"))
+    except:
+        pass
+    try:
+        User.add_user(User("a22222","a22222@alunos.uminho.pt","epah_mas_que_chatice","Rosa Matilde"))
+    except:
+        pass
+    try:
+        User.add_user(User("a33333","a33333@alunos.uminho.pt","epah_mas_que_chatice","Fernando Magalhães"))
+    except:
+        pass
 
+populate()
+
+from common.error import ErrorCode , ErrorCodeException
 if __name__ == '__main__':
     app.run(host='0.0.0.0',debug=True)
 #   app.run(host='0.0.0.0',debug=True,ssl_context='adhoc')
