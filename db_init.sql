@@ -43,16 +43,16 @@ CREATE TABLE IF NOT EXISTS `ticketnow`.`History` (
   `used_datetime` DATETIME NOT NULL,
   `id_ticket` VARCHAR(16) NOT NULL,
   `id_user` VARCHAR(10) NOT NULL,
-  PRIMARY KEY (`used_datetime`),
   INDEX used_datetime_idx (`used_datetime` ASC),
-  FOREIGN KEY (`id_ticket`)
+  CONSTRAINT FOREIGN KEY (`id_ticket`)
   REFERENCES `ticketnow`.`Ticket` (`id_ticket`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  FOREIGN KEY (`id_user`)
+  CONSTRAINT FOREIGN KEY (`id_user`)
   REFERENCES `ticketnow`.`User` (`id_user`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE NO ACTION,
+    PRIMARY KEY (`used_datetime`,`id_user`))
 ENGINE = InnoDB;
 
 
@@ -67,15 +67,15 @@ CREATE TABLE IF NOT EXISTS `ticketnow`.`Transaction` (
   `id_ticket` VARCHAR(16) NOT NULL,
   `total_price` FLOAT NOT NULL,
   `used_datetime` DATETIME NOT NULL,
-  FOREIGN KEY (`id_ticket`)
+  CONSTRAINT FOREIGN KEY (`id_ticket`)
   REFERENCES `ticketnow`.`Ticket` (`id_ticket`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-    FOREIGN KEY (`id_user`)
+  CONSTRAINT FOREIGN KEY (`id_user`)
   REFERENCES `ticketnow`.`User` (`id_user`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-    PRIMARY KEY (`id_transaction`,`count`))
+  PRIMARY KEY (`id_transaction`,`count`))
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -83,17 +83,15 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `ticketnow`.`Ticket`;
 CREATE TABLE IF NOT EXISTS `ticketnow`.`Ticket` (
-  `id_user` VARCHAR(10) NOT NULL,
   `id_ticket` VARCHAR(16) NOT NULL,
+  `id_user` VARCHAR(10) NOT NULL,
   `type` TINYINT NOT NULL,
   `used` BOOLEAN DEFAULT false NOT NULL,
-  CONSTRAINT
-  FOREIGN KEY (`id_user`)
+  CONSTRAINT FOREIGN KEY (`id_user`)
   REFERENCES `ticketnow`.`User` (`id_user`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT
-  FOREIGN KEY (`type`)
+  CONSTRAINT FOREIGN KEY (`type`)
   REFERENCES `ticketnow`.`TicketType` (`type`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,

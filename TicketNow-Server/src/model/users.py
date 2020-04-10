@@ -1,5 +1,6 @@
 from common.app_init import app , api , db
 from werkzeug.security import check_password_hash, generate_password_hash
+from common.error import ErrorCode, ErrorCodeException
 
 
 class User(db.Model):
@@ -28,8 +29,6 @@ class User(db.Model):
 
     @staticmethod
     def add_user(user):
-        from common.utils import ErrorCode, ErrorCodeException
-
         if User.get_user(user.id_user):
             raise ErrorCodeException(ErrorCode.USER_EXISTS)
         db.session.add(user)
@@ -37,8 +36,6 @@ class User(db.Model):
 
     @staticmethod
     def delete(id_user):
-        from common.utils import ErrorCode, ErrorCodeException
-
         u = User.query.filter(User.id_user==id_user)
         
         if u.delete() == 1:
@@ -57,6 +54,7 @@ class User(db.Model):
 
     def check_password(self,password):
         return check_password_hash(self.password_hash,password)
+
 
     def check_permission(self,const_permition):
         return self.permissions & const_permition

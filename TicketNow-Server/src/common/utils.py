@@ -8,7 +8,7 @@ from flask_jwt_extended import jwt_required, get_jwt_identity
 
 from enum import Enum , unique
 
-
+############## Testing ############## 
 class Permissions:
     USER             = 0b00000001
     VALIDATOR        = 0b00000010
@@ -25,9 +25,14 @@ class Permissions:
 
 def __bit_at(value,index):
     return value & pow(2,index)
+<<<<<<< HEAD
+#####################################
+""" 
+=======
 
 
 
+>>>>>>> f462f59e029096f847453ab1a228988012635f4c
 @unique
 class ErrorCode(Enum):
     UNKNOWN = 0
@@ -50,7 +55,7 @@ class ErrorCodeException(BaseException):
 
     def message(self):
         return self.error_code.message()
-
+ """
     
 
 def admin_required(f):

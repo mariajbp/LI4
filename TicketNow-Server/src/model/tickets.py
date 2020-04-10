@@ -1,4 +1,6 @@
 from common.app_init import db
+from common.utils import ErrorCode, ErrorCodeException
+
 
 class Ticket(db.Model):
     __tablename__ = "Ticket"
@@ -24,13 +26,22 @@ class Ticket(db.Model):
 
     @staticmethod
     def add_ticket(ticket):
-        from common.utils import ErrorCode, ErrorCodeException
         
         if Ticket.get_user(ticket.id_user):
-            raise ErrorCodeException(ErrorCode.USER_EXISTS)
+            raise ErrorCodeException(ErrorCode.TICKET_EXISTS)
 
         db.session.add(ticket)
         db.session.commit()
+
+    @staticmethod
+    def delete(id_ticket):
+        t = Ticket.query.filter(Ticket.id_ticket==id_ticket)
+        
+        if t.delete() == 1:
+            db.session.commit()
+        else:
+            raise ErrorCodeException(ErrorCode.TICKET_DOESNT_EXISTS)
+
 
     def to_json(self):
         return { 
