@@ -27,7 +27,6 @@ class UserTicketAPI(Resource):
                     return { "ticket" : Ticket.get_ticket(target_id_ticket).to_json() }
             except ErrorCodeException as ec:
                 return error_code(ec)
-            # Also check if argument user exists
 
         else:
             return { "owned_tickets" : [ t.to_json() for t in Ticket.get_not_used(id_user=sender_user.id_user) ] }

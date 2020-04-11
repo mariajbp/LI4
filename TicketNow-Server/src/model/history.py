@@ -1,40 +1,44 @@
 from common.app_init import db
-from common.utils import ErrorCode, ErrorCodeException
-
+from common.error import ErrorCode, ErrorCodeException
+import datetime
 
 class History(db.Model):
-    __tablename__ = "TicketType"
-    used_datetime = db.Column(db.DATETIME(), primary_key=True)
-    id_ticket = db.Column(db.String(16), nullable=False)
-    id_user = db.Column(db.String(10), primary_key=True)
+    __tablename__ = "History"
+    used_datetime = db.Column(db.DateTime(), default=datetime.datetime.utcnow)
+    id_ticket = db.Column(db.String(16), primary_key=True)
+    id_user = db.Column(db.String(10), nullable=False)
     
 
-    def __init__(self,used_datetime,id_ticket,name):
-        self.type = type
-        self.price = price
-        self.name = name
+    def __init__(self,id_ticket,id_user,used_datetime=None):
+        self.used_datetime = used_datetime
+        self.id_ticket = id_ticket
+        self.id_user = id_user
 
     @staticmethod
-    def get_type(type):
-        return History.query.filter_by(type=type).first()
+    def get_entry(id_ticket):
+        e = History.query.filter_by(id_ticket=id_ticket).first()
+        if e == None:
+            raise ErrorCodeException(ErrorCode.HISTORY_ENTRY_DOESNT_EXISTS)
+        return e
 
     @staticmethod
-    def get_all():
-        return History.query.all()
+    def get_between(begin,end):
+        return History.query.filter(History.used_datetime >= begin , History.used_datetime <= end)
 
     @staticmethod
-    def add_type(type):
+    def add_entry(entry):
+        try:
+            History.get_entry(entry.id_ticket)
+            raise ErrorCodeException(ErrorCode.HISTORY_ENTRY_EXISTS)
+        except ErrorCodeException as ec:
+            db.session.add(entry)
+            db.session.commit() 
+
         
-        if History.get_user(type.id_user):
-            raise ErrorCodeException(ErrorCode.TICKETTYPE_EXISTS)
-
-        db.session.add(type)
-        db.session.commit()
-
 
     @staticmethod
-    def delete(id_ticket):
-        t = TicketType.query.filter(TicketType.id_ticket==id_ticket)
+    def delete(used_date,id_ticket):
+        t = HistoryHistory.query.filter_by(id_ticket=id_ticket)
         
         if t.delete() == 1:
             db.session.commit()
@@ -45,7 +49,7 @@ class History(db.Model):
 
     def to_json(self):
         return { 
-            "type" : self.type,
-            "price" : self.price,
-            "name" : self.name
+            "used_datetime" : self.used_datetime,
+            "id_ticket" : self.id_ticket,
+            "id_user" : self.id_user
         }

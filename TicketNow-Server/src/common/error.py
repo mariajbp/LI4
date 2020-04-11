@@ -52,8 +52,10 @@ class ErrorCode(Enum):
     TICKETTYPE_EXISTS = 6
     TICKETTYPE_DOESNT_EXISTS = 7
 
-    TICKETHISTORY_EXISTS = 8
-    TICKETHISTORY_DOESNT_EXISTS = 9
+    HISTORY_ENTRY_EXISTS = 8
+    HISTORY_ENTRY_DOESNT_EXISTS = 9
+
+    
 
     def message(self):
         ERROR_MESSAGES = [
@@ -67,7 +69,10 @@ class ErrorCode(Enum):
             "Ticket does not exists",
 
             "Ticket type already exists",
-            "Ticket type does not exists"
+            "Ticket type does not exists",
+
+            "History entry already exists",
+            "History entry does not exists"
             
         ]
         return ERROR_MESSAGES[self.value]

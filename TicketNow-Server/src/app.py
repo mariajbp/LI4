@@ -55,6 +55,13 @@ def populate():
     except:
         pass
 
+    try:
+        from model.tickets import set_as_used
+        set_as_used("aaaaaaaaaaaaaaab","a12345")
+    except:
+        pass
+
+
     # Insert some users
     try:
         User.add_user(User("a12345","a12345@alunos.uminho.pt","epah_mas_que_chatice","António Barosa"))

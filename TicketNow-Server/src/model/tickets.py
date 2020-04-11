@@ -38,7 +38,6 @@ class Ticket(db.Model):
     def add_ticket(ticket):
         try:
             Ticket.get_ticket(ticket.id_ticket)
-            raise ErrorCodeException(ErrorCode.TICKET_EXISTS)
         except ErrorCodeException:
             db.session.add(ticket)
             db.session.commit()
@@ -54,6 +53,10 @@ class Ticket(db.Model):
             raise ErrorCodeException(ErrorCode.TICKET_DOESNT_EXISTS)
 
 
+    def set_used(self):
+        self.used = True
+        db.session.commit()
+
     def to_json(self):
         return { 
             "id_ticket" : self.id_ticket,
@@ -61,3 +64,19 @@ class Ticket(db.Model):
             "type" : self.type,
             "used" : self.used
         }
+
+from model.history import History
+from model.users import User
+
+def set_as_used(id_ticket,id_user):
+    
+    t = Ticket.get_ticket(id_ticket)
+    if t == None:
+        raise ErrorCodeException(ErrorCode.TICKET_DOESNT_EXISTS)
+
+    #if User.get_user(id_user) == None:
+    #    raise ErrorCodeException(ErrorCode.USER_DOESNT_EXISTS)
+    
+    t.set_used()
+    
+    History.add_entry(History(id_ticket=id_ticket,id_user=id_user))
