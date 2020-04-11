@@ -18,17 +18,26 @@ class UserAPI(Resource):
     def get(self):
         args = UserAPI.parser.parse_args()
         
+        target_id_user = args['id_user']
         
-        id_user = args['id_user']
+        sender_user = User.get_user(get_jwt_identity())
 
-        
-        
-        if id_user:
-            if (not User.get_user(get_jwt_identity()).check_permission(Permissions.ADMIN)) and (not id_user == get_jwt_identity()):
+        # Checks if id_user has been specified
+        if target_id_user:
+
+            # Check permissions for listing other users rather than himself
+            if (not sender_user.check_permission(Permissions.ADMIN)) and (not target_id_user == sender_user.id_user):
                 return { "error" : "Unauthorized!" } , 401
-            return { "user" : User.get_user(id_user).to_json() }
+
+            try:
+                return { "user" : User.get_user(target_id_user).to_json() }
+            except ErrorCodeException as ec:
+                return error_code(ec)
+            # Also check if argument user exists
+
         else:
-            if not User.get_user(get_jwt_identity()).check_permission(Permissions.ADMIN):
+            # If id_user hasn't been specified check permissions for listing all users
+            if not sender_user.check_permission(Permissions.ADMIN):
                 return { "error" : "Unauthorized!" } , 401
             return { "users" : [ u.to_json() for u in User.get_all() ] }
 

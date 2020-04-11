@@ -8,7 +8,7 @@ class Ticket(db.Model):
     id_ticket = db.Column(db.String(16), primary_key=True)
     id_user = db.Column(db.String(10), nullable=False)
     type = db.Column(db.Integer(), nullable=False)
-    used = db.Column(db.Boolean(), nullable=False,default=True)
+    used = db.Column(db.Boolean(), nullable=False,default=0)
 
     def __init__(self,id_ticket,id_user,type,used=None):
         self.id_ticket = id_ticket
@@ -18,20 +18,31 @@ class Ticket(db.Model):
 
     @staticmethod
     def get_ticket(id_ticket):
-        return Ticket.query.filter_by(id_ticket=id_ticket).first()
+        t = Ticket.query.filter_by(id_ticket=id_ticket).first()
+        if t == None:
+            raise ErrorCodeException(ErrorCode.TICKET_DOESNT_EXISTS)
+        return t
 
     @staticmethod
     def get_all():
         return Ticket.query.all()
 
     @staticmethod
-    def add_ticket(ticket):
-        
-        if Ticket.get_user(ticket.id_user):
-            raise ErrorCodeException(ErrorCode.TICKET_EXISTS)
+    def get_not_used(id_user = None):
+        if id_user == None:
+            return Ticket.query.filter_by(used=0)
+        else:
+            return Ticket.query.filter_by(used=0,id_user=id_user)
 
-        db.session.add(ticket)
-        db.session.commit()
+    @staticmethod
+    def add_ticket(ticket):
+        try:
+            Ticket.get_ticket(ticket.id_ticket)
+            raise ErrorCodeException(ErrorCode.TICKET_EXISTS)
+        except ErrorCodeException:
+            db.session.add(ticket)
+            db.session.commit()
+
 
     @staticmethod
     def delete(id_ticket):

@@ -1,12 +1,12 @@
 from common.app_init import db
-from common.utils import ErrorCode, ErrorCodeException
+from common.error import ErrorCode, ErrorCodeException
 
 
 class TicketType(db.Model):
     __tablename__ = "TicketType"
     type = db.Column(db.Integer(), primary_key=True)
     price = db.Column(db.Float(), nullable=False)
-    name = db.Column(db.String(10), nullable=False, unique=True)
+    name = db.Column(db.String(25), nullable=False, unique=True)
     
 
     def __init__(self,type,price,name):
@@ -24,8 +24,7 @@ class TicketType(db.Model):
 
     @staticmethod
     def add_type(type):
-        
-        if TicketType.get_user(type.id_user):
+        if TicketType.get_type(type.type):
             raise ErrorCodeException(ErrorCode.TICKETTYPE_EXISTS)
 
         db.session.add(type)

@@ -10,7 +10,7 @@ class User(db.Model):
     email = db.Column(db.String(320), nullable=False)
     password_hash = db.Column(db.String(200), nullable=False)
     name = db.Column(db.String(100), nullable=True)
-    permissions = db.Column(db.Integer(), nullable=False, default=True)
+    permissions = db.Column(db.Integer(), nullable=False, default=1)
 
     def __init__(self,id_user,email,password,name=None,permissions=None):
         self.id_user = id_user
@@ -21,7 +21,10 @@ class User(db.Model):
 
     @staticmethod
     def get_user(id_user):
-        return User.query.filter_by(id_user=id_user).first()
+        u = User.query.filter_by(id_user=id_user).first()
+        if u == None:
+            raise ErrorCodeException(ErrorCode.USER_DOESNT_EXISTS)
+        return u
 
     @staticmethod
     def get_all():
@@ -29,10 +32,12 @@ class User(db.Model):
 
     @staticmethod
     def add_user(user):
-        if User.get_user(user.id_user):
-            raise ErrorCodeException(ErrorCode.USER_EXISTS)
-        db.session.add(user)
-        db.session.commit()
+        try:
+            User.get_user(user.id_user)
+        except ErrorCodeException:
+            db.session.add(user)
+            db.session.commit()
+
 
     @staticmethod
     def delete(id_user):
@@ -42,7 +47,6 @@ class User(db.Model):
             db.session.commit()
         else:
             raise ErrorCodeException(ErrorCode.USER_DOESNT_EXISTS)
-
 
 
     def to_json(self):

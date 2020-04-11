@@ -10,7 +10,10 @@ from common.utils import auth_required
 from endpoints.login import LoginAPI
 from endpoints.user import UserAPI
 from endpoints.ticket import TicketAPI
+from endpoints.user_ticket import UserTicketAPI
 from model.users import User
+from model.ticket_types import TicketType
+from model.tickets import Ticket
 
 #########################################################################    
 
@@ -20,8 +23,39 @@ base_endpoint = app.config['BASE_ENDPOINT']
 api.add_resource(UserAPI, base_endpoint + '/user')
 api.add_resource(TicketAPI, base_endpoint + '/ticket')
 api.add_resource(LoginAPI, base_endpoint + '/login')
+api.add_resource(UserTicketAPI, base_endpoint + '/user/<id_user>/tickets')
+
+
 #########################################################################
 def populate():
+    # Insert some ticket types
+    try:
+        TicketType.add_type(TicketType(1,1.8,"simple"))
+    except:
+        pass
+    try:
+        TicketType.add_type(TicketType(2,2.5,"complete"))
+    except:
+        pass
+    # Insert some tickets
+    try:
+        Ticket.add_ticket(Ticket("aaaaaaaaaaaaaaaa","a12345",1))
+    except:
+        pass
+    try:
+        Ticket.add_ticket(Ticket("aaaaaaaaaaaaaaab","a12345",1))
+    except:
+        pass
+    try:
+        Ticket.add_ticket(Ticket("aaaaaaaaaaaaaaac","a12345",1))
+    except:
+        pass
+    try:
+        Ticket.add_ticket(Ticket("bbbbbbbbbbbbbbbb","a12345",2))
+    except:
+        pass
+
+    # Insert some users
     try:
         User.add_user(User("a12345","a12345@alunos.uminho.pt","epah_mas_que_chatice","António Barosa"))
     except:
@@ -38,6 +72,7 @@ def populate():
         User.add_user(User("a33333","a33333@alunos.uminho.pt","epah_mas_que_chatice","Fernando Magalhães"))
     except:
         pass
+        
 
 populate()
 
