@@ -11,6 +11,7 @@ from endpoints.login import LoginAPI
 from endpoints.user import UserAPI
 from endpoints.ticket import TicketAPI
 from endpoints.user_ticket import UserTicketAPI
+from endpoints.ticket_type import TicketTypeAPI
 from model.users import User
 from model.ticket_types import TicketType
 from model.tickets import Ticket
@@ -24,6 +25,7 @@ api.add_resource(UserAPI, base_endpoint + '/user')
 api.add_resource(TicketAPI, base_endpoint + '/ticket')
 api.add_resource(LoginAPI, base_endpoint + '/login')
 api.add_resource(UserTicketAPI, base_endpoint + '/user/<id_user>/tickets')
+api.add_resource(TicketTypeAPI, base_endpoint + '/ticket_type')
 
 
 #########################################################################
@@ -83,7 +85,6 @@ def populate():
 
 populate()
 
-from common.error import ErrorCode , ErrorCodeException
 if __name__ == '__main__':
     app.run(host='0.0.0.0',debug=True)
 #   app.run(host='0.0.0.0',debug=True,ssl_context='adhoc')

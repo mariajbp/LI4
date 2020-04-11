@@ -41,6 +41,8 @@ class Ticket(db.Model):
         except ErrorCodeException:
             db.session.add(ticket)
             db.session.commit()
+            return
+        raise ErrorCodeException(ErrorCode.TICKET_EXISTS)
 
 
     @staticmethod

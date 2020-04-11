@@ -37,6 +37,8 @@ class User(db.Model):
         except ErrorCodeException:
             db.session.add(user)
             db.session.commit()
+            return
+        raise ErrorCodeException(ErrorCode.USER_EXISTS)
 
 
     @staticmethod

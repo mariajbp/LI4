@@ -16,7 +16,10 @@ class TicketType(db.Model):
 
     @staticmethod
     def get_type(type):
-        return TicketType.query.filter_by(type=type).first()
+        tt = TicketType.query.filter_by(type=type).first()
+        if tt == None:
+            raise ErrorCodeException(ErrorCode.TICKETTYPE_DOESNT_EXISTS)
+        return tt
 
     @staticmethod
     def get_all():
@@ -24,11 +27,15 @@ class TicketType(db.Model):
 
     @staticmethod
     def add_type(type):
-        if TicketType.get_type(type.type):
-            raise ErrorCodeException(ErrorCode.TICKETTYPE_EXISTS)
+        try:
+            TicketType.get_type(type.type)
+        except ErrorCodeException as ec:
+            db.session.add(type)
+            db.session.commit()
+            return
+        raise ErrorCodeException(ErrorCode.TICKETTYPE_EXISTS)
 
-        db.session.add(type)
-        db.session.commit()
+        
 
 
     @staticmethod
