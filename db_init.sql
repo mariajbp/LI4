@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `ticketnow`.`History` (
   REFERENCES `ticketnow`.`User` (`id_user`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-    PRIMARY KEY (`used_datetime`,`id_user`))
+    PRIMARY KEY (`id_ticket`))
 ENGINE = InnoDB;
 
 
@@ -62,11 +62,11 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `ticketnow`.`Transaction`;
 CREATE TABLE IF NOT EXISTS `ticketnow`.`Transaction` (
   `id_transaction` VARCHAR(16) NOT NULL,
-  `count` TINYINT NOT NULL,
+  `item_number` TINYINT NOT NULL,
   `id_user` VARCHAR(10) NOT NULL,
   `id_ticket` VARCHAR(16) NOT NULL,
   `total_price` FLOAT NOT NULL,
-  `used_datetime` DATETIME NOT NULL,
+  `datetime` DATETIME NOT NULL,
   CONSTRAINT FOREIGN KEY (`id_ticket`)
   REFERENCES `ticketnow`.`Ticket` (`id_ticket`)
     ON DELETE NO ACTION
@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `ticketnow`.`Transaction` (
   REFERENCES `ticketnow`.`User` (`id_user`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  PRIMARY KEY (`id_transaction`,`count`))
+  PRIMARY KEY (`id_transaction`,`item_number`))
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
