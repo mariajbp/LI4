@@ -1,7 +1,8 @@
 from flask_restful import Resource , reqparse
 from model.tickets import Ticket
 from flask_jwt_extended import jwt_required , get_jwt_identity
-from common.utils import ErrorCodeException , admin_required
+from common.error import ErrorCodeException
+from common.utils import admin_required
 
 class TicketAPI(Resource):
     parser = reqparse.RequestParser()

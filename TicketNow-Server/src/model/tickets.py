@@ -1,5 +1,5 @@
 from common.app_init import db
-from common.utils import ErrorCode, ErrorCodeException
+from common.error import ErrorCode, ErrorCodeException
 
 
 class Ticket(db.Model):

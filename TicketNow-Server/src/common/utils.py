@@ -25,14 +25,8 @@ class Permissions:
 
 def __bit_at(value,index):
     return value & pow(2,index)
-<<<<<<< HEAD
 #####################################
 """ 
-=======
-
-
-
->>>>>>> f462f59e029096f847453ab1a228988012635f4c
 @unique
 class ErrorCode(Enum):
     UNKNOWN = 0
