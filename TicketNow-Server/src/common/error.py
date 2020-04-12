@@ -48,12 +48,13 @@ class ErrorCode(Enum):
     
     TICKET_EXISTS = 4
     TICKET_DOESNT_EXISTS = 5
+    TICKET_ALREADY_USED = 6
 
-    TICKETTYPE_EXISTS = 6
-    TICKETTYPE_DOESNT_EXISTS = 7
+    TICKETTYPE_EXISTS = 7
+    TICKETTYPE_DOESNT_EXISTS = 8
 
-    HISTORY_ENTRY_EXISTS = 8
-    HISTORY_ENTRY_DOESNT_EXISTS = 9
+    HISTORY_ENTRY_EXISTS = 9
+    HISTORY_ENTRY_DOESNT_EXISTS = 10
 
     
 
@@ -67,6 +68,7 @@ class ErrorCode(Enum):
 
             "Ticket already exists",
             "Ticket does not exists",
+            "Ticket already used",
 
             "Ticket type already exists",
             "Ticket type does not exists",

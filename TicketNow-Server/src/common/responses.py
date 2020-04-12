@@ -6,5 +6,8 @@ success = lambda : \
 unauthorized = lambda msg : \
     { "error" : msg }
 
+error_message = lambda msg : \
+    { "error" : msg }
+
 error_code = lambda ec : \
     { "error" : ec.message() }

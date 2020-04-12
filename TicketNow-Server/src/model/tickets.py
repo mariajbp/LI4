@@ -76,9 +76,11 @@ def set_as_used(id_ticket,id_user):
     if t == None:
         raise ErrorCodeException(ErrorCode.TICKET_DOESNT_EXISTS)
 
-    #if User.get_user(id_user) == None:
-    #    raise ErrorCodeException(ErrorCode.USER_DOESNT_EXISTS)
+    if User.get_user(id_user) == None:
+        raise ErrorCodeException(ErrorCode.USER_DOESNT_EXISTS)
     
+    if t.used == True:
+        raise ErrorCodeException(ErrorCode.TICKET_ALREADY_USED)
     t.set_used()
     
     History.add_entry(History(id_ticket=id_ticket,id_user=id_user))

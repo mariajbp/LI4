@@ -12,6 +12,9 @@ from endpoints.user import UserAPI
 from endpoints.ticket import TicketAPI
 from endpoints.user_ticket import UserTicketAPI
 from endpoints.ticket_type import TicketTypeAPI
+from endpoints.validator import ValidatorAPI
+
+# Used for populate
 from model.users import User
 from model.ticket_types import TicketType
 from model.tickets import Ticket
@@ -20,15 +23,15 @@ from model.tickets import Ticket
 
 base_endpoint = app.config['BASE_ENDPOINT']
 
-
 api.add_resource(UserAPI, base_endpoint + '/user')
 api.add_resource(TicketAPI, base_endpoint + '/ticket')
 api.add_resource(LoginAPI, base_endpoint + '/login')
 api.add_resource(UserTicketAPI, base_endpoint + '/user/<id_user>/tickets')
 api.add_resource(TicketTypeAPI, base_endpoint + '/ticket_type')
-
+api.add_resource(ValidatorAPI, base_endpoint + '/validator')
 
 #########################################################################
+
 def populate():
     # Insert some ticket types
     try:
@@ -80,10 +83,9 @@ def populate():
     try:
         User.add_user(User("a33333","a33333@alunos.uminho.pt","epah_mas_que_chatice","Fernando Magalhães"))
     except:
-        pass
-        
+        pass        
 
-populate()
+#populate()
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',debug=True)
