@@ -2,17 +2,15 @@ from flask_restful import Resource , reqparse
 from flask import request
 from model.users import User
 from flask_jwt_extended import jwt_required , get_jwt_identity
-<<<<<<< HEAD
+from common.utils import admin_required , auth_required , Permissions
 from common.error import ErrorCodeException
-=======
-from common.utils import ErrorCodeException , admin_required , auth_required , Permissions
->>>>>>> f462f59e029096f847453ab1a228988012635f4c
 from common.responses import success , error_code
 
 
 class UserAPI(Resource):
     parser = reqparse.RequestParser()
     parser.add_argument('id_user', type=str, required=False, help='User Identifier')
+    
     parser.add_argument('old_password', type=str, required=False, help='Old Password')
     parser.add_argument('new_password', type=str, required=False, help='New Password')
     
@@ -21,17 +19,26 @@ class UserAPI(Resource):
     def get(self):
         args = UserAPI.parser.parse_args()
         
+        target_id_user = args['id_user']
         
-        id_user = args['id_user']
+        sender_user = User.get_user(get_jwt_identity())
 
-        
-        
-        if id_user:
-            if (not User.get_user(get_jwt_identity()).check_permission(Permissions.ADMIN)) and (not id_user == get_jwt_identity()):
+        # Checks if id_user has been specified
+        if target_id_user:
+
+            # Check permissions for listing other users rather than himself
+            if (not sender_user.check_permission(Permissions.ADMIN)) and (not target_id_user == sender_user.id_user):
                 return { "error" : "Unauthorized!" } , 401
-            return { "user" : User.get_user(id_user).to_json() }
+
+            try:
+                return { "user" : User.get_user(target_id_user).to_json() }
+            except ErrorCodeException as ec:
+                return error_code(ec)
+            # Also check if argument user exists
+
         else:
-            if not User.get_user(get_jwt_identity()).check_permission(Permissions.ADMIN):
+            # If id_user hasn't been specified check permissions for listing all users
+            if not sender_user.check_permission(Permissions.ADMIN):
                 return { "error" : "Unauthorized!" } , 401
             return { "users" : [ u.to_json() for u in User.get_all() ] }
 
