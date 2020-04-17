@@ -64,16 +64,7 @@ namespace TicketNow
 
                  new Meal {Day="Friday - 16/04/2020", Mealss= new List<Meal1> {new Meal1 {Lun_din="Lunch", Content= "Sopa de Feijão" + "\n" + "Frango Assado" + "\n" +
                  "Arroz de Brócolos" + "\n" + "Cenourinha Baby Cozida" }, new Meal1{Lun_din="Dinner", Content="Creme de Tomate" + "\n" + "Carne de Vaca Estufada" + "\n" +
-                 "Massa Cozida" +"\n"+  "Ervilhas e Feijão Verde"} }  },
-
-                 new Meal {Day="Saturday - 17/04/2020", Mealss= new List<Meal1> {new Meal1 {Lun_din="Lunch", Content= "Sopa de Feijão" + "\n" + "Frango Assado" + "\n" +
-                 "Arroz de Brócolos" + "\n" + "Cenourinha Baby Cozida" }, new Meal1{Lun_din="Dinner", Content="Creme de Tomate" + "\n" + "Carne de Vaca Estufada" + "\n" +
-                 "Massa Cozida" +"\n"+  "Ervilhas e Feijão Verde"} } },
-
-                 new Meal {Day="Sunday - 18/04/2020", Mealss= new List<Meal1> {new Meal1 {Lun_din="Lunch", Content= "Sopa de Feijão" + "\n" + "Frango Assado" + "\n" +
-                 "Arroz de Brócolos" + "\n" + "Cenourinha Baby Cozida" }, new Meal1{Lun_din="Dinner", Content="Creme de Tomate" + "\n" + "Carne de Vaca Estufada" + "\n" +
-                 "Massa Cozida" +"\n"+  "Ervilhas e Feijão Verde"} } },
-
+                 "Massa Cozida" +"\n"+  "Ervilhas e Feijão Verde"} }  }
                  };
 
         }
@@ -100,16 +91,7 @@ namespace TicketNow
 
                  new Meal {Day="Friday - 16/04/2020", Mealss= new List<Meal1> {new Meal1 {Lun_din="Lunch", Content= "Sopa de Feijão" + "\n" + "Lentilhas Estufadas" + "\n" +
                  "Puré de Batata" + "\n" + "Couve Branca Salteada" }, new Meal1{Lun_din="Dinner", Content="Creme de Tomate" + "\n" + "Beringela Recheada com Soja" + "\n" +
-                 "Arroz" +"\n"+ "Salada de Alface e Cenoura"} }  },
-
-                 new Meal {Day="Saturday - 17/04/2020", Mealss= new List<Meal1> {new Meal1 {Lun_din="Lunch", Content= "Sopa de Feijão" + "\n" + "Lentilhas Estufadas" + "\n" +
-                 "Puré de Batata" + "\n" + "Couve Branca Salteada" }, new Meal1{Lun_din="Dinner", Content="Creme de Tomate" + "\n" + "Beringela Recheada com Soja" + "\n" +
-                 "Arroz" +"\n"+ "Salada de Alface e Cenoura"} }  },
-
-                 new Meal {Day="Sunday - 18/04/2020", Mealss= new List<Meal1> {new Meal1 {Lun_din="Lunch", Content= "Sopa de Feijão" + "\n" + "Lentilhas Estufadas" + "\n" +
-                 "Puré de Batata" + "\n" + "Couve Branca Salteada" }, new Meal1{Lun_din="Dinner", Content="Creme de Tomate" + "\n" + "Beringela Recheada com Soja" + "\n" +
-                 "Arroz" + "\n"+"Salada de Alface e Cenoura"} }  },
-
+                 "Arroz" +"\n"+ "Salada de Alface e Cenoura"} }  }
                  };
 
         }

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/susanamarques/Desktop/LI4/TicketNow/TicketNow/TicketNow.csproj": {}
+    "/Users/mariapires/Desktop/LI4/TicketNow/TicketNow/TicketNow.csproj": {}
   },
   "projects": {
-    "/Users/susanamarques/Desktop/LI4/TicketNow/TicketNow/TicketNow.csproj": {
+    "/Users/mariapires/Desktop/LI4/TicketNow/TicketNow/TicketNow.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/susanamarques/Desktop/LI4/TicketNow/TicketNow/TicketNow.csproj",
+        "projectUniqueName": "/Users/mariapires/Desktop/LI4/TicketNow/TicketNow/TicketNow.csproj",
         "projectName": "TicketNow",
-        "projectPath": "/Users/susanamarques/Desktop/LI4/TicketNow/TicketNow/TicketNow.csproj",
-        "packagesPath": "/Users/susanamarques/.nuget/packages/",
-        "outputPath": "/Users/susanamarques/Desktop/LI4/TicketNow/TicketNow/obj/",
+        "projectPath": "/Users/mariapires/Desktop/LI4/TicketNow/TicketNow/TicketNow.csproj",
+        "packagesPath": "/Users/mariapires/.nuget/packages/",
+        "outputPath": "/Users/mariapires/Desktop/LI4/TicketNow/TicketNow/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/susanamarques/.config/NuGet/NuGet.Config"
+          "/Users/mariapires/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
@@ -36,6 +36,10 @@
       "frameworks": {
         "netstandard2.0": {
           "dependencies": {
+            "Microcharts.Forms": {
+              "target": "Package",
+              "version": "[0.7.1, )"
+            },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",
@@ -44,11 +48,11 @@
             },
             "Xamarin.Essentials": {
               "target": "Package",
-              "version": "[1.5.1, )"
+              "version": "[1.5.2, )"
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[4.5.0.396, )"
+              "version": "[4.5.0.617, )"
             },
             "ZXing.Net.Mobile": {
               "target": "Package",
@@ -69,7 +73,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.200/RuntimeIdentifierGraph.json"
         }
       }
     }

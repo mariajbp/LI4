@@ -1,21 +1,17 @@
 ﻿<Properties StartupConfiguration="{75864FFA-22C1-4DDF-9041-8A49A7F723C7}|Default">
   <MonoDevelop.Ide.ItemProperties.TicketNow.Android AndroidDesignerPreferredTheme="Theme.AppCompat.Light.NoActionBar" PreferredExecutionTarget="Android.pixel_2_pie_9_0_-_api_28" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="TicketNow/Statistics.xaml">
     <Files>
-      <File FileName="TicketNow/Admin.xaml.cs" Line="13" Column="1" />
-      <File FileName="TicketNow/Perfil.xaml.cs" Line="42" Column="10" />
+      <File FileName="TicketNow/Statistics.xaml" Line="23" Column="1" />
+      <File FileName="TicketNow/Perfil.xaml.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="TicketNow" expanded="True">
             <Node name="TicketNow" expanded="True">
-              <Node name="Admin.xaml" expanded="True" />
-              <Node name="Perfil.xaml" expanded="True" />
-            </Node>
-            <Node name="TicketNow.Android" expanded="True" selected="True">
-              <Node name="Resources" expanded="True">
-                <Node name="drawable" expanded="True" />
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" selected="True" />
               </Node>
             </Node>
           </Node>

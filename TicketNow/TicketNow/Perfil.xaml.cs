@@ -46,7 +46,7 @@ namespace TicketNow
 
         private async void onStatsButtonClicked(object sender, EventArgs args)
         {
-            await Navigation.PushAsync(new Statistics());
+            await Navigation.PushAsync(new Charts());
 
         }
 
