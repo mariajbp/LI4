@@ -83,7 +83,7 @@
               />
 
             <Image Source="utensils.png"
-               AbsoluteLayout.LayoutBounds=".11,.15,.02,.5"
+               AbsoluteLayout.LayoutBounds=".1,.15,.02,.5"
                AbsoluteLayout.LayoutFlags="All" 
             
                />
@@ -91,7 +91,7 @@
              <Label Text="WEEKLY MEALS" HorizontalOptions="CenterAndExpand" 
                   TextColor="#FFFFFF" FontAttributes="Bold"
                   FontSize="Body"
-                  AbsoluteLayout.LayoutBounds=".01,.48,.223,.2"
+                  AbsoluteLayout.LayoutBounds=".01,.48,.203,.2"
                   AbsoluteLayout.LayoutFlags="All" 
                  
               />

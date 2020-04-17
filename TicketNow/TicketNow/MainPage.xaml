@@ -11,7 +11,7 @@
         <Image Source="logob.png"/>
    
 
-        <Entry 
+        <Entry x:Name="EntryUsername"
                Placeholder="EMAIL"
                PlaceholderColor="#FFFFFF"
                RelativeLayout.XConstraint =
@@ -30,7 +30,7 @@
                HeightRequest="43" WidthRequest="250" FontAttributes="Bold" ClearButtonVisibility="WhileEditing" 
                />
  
-                 <Entry 
+                 <Entry x:Name="EntryPassword"
                Placeholder="PASSWORD"
                PlaceholderColor="#FFFFFF"
                RelativeLayout.XConstraint =
@@ -82,7 +82,7 @@
                "{ConstraintExpression Type=RelativeToParent,
                              Property=Height,
                              Factor=0.5,
-                             Constant=220}"
+                             Constant=210}"
                BackgroundColor="#5B0604"
                CornerRadius="17"
                TextColor="#FFFFFF"
@@ -90,25 +90,6 @@
                Clicked="onCreateAccountButtonClicked"
                 />
 
-            <!--Temporario-->
-               <Button Text="error"
-               BackgroundColor="#FFFFFF"
-                RelativeLayout.XConstraint =
-               "{ConstraintExpression Type=RelativeToParent,
-                             Property=Width,
-                             Factor=0.5,
-                             Constant=-100}"
-               RelativeLayout.YConstraint =
-               "{ConstraintExpression Type=RelativeToParent,
-                             Property=Height,
-                             Factor=0.5,
-                             Constant=165}"
-               CornerRadius="17"
-               TextColor="#5B0604"
-               HeightRequest="35" WidthRequest="100"
-               Clicked="onErrorButtonClicked">
-          
-            </Button>
 
             <Button Text="admin"
                BackgroundColor="#FFFFFF"
@@ -116,7 +97,7 @@
                "{ConstraintExpression Type=RelativeToParent,
                              Property=Width,
                              Factor=0.5,
-                             Constant=2}"
+                             Constant=-50}"
                RelativeLayout.YConstraint =
                "{ConstraintExpression Type=RelativeToParent,
                              Property=Height,
@@ -124,7 +105,7 @@
                              Constant=165}"
                CornerRadius="17"
                TextColor="#5B0604"
-               HeightRequest="35" WidthRequest="100"
+               HeightRequest="35" WidthRequest="100" FontAttributes="Bold"
                Clicked="onAdminButtonClicked">
           
             </Button>

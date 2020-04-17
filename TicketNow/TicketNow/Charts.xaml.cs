@@ -2,6 +2,7 @@
 using Entry = Microcharts.Entry;
 using Xamarin.Forms;
 using SkiaSharp;
+using Microcharts;
 
 namespace TicketNow
 {

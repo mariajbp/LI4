@@ -1,13 +1,21 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TicketNow.Statistics"
-      BackgroundImage ="bg.png" >
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             x:Class="TicketNow.Charts"
+             BackgroundImage ="bg.png">
 
-        <AbsoluteLayout>
+    <ScrollView>
+        <StackLayout Orientation="Vertical">
+            <forms:ChartView x:Name="chart1" HeightRequest="500" />
+            <forms:ChartView x:Name="chart2" HeightRequest="200"/>
+            <forms:ChartView x:Name="chart3" HeightRequest="200"/>
+            <forms:ChartView x:Name="chart4" HeightRequest="200"/>
+        </StackLayout>
+    </ScrollView>
+
+   
 
 
-            <Image Source="logob.png"
-               AbsoluteLayout.LayoutBounds=".5,.34,.6,.5"
-               AbsoluteLayout.LayoutFlags="All" />
-        </AbsoluteLayout>
 
 </ContentPage>

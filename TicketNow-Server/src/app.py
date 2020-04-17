@@ -33,6 +33,25 @@ api.add_resource(ValidatorAPI, base_endpoint + '/validator')
 #########################################################################
 
 def populate():
+
+    # Insert some users
+    try:
+        User.add_user(User("a12345","a12345@alunos.uminho.pt","epah_mas_que_chatice","António Barosa"))
+    except:
+        pass
+    try:
+        User.add_user(User("a11111","a11111@alunos.uminho.pt","epah_mas_que_chatice","Adelino Costa"))
+    except:
+        pass
+    try:
+        User.add_user(User("a22222","a22222@alunos.uminho.pt","epah_mas_que_chatice","Rosa Matilde"))
+    except:
+        pass
+    try:
+        User.add_user(User("a33333","a33333@alunos.uminho.pt","epah_mas_que_chatice","Fernando Magalhães"))
+    except:
+        pass 
+        
     # Insert some ticket types
     try:
         TicketType.add_type(TicketType(1,1.8,"simple"))
@@ -64,28 +83,9 @@ def populate():
         from model.tickets import set_as_used
         set_as_used("aaaaaaaaaaaaaaab","a12345")
     except:
-        pass
+        pass    
 
-
-    # Insert some users
-    try:
-        User.add_user(User("a12345","a12345@alunos.uminho.pt","epah_mas_que_chatice","António Barosa"))
-    except:
-        pass
-    try:
-        User.add_user(User("a11111","a11111@alunos.uminho.pt","epah_mas_que_chatice","Adelino Costa"))
-    except:
-        pass
-    try:
-        User.add_user(User("a22222","a22222@alunos.uminho.pt","epah_mas_que_chatice","Rosa Matilde"))
-    except:
-        pass
-    try:
-        User.add_user(User("a33333","a33333@alunos.uminho.pt","epah_mas_que_chatice","Fernando Magalhães"))
-    except:
-        pass        
-
-#populate()
+populate()
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',debug=True)
