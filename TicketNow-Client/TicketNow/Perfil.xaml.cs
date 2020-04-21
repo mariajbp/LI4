@@ -9,12 +9,12 @@ namespace TicketNow
 
     {
         User u;
-        public Perfil(string token, string id_user)
+        public Perfil(User u)
         {
-            //user authentication with token and id_user
-            u = new User(token, id_user);
+            
+            this.u = u;
 
-
+            
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             if (u.cm != 0) meals.Text = "YOU HAVE " + u.cm.ToString() + " COMPLETE MEALS AVAILABLE";
@@ -30,7 +30,7 @@ namespace TicketNow
 
         private async void onSettingsButtonClicked(object sender, EventArgs args)
         {
-            await Navigation.PushAsync(new Settings());
+            await Navigation.PushAsync(new Settings(u));
 
         }
 

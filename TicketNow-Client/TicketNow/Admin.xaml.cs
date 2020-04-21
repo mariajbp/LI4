@@ -5,15 +5,17 @@ namespace TicketNow
 {
     public partial class Admin : ContentPage
     {
-        public Admin()
+        User u;
+        public Admin(User u)
         {
+            this.u = u;
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
         }
 
         private async void onSettingsButtonClicked(object sender, EventArgs args)
         {
-            await Navigation.PushAsync(new Settings());
+            await Navigation.PushAsync(new Settings(u));
 
         }
 

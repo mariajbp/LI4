@@ -71,7 +71,7 @@
 
 
 
-          <Entry
+          <Entry x:Name="OLDPASS"
                Placeholder="CURRENT PASSWORD"
                PlaceholderColor="#FFFFFF"
                RelativeLayout.XConstraint =
@@ -91,7 +91,7 @@
                />
 
 
-         <Entry
+         <Entry x:Name="NEWPASS1"
                Placeholder="NEW PASSWORD"
                PlaceholderColor="#FFFFFF"
                RelativeLayout.XConstraint =
@@ -110,7 +110,7 @@
                HeightRequest="43" WidthRequest="250" FontAttributes="Bold" ClearButtonVisibility="WhileEditing" 
                />
 
-        <Entry
+        <Entry x:Name="NEWPASS2"
                Placeholder="CONFIRM PASSWORD"
                PlaceholderColor="#FFFFFF"
                RelativeLayout.XConstraint =
