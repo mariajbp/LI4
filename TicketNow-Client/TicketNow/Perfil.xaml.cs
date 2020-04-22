@@ -17,7 +17,8 @@ namespace TicketNow
             
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
-            if (u.cm != 0) meals.Text = "YOU HAVE " + u.cm.ToString() + " COMPLETE MEALS AVAILABLE";
+            if (u.cm == 1) meals.Text = "YOU HAVE " + u.cm.ToString() + " COMPLETE MEAL AVAILABLE";
+            else if (u.cm != 0) meals.Text = "YOU HAVE " + u.cm.ToString() + " COMPLETE MEALS AVAILABLE";
             else
             {
                 barcod.Opacity = 0.5;
@@ -59,7 +60,8 @@ namespace TicketNow
         {
             right.Opacity = 0.5;
             left.Opacity = 1;
-            if (u.sm != 0) { meals.Text = "YOU HAVE " + u.sm.ToString() + " SIMPLE MEALS AVAILABLE"; barcod.Opacity = 1; }
+            if (u.sm == 1) { meals.Text = "YOU HAVE " + u.sm.ToString() + " SIMPLE MEAL AVAILABLE"; barcod.Opacity = 1; }
+            else if (u.sm != 0) { meals.Text = "YOU HAVE " + u.sm.ToString() + " SIMPLE MEALS AVAILABLE"; barcod.Opacity = 1; }
             else
             {
                 barcod.Opacity = 0.5;
@@ -71,7 +73,8 @@ namespace TicketNow
         {
             right.Opacity = 1;
             left.Opacity = 0.5;
-            if (u.cm != 0) { meals.Text = "YOU HAVE " + u.cm.ToString() + " COMPLETE MEALS AVAILABLE"; barcod.Opacity = 1; }
+            if (u.cm == 1) { meals.Text = "YOU HAVE " + u.cm.ToString() + " COMPLETE MEAL AVAILABLE"; barcod.Opacity = 1; }
+            else if (u.cm != 0) { meals.Text = "YOU HAVE " + u.cm.ToString() + " COMPLETE MEALS AVAILABLE"; barcod.Opacity = 1; }
             else
             {
                 barcod.Opacity = 0.5;
