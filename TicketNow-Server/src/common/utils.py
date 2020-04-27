@@ -68,6 +68,8 @@ def __p_required_aux__(f,permission):
 
 auth_required = jwt_required
 
+user_required = lambda f : __p_required_aux__(f,Permissions.USER)
+
 admin_required = lambda f : __p_required_aux__(f,Permissions.ADMIN)
 
 validator_required = lambda f : __p_required_aux__(f,Permissions.VALIDATOR | Permissions.ADMIN)

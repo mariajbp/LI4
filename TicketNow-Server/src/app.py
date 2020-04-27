@@ -7,7 +7,7 @@ from functools import wraps
 
 from common.app_init import app , api , db
 from common.utils import auth_required
-from endpoints.login import LoginAPI
+from endpoints.login import LoginAPI , LogoutAPI , SessionTable
 from endpoints.user import UserAPI
 from endpoints.ticket import TicketAPI
 from endpoints.user_ticket import UserTicketAPI
@@ -26,6 +26,7 @@ base_endpoint = app.config['BASE_ENDPOINT']
 api.add_resource(UserAPI, base_endpoint + '/user')
 api.add_resource(TicketAPI, base_endpoint + '/ticket')
 api.add_resource(LoginAPI, base_endpoint + '/login')
+api.add_resource(LogoutAPI, base_endpoint + '/logout')
 api.add_resource(UserTicketAPI, base_endpoint + '/user/<id_user>/tickets')
 api.add_resource(TicketTypeAPI, base_endpoint + '/ticket_type')
 api.add_resource(ValidatorAPI, base_endpoint + '/validator')
@@ -92,6 +93,7 @@ populate()
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',debug=True)
+
 #   app.run(host='0.0.0.0',debug=True,ssl_context='adhoc')
 
 #########################################################################
