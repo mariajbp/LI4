@@ -13,6 +13,7 @@ from endpoints.ticket import TicketAPI
 from endpoints.user_ticket import UserTicketAPI
 from endpoints.ticket_type import TicketTypeAPI
 from endpoints.validator import ValidatorAPI
+from endpoints.kiosk import KioskAPI
 
 # Used for populate
 from model.users import User
@@ -30,14 +31,15 @@ api.add_resource(LogoutAPI, base_endpoint + '/logout')
 api.add_resource(UserTicketAPI, base_endpoint + '/user/<id_user>/tickets')
 api.add_resource(TicketTypeAPI, base_endpoint + '/ticket_type')
 api.add_resource(ValidatorAPI, base_endpoint + '/validator')
+api.add_resource(KioskAPI, base_endpoint + '/kiosk')
 
 #########################################################################
 
 def populate():
-
+    from binascii import unhexlify
     # Insert some users
     try:
-        User.add_user(User("a12345","a12345@alunos.uminho.pt","epah_mas_que_chatice","António Barosa"))
+        User.add_user(User("a12345","a12345@alunos.uminho.pt","epah_mas_que_chatice","António Barosa",permissions=5))
     except:
         pass
     try:
@@ -63,36 +65,39 @@ def populate():
     except:
         pass
     # Insert some tickets
-    try:
-        Ticket.add_ticket(Ticket("aaaaaaaaaaaaaaaa","a12345",1))
-    except:
-        pass
-    try:
-        Ticket.add_ticket(Ticket("aaaaaaaaaaaaaaab","a12345",1))
-    except:
-        pass
-    try:
-        Ticket.add_ticket(Ticket("aaaaaaaaaaaaaaac","a12345",1))
-    except:
-        pass
-    try:
-        Ticket.add_ticket(Ticket("bbbbbbbbbbbbbbbb","a12345",2))
-    except:
-        pass
+    #try:
+    #    Ticket.add_ticket(Ticket("a12345",1,unhexlify('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'))) 
+    #except:
+    #    pass
+    #try:
+    #    Ticket.add_ticket(Ticket("a12345",1,unhexlify('aaaaaaaaaaaaaaabaaaaaaaaaaaaaaabaaaaaaaaaaaaaaabaaaaaaaaaaaaaaab'))) 
+    #except:
+    #    pass
+    #try:
+    #    Ticket.add_ticket(Ticket("a12345",1,unhexlify('aaaaaaaaaaaaaaacaaaaaaaaaaaaaaabaaaaaaaaaaaaaaacaaaaaaaaaaaaaaab'))) 
+    #except:
+    #    pass
+    #try:
+    #    Ticket.add_ticket(Ticket("a12345",2,unhexlify('bbbbbbbbbbbbbbbbaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaab'))) 
+    #except:
+    #    pass
+#
+    #try:
+    #    from model.tickets import set_as_used
+    #    set_as_used(unhexlify('bbbbbbbbbbbbbbbbaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaab'),"a12345")
+    #except:
+    #    pass
 
-    try:
-        from model.tickets import set_as_used
-        set_as_used("aaaaaaaaaaaaaaab","a12345")
-    except:
-        pass
 
 
            
 
-populate()
+#populate()
 
+from hashlib import sha256
 if __name__ == '__main__':
     app.run(host='0.0.0.0',debug=True)
+
 
 #   app.run(host='0.0.0.0',debug=True,ssl_context='adhoc')
 

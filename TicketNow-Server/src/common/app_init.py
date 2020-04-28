@@ -26,6 +26,8 @@ db = SQLAlchemy(app)
 def check_if_token_in_blacklist(decoded_token):
     return not SessionTable.contains(decoded_token['identity'],decoded_token['jti'])
 
+
+
 #@jwt.expired_token_loader
 #def my_expired_token_callback(expired_token):
 #    token_type = expired_token['type']

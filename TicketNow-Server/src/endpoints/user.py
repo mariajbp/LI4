@@ -8,16 +8,18 @@ from common.responses import success , error_code
 
 
 class UserAPI(Resource):
-    parser = reqparse.RequestParser()
-    parser.add_argument('id_user', type=str, required=False, help='User Identifier')
+    parser_get = reqparse.RequestParser()
+    parser_get.add_argument('id_user', type=str, required=False, help='User Identifier')
+    parser_del = parser_get
     
-    parser.add_argument('old_password', type=str, required=False, help='Old Password')
-    parser.add_argument('new_password', type=str, required=False, help='New Password')
+    parser_put = reqparse.RequestParser()
+    parser_put.add_argument('old_password', type=str, required=False, help='Old Password')
+    parser_put.add_argument('new_password', type=str, required=False, help='New Password')
     
     
     @auth_required
     def get(self):
-        args = UserAPI.parser.parse_args()
+        args = UserAPI.parser_get.parse_args()
         
         target_id_user = args['id_user']
         
@@ -58,7 +60,7 @@ class UserAPI(Resource):
 
     @admin_required
     def delete(self):
-        args = UserAPI.parser.parse_args()
+        args = UserAPI.parser_del.parse_args()
         id_user = args['id_user']
 
         print(id_user)
@@ -79,7 +81,7 @@ class UserAPI(Resource):
     @admin_required
     def put(self):
         id_user = get_jwt_identity()
-        args = UserAPI.parser.parse_args()
+        args = UserAPI.parser_put.parse_args()
         old_password = args['old_password']
         new_password = args['new_password']
 
