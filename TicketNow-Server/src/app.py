@@ -7,7 +7,7 @@ from functools import wraps
 
 from common.app_init import app , api , db
 from common.utils import auth_required
-from endpoints.login import LoginAPI , LogoutAPI , SessionTable
+from endpoints.auth import LoginAPI , LogoutAPI , SessionTable
 from endpoints.user import UserAPI
 from endpoints.ticket import TicketAPI
 from endpoints.user_ticket import UserTicketAPI
