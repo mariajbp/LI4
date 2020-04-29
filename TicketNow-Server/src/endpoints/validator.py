@@ -12,8 +12,8 @@ from model.tickets import set_as_used
 
 class ValidatorAPI(Resource):
     parser = reqparse.RequestParser()
-    parser.add_argument('id_ticket', type=str, required=False, help='Ticket Identifier')
-    parser.add_argument('id_user', type=str, required=False, help='User Identifier')
+    parser.add_argument('id_ticket', type=str, required=True, help='Ticket Identifier')
+    parser.add_argument('id_user', type=str, required=True, help='User Identifier')
 
 
     @validator_required
@@ -24,8 +24,8 @@ class ValidatorAPI(Resource):
         target_id_user = args['id_user']
         target_id_ticket = args['id_ticket']
 
-        if target_id_user == None or target_id_ticket == None :
-            return error_message("Insuficient arguments") , 400
+        #if target_id_user == None or target_id_ticket == None :
+        #    return error_message("Insuficient arguments") , 400
 
         try:
             set_as_used(target_id_ticket,target_id_user)
