@@ -3,7 +3,8 @@ import jwt
 from functools import wraps
 from model.users import User
 from common.app_init import app
-from flask_jwt_extended import jwt_required, get_jwt_identity
+from flask_jwt_extended import jwt_required , get_raw_jwt
+from common.responses import forbidden
 #from common.utils import Permissions
 
 from enum import Enum , unique
@@ -56,11 +57,11 @@ def __p_required_aux__(f,permission):
     @jwt_required
     @wraps(f)
     def api_method(*args, **kwargs):
-        id_user = get_jwt_identity()
-        u = User.get_user(id_user)
+        #id_user = get_jwt_identity()
+        #u = User.get_user(id_user)
         
-        if not u.check_permission(permission):
-            return {'error' : 'Unauthorized!'}, 401
+        if not (permission & get_raw_jwt()['user_claims']['permissions']):
+            return forbidden(), 403
 
         return f(*args, **kwargs)
 
@@ -68,7 +69,7 @@ def __p_required_aux__(f,permission):
 
 auth_required = jwt_required
 
-user_required = lambda f : __p_required_aux__(f,Permissions.USER)
+user_required = lambda f : __p_required_aux__(f,Permissions.USER | Permissions.ADMIN)
 
 admin_required = lambda f : __p_required_aux__(f,Permissions.ADMIN)
 

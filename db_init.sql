@@ -41,7 +41,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `ticketnow`.`History`;
 CREATE TABLE IF NOT EXISTS `ticketnow`.`History` (
   `used_datetime` DATETIME NOT NULL,
-  `id_ticket` VARCHAR(16) NOT NULL,
+  `id_ticket` BINARY(32) NOT NULL,
   `id_user` VARCHAR(10) NOT NULL,
   INDEX used_datetime_idx (`used_datetime` ASC),
   CONSTRAINT FOREIGN KEY (`id_ticket`)
@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `ticketnow`.`Transaction` (
   `id_transaction` VARCHAR(16) NOT NULL,
   `item_number` TINYINT NOT NULL,
   `id_user` VARCHAR(10) NOT NULL,
-  `id_ticket` VARCHAR(16) NOT NULL,
+  `id_ticket` BINARY(32) NOT NULL,
   `total_price` FLOAT NOT NULL,
   `datetime` DATETIME NOT NULL,
   CONSTRAINT FOREIGN KEY (`id_ticket`)
@@ -83,7 +83,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `ticketnow`.`Ticket`;
 CREATE TABLE IF NOT EXISTS `ticketnow`.`Ticket` (
-  `id_ticket` VARCHAR(16) NOT NULL,
+  `id_ticket` BINARY(32) NOT NULL,
   `id_user` VARCHAR(10) NOT NULL,
   `type` TINYINT NOT NULL,
   `used` BOOLEAN DEFAULT false NOT NULL,

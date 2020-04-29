@@ -3,7 +3,7 @@ from flask import request
 from flask_jwt_extended import get_jwt_identity
 from model.tickets import Ticket
 from model.users import User
-from common.utils import auth_required , Permissions
+from common.utils import user_required , Permissions
 from common.error import ErrorCodeException
 from common.responses import unauthorized
 
@@ -12,7 +12,7 @@ class UserTicketAPI(Resource):
     parser = reqparse.RequestParser()
     parser.add_argument('id_ticket', type=str, required=False, help='Ticket Identifier')
 
-    @auth_required
+    @user_required
     def get(self,id_user):
         args = UserTicketAPI.parser.parse_args()
         
