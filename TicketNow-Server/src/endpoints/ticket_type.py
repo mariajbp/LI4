@@ -2,7 +2,7 @@ from flask_restful import Resource , reqparse
 from flask import request
 from model.ticket_types import TicketType
 #from flask_jwt_extended import get_jwt_identity
-from common.utils import auth_required
+from common.utils import user_required
 from common.error import ErrorCodeException
 from common.responses import error_code
 
@@ -10,7 +10,7 @@ class TicketTypeAPI(Resource):
     parser = reqparse.RequestParser()
     parser.add_argument('ticket_type', type=int, required=False, help='Ticket Type Identifier')
 
-    @auth_required
+    @user_required
     def get(self):
         args = TicketTypeAPI.parser.parse_args()
         

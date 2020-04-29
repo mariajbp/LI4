@@ -5,6 +5,7 @@ from flask_jwt_extended import get_jwt_identity
 from common.utils import auth_required
 from common.error import ErrorCodeException
 from common.responses import error_code , unauthorized
+from common.utils import user_required
 
 #class HistoryAPI(Resource):
 #    parser_get = reqparse.RequestParser()

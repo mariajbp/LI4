@@ -2,47 +2,28 @@ from flask_restful import Resource , reqparse
 from flask import request
 from model.users import User
 from flask_jwt_extended import jwt_required , get_jwt_identity
-from common.utils import admin_required , auth_required , Permissions
+from common.utils import admin_required , user_required , Permissions
 from common.error import ErrorCodeException
-from common.responses import success , error_code
+from common.responses import success , error_code , forbidden
 
 
 class UserAPI(Resource):
-    parser_get = reqparse.RequestParser()
-    parser_get.add_argument('id_user', type=str, required=False, help='User Identifier')
-    parser_del = parser_get
-    
+    parser_del = reqparse.RequestParser()
+    parser_del.add_argument('id_user', type=str, required=False, help='User Identifier')
+
     parser_put = reqparse.RequestParser()
     parser_put.add_argument('old_password', type=str, required=False, help='Old Password')
     parser_put.add_argument('new_password', type=str, required=False, help='New Password')
     
     
-    @auth_required
+    @admin_required
     def get(self):
-        args = UserAPI.parser_get.parse_args()
-        
-        target_id_user = args['id_user']
-        
         sender_user = User.get_user(get_jwt_identity())
 
-        # Checks if id_user has been specified
-        if target_id_user:
-
-            # Check permissions for listing other users rather than himself
-            if (not sender_user.check_permission(Permissions.ADMIN)) and (not target_id_user == sender_user.id_user):
-                return { "error" : "Unauthorized!" } , 401
-
-            try:
-                return { "user" : User.get_user(target_id_user).to_json() }
-            except ErrorCodeException as ec:
-                return error_code(ec)
-            # Also check if argument user exists
-
-        else:
-            # If id_user hasn't been specified check permissions for listing all users
-            if not sender_user.check_permission(Permissions.ADMIN):
-                return { "error" : "Unauthorized!" } , 401
-            return { "users" : [ u.to_json() for u in User.get_all() ] }
+        # If id_user hasn't been specified check permissions for listing all users
+        if not sender_user.check_permission(Permissions.ADMIN):
+            return forbidden() , 401
+        return { "users" : [ u.to_json() for u in User.get_all() ] }
 
 
     @admin_required
@@ -98,3 +79,18 @@ class UserAPI(Resource):
 	"password" : "password segura" ,
 	"name" : "Jubilado HEHE"
 } """
+
+class UserInfoAPI(Resource):
+    @user_required
+    def get(self,id_user):
+        sender_user = User.get_user(get_jwt_identity())
+
+        # Check permissions for listing other users rather than himself
+        if (not sender_user.check_permission(Permissions.ADMIN)) and (not id_user == sender_user.id_user):
+            return forbidden() , 403
+
+        try:
+            return { "user" : User.get_user(id_user).to_json() }
+        except ErrorCodeException as ec:
+            return error_code(ec)
+        # Also check if argument user exists
