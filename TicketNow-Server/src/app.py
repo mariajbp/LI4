@@ -14,6 +14,7 @@ from endpoints.user_ticket import UserTicketAPI
 from endpoints.ticket_type import TicketTypeAPI
 from endpoints.validator import ValidatorAPI
 from endpoints.kiosk import KioskAPI
+from endpoints.history import UserHistoryAPI
 
 # Used for populate
 from model.users import User
@@ -32,6 +33,8 @@ api.add_resource(UserTicketAPI, base_endpoint + '/user/<id_user>/tickets')
 api.add_resource(TicketTypeAPI, base_endpoint + '/ticket_type')
 api.add_resource(ValidatorAPI, base_endpoint + '/validator')
 api.add_resource(KioskAPI, base_endpoint + '/kiosk')
+api.add_resource(UserHistoryAPI, base_endpoint + '/user/<id_user>/history')
+
 
 #########################################################################
 
@@ -97,6 +100,7 @@ def populate():
 from hashlib import sha256
 if __name__ == '__main__':
     app.run(host='0.0.0.0',debug=True)
+    
 
 
 #   app.run(host='0.0.0.0',debug=True,ssl_context='adhoc')

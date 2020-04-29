@@ -4,7 +4,8 @@ O estado da aplicação tem em conta algumas bases de conhecimento sobre o funci
 
 # API
 
-### `GET` /api/login
+### `POST` /api/login
+### `POST` /api/logout
 
 ### `GET` /api/user 
 ### `POST` /api/user
@@ -18,6 +19,8 @@ O estado da aplicação tem em conta algumas bases de conhecimento sobre o funci
 ### `GET` /api/ticket_type
 
 ### `POST` /api/validator
+
+### `POST` /api/kiosk
 
 
 ___
@@ -130,7 +133,7 @@ ___
 # Endpoints
 
 Para já estão implementados estes endpoints:
-* [Serviço de Login](#Serviço-de-Login)
+* [Serviço de Autenticação](#Serviço-de-Autenticação)
 * [Endpoint do Utilizador](#Endpoint-do-Utilizador)
 * [Endpoint das Senhas](#Endpoint-das-Senhas)
 * [Endpoint dos Tipos de Senhas](#Endpoint-dos-Tipos-de-Senhas)
@@ -138,13 +141,13 @@ Para já estão implementados estes endpoints:
 
 
 ___
-## Serviço de Login
+## Serviço de Autenticação
 <!-- ```
 localhost:5000/api/login
 ``` -->
 
-### Autenticar
-### `GET` /api/login
+### Login
+### `POST` /api/login
 
 Autentica no servidor e retorna um *token* de sessão (Bearer Token) 
 
@@ -164,6 +167,10 @@ Autentica no servidor e retorna um *token* de sessão (Bearer Token)
 }
 ```
 
+### Logout - Any Auth
+### `POST` /api/logout
+
+Invalida um préviamente autenticado (Bearer Token)
 
 
 ___
@@ -356,7 +363,7 @@ All parameters to this endpoint are optional.
 
 ___
 ## Endpoint do Validador
-WIP
+
 
 | Requests permitidos | `GET` | `POST` | `PUT` | `DELETE` |
 |:-------------------:|:-----:|:------:|:-----:|:--------:|
@@ -376,10 +383,43 @@ Passa pelo processo de validar uma senha, atualizando o sistema segundo esse ped
 |**id_user** | string | aXXXXX |
 |**id_ticket** | string | XXXXXXXXXXXXXXXX  |
 
+> Query String Params
+
 **Exemplo**: 
 ```json
 {
     "id_user" : "aXXXXX",
     "id_ticket" : "XXXXXXXXXXXXXXXX"
+}
+```
+
+## Endpoint de Compras
+WIP
+
+| Requests permitidos | `GET` | `POST` | `PUT` | `DELETE` |
+|:-------------------:|:-----:|:------:|:-----:|:--------:|
+| Not Authenticated   |       |        |       |          |
+| User                |       |   ✔️    |      |          |
+| Validator           |       |        |      |          |
+| Admin               |       |   ✔️    |      |          |
+| Content Provider    |       |        |      |          |
+
+### Comprar senha - User
+### `POST` /api/kiosk
+
+Passa pelo processo de validar uma senha, atualizando o sistema segundo esse pedido
+
+|            | Type   | Example |
+|:----------:|:------:|:-------:|
+|**ticket_type** | int | 1 |
+|**amount** | int | 23  |
+
+> Query String Params
+
+**Exemplo**: 
+```json
+{
+    "ticket_type" : 1,
+    "amount" : 23
 }
 ```

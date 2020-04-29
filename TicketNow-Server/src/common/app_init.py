@@ -16,15 +16,15 @@ app.config['JWT_SECRET_KEY'] = '1430b4f944d890bd4eed14421e5a31b595d3e11d12fd59fb
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:root@localhost/ticketnow'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['BASE_ENDPOINT'] = '/api'
-app.config['JWT_BLACKLIST_ENABLED'] = True
-app.config['JWT_BLACKLIST_TOKEN_CHECKS'] = ['access', 'refresh']
+#app.config['JWT_BLACKLIST_ENABLED'] = True
+#app.config['JWT_BLACKLIST_TOKEN_CHECKS'] = ['access', 'refresh']
 
 db = SQLAlchemy(app)
 
 # Reuse of token blacklist for token-session validattion
-@jwt.token_in_blacklist_loader
-def check_if_token_in_blacklist(decoded_token):
-    return not SessionTable.contains(decoded_token['identity'],decoded_token['jti'])
+#@jwt.token_in_blacklist_loader
+#def check_if_token_in_blacklist(decoded_token):
+#    return not SessionTable.contains(decoded_token['identity'],decoded_token['jti'])
 
 
 
