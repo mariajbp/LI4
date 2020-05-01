@@ -37,7 +37,7 @@ class Ticket(db.Model):
     @staticmethod
     def add_ticket(ticket):
         try:
-            Ticket.get_ticket(ticket.id_ticket)
+            Ticket.get_ticket(hexlify(ticket.id_ticket).decode('ascii'))
         except ErrorCodeException:
             db.session.add(ticket)
             db.session.commit()
