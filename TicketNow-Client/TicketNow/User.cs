@@ -10,9 +10,9 @@ namespace TicketNow
 {
     public class User
     {
+        
         public string id_user { get; set; }
         public string email { get;  set; }
-        public string password { get; set; }
         public string name { get; set; }
         public IList<Ticket> owned_tickets { get; set; }
         public int sm=0; //simple meal
@@ -28,7 +28,8 @@ namespace TicketNow
 
             //LOGIN
             //test with server
-            HttpResponseMessage response = await client.GetAsync("http://ticketnow.ddns.net:5000/api/user?id_user=" + id_userr);
+
+            HttpResponseMessage response = await client.GetAsync("http://ticketnow.ddns.net:5000/api/user/"+ id_userr);
             HttpContent content = response.Content;
 
             //Read the string.
@@ -39,14 +40,16 @@ namespace TicketNow
             JObject jObject = Newtonsoft.Json.Linq.JObject.Parse(result);
 
             var user = jObject.SelectToken("user");
+
+       
             this.id_user = user.Value<string>("id_user");
             this.email = user.Value<string>("email");
             this.name = user.Value<string>("name");
-            this.password = "epah_mas_que_chatice"; //apenas para testar
+            
 
             //OWNED_TICKETS
             //test with server
-            HttpResponseMessage resp = await client.GetAsync("http://ticketnow.ddns.net:5000/api/user/{"+id_userr+"}/tickets");
+            HttpResponseMessage resp = await client.GetAsync("http://ticketnow.ddns.net:5000/api/user/"+id_userr+"/tickets");
             HttpContent cont = resp.Content;
 
             //Read the string.
@@ -59,42 +62,23 @@ namespace TicketNow
             
             JArray a = (JArray)tickets["owned_tickets"];
 
-            IList<Ticket> ticket = a.ToObject<IList<Ticket>>();
+           IList<Ticket> ticket = a.ToObject<IList<Ticket>>();
 
             this.owned_tickets = ticket;
 
             //list of tickets (number of tickets)
             foreach(var t in ticket)
             {
-                if (t.type == 1) sm = sm + 1;
-                else cm = cm + 1;
+                if (t.type == 1) this.sm = this.sm + 1;
+                else this.cm = this.cm + 1;
             }
 
             return true;
 
         }
 
-     
 
-        public bool changePass(string oldpass)
-        {
-            bool r;
-            if (this.password == oldpass) r = true;
-            else r= false;
-            return r;
-            
-
-        }
-
-        public bool matchPass(string newpass, string newpass2)
-        {
-            bool r;
-            if (newpass == newpass2) r = true;
-            else r = false;
-            return r;
-
-      }
-
+       
 
     }
 

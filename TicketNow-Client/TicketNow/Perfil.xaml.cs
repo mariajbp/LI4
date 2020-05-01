@@ -9,11 +9,12 @@ namespace TicketNow
 
     {
         User u;
-        public Perfil(User u)
+        string token;
+        public Perfil(User u, string token)
         {
             
             this.u = u;
-
+            this.token = token;
             
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
@@ -31,7 +32,7 @@ namespace TicketNow
 
         private async void onSettingsButtonClicked(object sender, EventArgs args)
         {
-            await Navigation.PushAsync(new Settings(u));
+            await Navigation.PushAsync(new Settings(token));
 
         }
 
@@ -44,7 +45,7 @@ namespace TicketNow
 
         private async void onBuyticketsButtonClicked(object sender, EventArgs args)
         {
-            await Navigation.PushAsync(new BuyTickets());
+            await Navigation.PushAsync(new BuyTickets(u.id_user,token));
 
         }
 

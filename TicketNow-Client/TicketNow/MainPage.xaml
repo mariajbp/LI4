@@ -88,25 +88,8 @@
                TextColor="#FFFFFF"
                HeightRequest="35" WidthRequest="160" FontAttributes="Bold"
                Clicked="onCreateAccountButtonClicked"
-                />
+                >
 
-
-            <Button Text="admin"
-               BackgroundColor="#FFFFFF"
-                RelativeLayout.XConstraint =
-               "{ConstraintExpression Type=RelativeToParent,
-                             Property=Width,
-                             Factor=0.5,
-                             Constant=-50}"
-               RelativeLayout.YConstraint =
-               "{ConstraintExpression Type=RelativeToParent,
-                             Property=Height,
-                             Factor=0.5,
-                             Constant=165}"
-               CornerRadius="17"
-               TextColor="#5B0604"
-               HeightRequest="35" WidthRequest="100" FontAttributes="Bold"
-               Clicked="onAdminButtonClicked">
           
             </Button>
 

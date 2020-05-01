@@ -93,7 +93,7 @@
                CornerRadius="17"
                TextColor="#FFFFFF" FontSize="Body"
                HeightRequest="35" WidthRequest="160" FontAttributes="Bold"
-                />
+                Clicked="onPaymentButtonClicked"/>
       
 
 

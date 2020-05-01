@@ -6,7 +6,7 @@ namespace TicketNow
 {
     public partial class MainPage : ContentPage
     {
-
+       
         public MainPage()
         {
             NavigationPage.SetHasNavigationBar(this, false);
@@ -20,14 +20,13 @@ namespace TicketNow
 
             //get token with username and password: done in the RestClient class
             var token = await _restClient.checkLogin(EntryUsername.Text, EntryPassword.Text);
-
             if (token != null)
             {
                 //login with token and id_user
                 User u = new User();
                 await u.setInfo(token, EntryUsername.Text);
 
-                await Navigation.PushAsync(new Perfil(u));
+                await Navigation.PushAsync(new Perfil(u,token));
             }
             else
             {
@@ -43,30 +42,7 @@ namespace TicketNow
 
         }
 
-        // inncompleto
-        private async void onAdminButtonClicked(object sender, EventArgs args)
-        {
-
-            RestClient<Task> _restClient = new RestClient<Task>();
-
-            //get token with username and password: done in the RestClient class
-            var token = await _restClient.checkLogin(EntryUsername.Text, EntryPassword.Text);
-
-            if (token != null)
-            {
-                //login with token and id_user
-                User u = new User();
-                await u.setInfo(token, EntryUsername.Text);
-
-                await Navigation.PushAsync(new Admin(u));
-            }
-            else
-            {
-                await DisplayAlert("Error", "Invalid Credentials", "Try Again");
-            }
-
-
-        }
+       
 
 
     }
