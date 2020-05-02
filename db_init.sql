@@ -24,7 +24,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `ticketnow`.`TicketType`
+-- Mapping Table `ticketnow`.`TicketType`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `ticketnow`.`TicketType`;
 CREATE TABLE IF NOT EXISTS `ticketnow`.`TicketType` (
@@ -97,3 +97,47 @@ CREATE TABLE IF NOT EXISTS `ticketnow`.`Ticket` (
     ON UPDATE NO ACTION,
     PRIMARY KEY (`id_ticket`))
 ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Mapping Table `ticketnow`.`Location`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `ticketnow`.`Location`;
+CREATE TABLE IF NOT EXISTS `ticketnow`.`Location` (
+  `id_location` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(32) NOT NULL UNIQUE,
+  PRIMARY KEY (`id_location`))
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Mapping Table `ticketnow`.`MealType`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `ticketnow`.`MealType`;
+CREATE TABLE IF NOT EXISTS `ticketnow`.`MealType` (
+  `id_meal_type` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(32) NOT NULL UNIQUE,
+  PRIMARY KEY (`id_meal_type`))
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `ticketnow`.`Meal`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `ticketnow`.`Meal`;
+CREATE TABLE IF NOT EXISTS `ticketnow`.`Meal` (
+  `date` DATE NOT NULL,
+  `id_location` INT NOT NULL,
+  `soup` VARCHAR(32) NOT NULL,
+  `main_dish` VARCHAR(32) NOT NULL,
+  `id_meal_type` INT NOT NULL,
+  `description` VARCHAR(64) NOT NULL,
+  CONSTRAINT FOREIGN KEY (`id_location`)
+  REFERENCES `ticketnow`.`Location` (`id_location`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT FOREIGN KEY (`id_meal_type`)
+  REFERENCES `ticketnow`.`MealType` (`id_meal_type`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  PRIMARY KEY (`date`,`id_location`))
+ENGINE = InnoDB;
+

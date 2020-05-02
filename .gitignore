@@ -9,3 +9,5 @@ TicketNow-Server/ticketnow_env/
 ticketnow-env/
 
 db_init_new.sql
+
+TicketNow-Server/src/common/config.py
