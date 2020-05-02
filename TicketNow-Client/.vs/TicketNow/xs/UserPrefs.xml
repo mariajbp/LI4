@@ -1,26 +1,18 @@
 ﻿<Properties StartupConfiguration="{75864FFA-22C1-4DDF-9041-8A49A7F723C7}|Default">
   <MonoDevelop.Ide.ItemProperties.TicketNow.Android AndroidDesignerPreferredTheme="Theme.AppCompat.Light.NoActionBar" PreferredExecutionTarget="Android.pixel_2_pie_9_0_-_api_28" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="TicketNow/User.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="TicketNow/RestClient.cs">
     <Files>
-      <File FileName="TicketNow/BuyTickets2.xaml.cs" Line="100" Column="33" />
-      <File FileName="TicketNow/User.cs" Line="42" Column="52" />
       <File FileName="TicketNow/MainPage.xaml.cs" Line="25" Column="47" />
-      <File FileName="TicketNow/Perfil.xaml.cs" Line="38" Column="1" />
-      <File FileName="TicketNow/BuyTickets.xaml.cs" Line="30" Column="82" />
+      <File FileName="TicketNow/RestClient.cs" Line="21" Column="16" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="TicketNow" expanded="True">
             <Node name="TicketNow" expanded="True">
-              <Node name="Admin.xaml" expanded="True" />
-              <Node name="BuyTickets.xaml" expanded="True" />
               <Node name="BuyTickets2.xaml" expanded="True" />
-              <Node name="CreateAccount.xaml" expanded="True" />
               <Node name="MainPage.xaml" expanded="True" />
-              <Node name="Perfil.xaml" expanded="True" />
-              <Node name="Settings.xaml" expanded="True" />
-              <Node name="User.cs" selected="True" />
+              <Node name="RestClient.cs" selected="True" />
             </Node>
             <Node name="TicketNow.Android" expanded="True" />
           </Node>
