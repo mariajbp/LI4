@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TicketNow.Settings"
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TicketNow.ChangePass"
     BackgroundImage ="bg.png" > 
         <RelativeLayout>
 
@@ -67,7 +67,67 @@
                              Constant=-220}"
                />
 
-          
+           
+
+
+
+          <Entry x:Name="OLDPASS"
+               Placeholder="CURRENT PASSWORD"
+               PlaceholderColor="#FFFFFF"
+               RelativeLayout.XConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-125}"
+               RelativeLayout.YConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.5,
+                             Constant=-40}"
+               TextColor="#FFFFFF"
+               BackgroundColor="Transparent"
+               IsPassword="True"
+               HeightRequest="43" WidthRequest="250" FontAttributes="Bold" ClearButtonVisibility="WhileEditing" 
+               />
+
+
+         <Entry x:Name="NEWPASS1"
+               Placeholder="NEW PASSWORD"
+               PlaceholderColor="#FFFFFF"
+               RelativeLayout.XConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-125}"
+               RelativeLayout.YConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.5,
+                             Constant=40}"
+               TextColor="#FFFFFF"
+               BackgroundColor="Transparent"
+               IsPassword="True"
+               HeightRequest="43" WidthRequest="250" FontAttributes="Bold" ClearButtonVisibility="WhileEditing" 
+               />
+
+        <Entry x:Name="NEWPASS2"
+               Placeholder="CONFIRM PASSWORD"
+               PlaceholderColor="#FFFFFF"
+               RelativeLayout.XConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-125}"
+               RelativeLayout.YConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.5,
+                             Constant=120}"
+               TextColor="#FFFFFF"
+               BackgroundColor="Transparent"
+               IsPassword="True"
+               HeightRequest="43" WidthRequest="250" FontAttributes="Bold" ClearButtonVisibility="WhileEditing" 
+               />
 
 
             <Button Text="CHANGE PASSWORD"
@@ -80,29 +140,12 @@
                "{ConstraintExpression Type=RelativeToParent,
                              Property=Height,
                              Factor=0.5,
-                             Constant=20}"
+                             Constant=210}"
                BackgroundColor="#5B0604"
                CornerRadius="17"
                TextColor="#FFFFFF"
                HeightRequest="35" WidthRequest="160" FontAttributes="Bold"
                Clicked="onChangePasswordClicked"/>
-
-            <Button Text="LOGOUT"
-               RelativeLayout.XConstraint =
-               "{ConstraintExpression Type=RelativeToParent,
-                             Property=Width,
-                             Factor=0.5,
-                             Constant=-80}"
-               RelativeLayout.YConstraint =
-               "{ConstraintExpression Type=RelativeToParent,
-                             Property=Height,
-                             Factor=0.5,
-                             Constant=100}"
-               BackgroundColor="#5B0604"
-               CornerRadius="17"
-               TextColor="#FFFFFF"
-               HeightRequest="35" WidthRequest="160" FontAttributes="Bold"
-               Clicked="onLogoutClicked"/>
 
 
         </RelativeLayout>
