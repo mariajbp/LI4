@@ -126,10 +126,10 @@ DROP TABLE IF EXISTS `ticketnow`.`Meal`;
 CREATE TABLE IF NOT EXISTS `ticketnow`.`Meal` (
   `date` DATE NOT NULL,
   `id_location` INT NOT NULL,
-  `soup` VARCHAR(32) NOT NULL,
-  `main_dish` VARCHAR(32) NOT NULL,
+  `soup` VARCHAR(32),
+  `main_dish` VARCHAR(32),
   `id_meal_type` INT NOT NULL,
-  `description` VARCHAR(64) NOT NULL,
+  `description` VARCHAR(64),
   CONSTRAINT FOREIGN KEY (`id_location`)
   REFERENCES `ticketnow`.`Location` (`id_location`)
     ON DELETE NO ACTION
@@ -138,6 +138,5 @@ CREATE TABLE IF NOT EXISTS `ticketnow`.`Meal` (
   REFERENCES `ticketnow`.`MealType` (`id_meal_type`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  PRIMARY KEY (`date`,`id_location`))
+  PRIMARY KEY (`date`,`id_location`,`id_meal_type`))
 ENGINE = InnoDB;
-
