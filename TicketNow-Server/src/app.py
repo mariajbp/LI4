@@ -15,6 +15,7 @@ from endpoints.ticket_type import TicketTypeAPI
 from endpoints.validator import ValidatorAPI
 from endpoints.kiosk import KioskAPI
 from endpoints.history import UserHistoryAPI
+from endpoints.meal import MealAPI
 
 # Used for populate
 from model.users import User
@@ -35,6 +36,7 @@ api.add_resource(TicketTypeAPI, base_endpoint + '/ticket/type')
 api.add_resource(ValidatorAPI, base_endpoint + '/validator')
 api.add_resource(KioskAPI, base_endpoint + '/kiosk/ticket')
 api.add_resource(UserHistoryAPI, base_endpoint + '/user/<id_user>/history')
+api.add_resource(MealAPI, base_endpoint + '/meal')
 
 
 #########################################################################
@@ -68,6 +70,32 @@ def populate():
         TicketType.add_type(TicketType(2,2.5,"complete"))
     except:
         pass
+
+    
+    from model.meal import MealType , Location , Meal
+    try:
+        MealType.add_meal_type(MealType("lunch"))
+    except:
+        pass
+    try:
+        MealType.add_meal_type(MealType("dinner"))
+    except:
+        pass
+
+    try:
+        Location.add_location(Location("azurem"))
+    except:
+        pass
+    try:
+        Location.add_location(Location("gualtar"))
+    except:
+        pass
+
+    from datetime import date
+    try:
+        Meal.add_meal(Meal(date.fromisoformat('2019-12-04'),1,1,soup="Sopa de Frango",main_dish="Frango"))
+    except:
+        pass
     # Insert some tickets
     #try:
     #    Ticket.add_ticket(Ticket("a12345",1,unhexlify('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'))) 
@@ -78,11 +106,11 @@ def populate():
     #except:
     #    pass
     #try:
-    #    Ticket.add_ticket(Ticket("a12345",1,unhexlify('aaaaaaaaaaaaaaacaaaaaaaaaaaaaaabaaaaaaaaaaaaaaacaaaaaaaaaaaaaaab'))) 
+    #    Ticket.add_ticket(Ticket("a12345",1,unhexlify('aaaaaaaaaaaaaaacaaaaaaaaaaaaaaabaaaaaaaaaaaaaaacaaaaaaaaaaaaaaab')))
     #except:
     #    pass
     #try:
-    #    Ticket.add_ticket(Ticket("a12345",2,unhexlify('bbbbbbbbbbbbbbbbaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaab'))) 
+    #    Ticket.add_ticket(Ticket("a12345",2,unhexlify('bbbbbbbbbbbbbbbbaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaab')))
     #except:
     #    pass
 #
@@ -99,6 +127,7 @@ populate()
 from hashlib import sha256
 if __name__ == '__main__':
     app.run(host='0.0.0.0',debug=True)
+    
     
 
 

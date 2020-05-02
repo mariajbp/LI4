@@ -56,6 +56,15 @@ class ErrorCode(Enum):
     HISTORY_ENTRY_EXISTS = 9
     HISTORY_ENTRY_DOESNT_EXISTS = 10
 
+    MEAL_EXISTS = 11
+    MEAL_DOESNT_EXISTS = 12
+
+    MEALTYPE_EXISTS = 13
+    MEALTYPE_DOESNT_EXISTS = 14
+
+    LOCATION_EXISTS = 15
+    LOCATION_DOESNT_EXISTS = 16
+    
     
 
     def message(self):
@@ -74,7 +83,16 @@ class ErrorCode(Enum):
             "Ticket type does not exists",
 
             "History entry already exists",
-            "History entry does not exists"
+            "History entry does not exists",
+
+            "Meal already exists",
+            "Meal does not exists",
+
+            "Meal type already exists",
+            "Meal type does not exists",
+
+            "Location already exists",
+            "Location does not exists",
             
         ]
         return ERROR_MESSAGES[self.value]

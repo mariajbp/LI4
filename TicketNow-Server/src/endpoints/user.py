@@ -44,18 +44,13 @@ class UserAPI(Resource):
         args = UserAPI.parser_del.parse_args()
         id_user = args['id_user']
 
-        print(id_user)
-
         if not id_user:
-            print("1")
             return { "error" : "Argument required" }
 
         try:
             User.delete(id_user)
-            print("2")
             return success()
         except ErrorCodeException as ec:
-            print("3")
             return error_code(ec)
         
 
@@ -66,8 +61,7 @@ class UserAPI(Resource):
         old_password = args['old_password']
         new_password = args['new_password']
 
-        if old_password and new_password : 
-            print(id_user)
+        if old_password and new_password :
             return success()
         else:
             return { "error" : "Argument required" }
