@@ -3,7 +3,7 @@ import jwt
 from functools import wraps
 from model.users import User
 from common.app_init import app
-from flask_jwt_extended import jwt_required , get_raw_jwt
+from flask_jwt_extended import jwt_required , get_jwt_claims
 from common.responses import forbidden
 #from common.utils import Permissions
 
@@ -53,6 +53,7 @@ class ErrorCodeException(BaseException):
  """
 
 
+
 def __p_required_aux__(f,permission):
     @jwt_required
     @wraps(f)
@@ -60,7 +61,7 @@ def __p_required_aux__(f,permission):
         #id_user = get_jwt_identity()
         #u = User.get_user(id_user)
         
-        if not (permission & get_raw_jwt()['user_claims']['permissions']):
+        if not (permission & get_jwt_claims()['permissions']):
             return forbidden(), 403
 
         return f(*args, **kwargs)
