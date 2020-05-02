@@ -67,4 +67,4 @@ class User(db.Model):
         return self.permissions & const_permition
 
     def __str__(self):
-        return  self.id_user
+        return self.id_user

@@ -73,23 +73,23 @@ def populate():
 
     
     from model.meal import MealType , Location , Meal
-    #try:
-    #    MealType.add_meal_type(MealType("lunch"))
-    #except:
-    #    pass
-    #try:
-    #    MealType.add_meal_type(MealType("dinner"))
-    #except:
-    #    pass
+    try:
+        MealType.add_meal_type(MealType("lunch"))
+    except:
+        pass
+    try:
+        MealType.add_meal_type(MealType("dinner"))
+    except:
+        pass
 
-    #try:
-    #    Location.add_location(Location("azurem"))
-    #except:
-    #    pass
-    #try:
-    #    Location.add_location(Location("gualtar"))
-    #except:
-    #    pass
+    try:
+        Location.add_location(Location("azurem"))
+    except:
+        pass
+    try:
+        Location.add_location(Location("gualtar"))
+    except:
+        pass
 
     from datetime import date
     try:
