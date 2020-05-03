@@ -55,7 +55,7 @@ class User(db.Model):
         return { 
             "id_user" : self.id_user,
             "email" : self.email,
-            #"permissions" : self.permissions,
+            "permissions" : self.permissions,
             "name" : self.name
         }
 
@@ -67,4 +67,4 @@ class User(db.Model):
         return self.permissions & const_permition
 
     def __str__(self):
-        return  self.id_user
+        return self.id_user
