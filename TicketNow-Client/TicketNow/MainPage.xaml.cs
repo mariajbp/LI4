@@ -22,11 +22,13 @@ namespace TicketNow
             var token = await _restClient.checkLogin(EntryUsername.Text, EntryPassword.Text);
             if (token != null)
             {
+
                 //login with token and id_user
                 User u = new User();
                 await u.setInfo(token, EntryUsername.Text);
 
-                await Navigation.PushAsync(new Perfil(u,token));
+                if (u.permissoes == 3) await Navigation.PushAsync(new Admin(u,token));
+                else if (u.permissoes == 1) await Navigation.PushAsync(new Perfil(u,token));
             }
             else
             {

@@ -12,10 +12,10 @@
         <AbsoluteLayout>
 
        
-            <forms:ZXingBarcodeImageView x:Name="barcod" BackgroundColor="Transparent" 
+        <forms:ZXingBarcodeImageView x:Name="barcod" BackgroundColor="Transparent" 
                                          AbsoluteLayout.LayoutBounds=".5,.09,160,160"
                                          AbsoluteLayout.LayoutFlags="PositionProportional" 
-                                         BarcodeValue="12333345" BarcodeFormat="QR_CODE">
+                                         BarcodeValue="-1" BarcodeFormat="QR_CODE">
 
         <forms:ZXingBarcodeImageView.BarcodeOptions>
             <zxcm:EncodingOptions Width="160" Height="160" Margin="0" />
@@ -181,7 +181,7 @@
                AbsoluteLayout.LayoutFlags="All"
                Clicked="onLeftButtonClicked"/>
 
-
+         
 
             </AbsoluteLayout>
 

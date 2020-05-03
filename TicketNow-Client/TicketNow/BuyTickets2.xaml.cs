@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -16,15 +16,15 @@ namespace TicketNow
         string token;
         string username;
 
-        public BuyTickets2(int i,string token, string username)
+        public BuyTickets2(int i, string token, string username)
         {
             this.username = username;
             this.token = token;
             this.meal = i;
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
-            if (meal == 0) { total.Text = "TOTAL: 2.75 €"; this.s = 2.75; }
-            if (meal == 1) { total.Text = "TOTAL: 2.05 €"; this.s = 2.05; }
+            if (meal == 0) { total.Text = "TOTAL: 2.75 €"; }
+            if (meal == 1) { total.Text = "TOTAL: 2.05 €"; }
         }
 
         private void onMinusButtonClicked(object sender, EventArgs args)
@@ -68,30 +68,41 @@ namespace TicketNow
             if (meal == 1)
             {
                 ticket_type = 1;
-                await payment(ticket_type, this.s);
-                
+                await payment(ticket_type.ToString(), quantity.Text);
+
             }
 
 
             if (meal == 0)
             {
                 ticket_type = 2;
-                await payment(ticket_type, this.s);
-                
+                await payment(ticket_type.ToString(), quantity.Text);
+
             }
 
         }
 
-        public async Task<bool> payment(int ticket, double amount)
+        public async Task<bool> payment(string ticket, string amount)
         {
+            //POST
             var client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
 
+
             //test with server
-            var request = new StringContent("");
-            HttpResponseMessage response = await client.PostAsync("http://ticketnow.ddns.net:5000/api/kiosk/ticket?ticket_type="+ ticket+"&amount="+amount, request);
-            HttpContent content = response.Content;
+
+            //PARAMETERS
+            var values = new Dictionary<string, string>
+            {
+               { "ticket_type", ticket },
+               { "amount", amount }
+            };
+
+            var request = new FormUrlEncodedContent(values);
+            //URI
+            HttpResponseMessage response = await client.PostAsync("http://ticketnow.ddns.net:5000/api/kiosk/ticket", request);
+
 
             await DisplayAlert("", "Payment Successful", "Ok");
 
@@ -99,7 +110,9 @@ namespace TicketNow
             //refresh user info with new tickets
             User u = new User();
             await u.setInfo(token, username);
-            await Navigation.PushAsync(new Perfil(u, token));
+            if (u.permissoes == 3) await Navigation.PushAsync(new Admin(u, token));
+            else if (u.permissoes == 1) await Navigation.PushAsync(new Perfil(u, token));
+           
 
             return true;
         }

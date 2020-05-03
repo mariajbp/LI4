@@ -1,123 +1,97 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage 
-       xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-       x:Class="TicketNow.Admin"
-       BackgroundImage ="bg.png" >
-            <RelativeLayout>
-        <!-- Header -->
-         <Button Text="Administrator"
-               RelativeLayout.XConstraint =
-               "{ConstraintExpression Type=RelativeToParent,
-                             Property=Width,
-                             Factor=0.5,
-                             Constant=-130}"
-               RelativeLayout.YConstraint =
-               "{ConstraintExpression Type=RelativeToParent,
-                             Property=Height,
-                             Factor=0.5,
-                             Constant=-250}"
-               BackgroundColor="Transparent"
-               TextColor="#FFFFFF"
-               HeightRequest="60" WidthRequest="270" FontAttributes="Bold"
-               FontSize="Title"
-                />
-
-             <Image Source="whiteline.png"
-               HeightRequest="43" WidthRequest="240"
-               RelativeLayout.XConstraint =
-               "{ConstraintExpression Type=RelativeToParent,
-                             Property=Width,
-                             Factor=0.1,
-                             Constant=-45}"
-               RelativeLayout.YConstraint =
-               "{ConstraintExpression Type=RelativeToParent,
-                             Property=Height,
-                             Factor=0.5,
-                             Constant=-200}"
-               />
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TicketNow.Admin"
+             xmlns:forms="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             xmlns:zx="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             xmlns:zxcm="clr-namespace:ZXing.Common;assembly=zxing.portable"
+             BackgroundImage ="bg.png" >
 
 
-             <Image Source="whiteline.png"
-               HeightRequest="43" WidthRequest="240"
-               RelativeLayout.XConstraint =
-               "{ConstraintExpression Type=RelativeToParent,
-                             Property=Width,
-                             Factor=0.5,
-                             Constant=-20}"
-               RelativeLayout.YConstraint =
-               "{ConstraintExpression Type=RelativeToParent,
-                             Property=Height,
-                             Factor=0.5,
-                             Constant=-200}"
-               />
-           
 
-            <Image Source="logoutensils.png"
-                HeightRequest="43" WidthRequest="250"
-               RelativeLayout.XConstraint =
-               "{ConstraintExpression Type=RelativeToParent,
-                             Property=Width,
-                             Factor=0.5,
-                             Constant=-245}"
-               RelativeLayout.YConstraint =
-               "{ConstraintExpression Type=RelativeToParent,
-                             Property=Height,
-                             Factor=0.5,
-                             Constant=-240}"
-               />
+        <AbsoluteLayout>
 
-            
-            <!-- Buttons -->
-            <AbsoluteLayout>
-             <Image Source="settings.png"
-               AbsoluteLayout.LayoutBounds=".023,.15,.03,.5"
-               AbsoluteLayout.LayoutFlags="All" 
-               />
+       
+        <forms:ZXingBarcodeImageView x:Name="barcod" BackgroundColor="Transparent" 
+                                         AbsoluteLayout.LayoutBounds=".5,.09,160,160"
+                                         AbsoluteLayout.LayoutFlags="PositionProportional" 
+                                         BarcodeValue="-1" BarcodeFormat="QR_CODE">
 
-         <Label Text="SETTINGS" HorizontalOptions="CenterAndExpand" 
+        <forms:ZXingBarcodeImageView.BarcodeOptions>
+            <zxcm:EncodingOptions Width="160" Height="160" Margin="0" />
+
+        </forms:ZXingBarcodeImageView.BarcodeOptions>
+            </forms:ZXingBarcodeImageView>
+
+            <Label x:Name="meals" Text="" HorizontalOptions="CenterAndExpand" 
                   TextColor="#FFFFFF" FontAttributes="Bold"
-                  FontSize="Body"
-                  AbsoluteLayout.LayoutBounds=".01,.48,.055,.2"
-                  AbsoluteLayout.LayoutFlags="All" 
-                 
-              />
+                  FontSize="Small"
+                  AbsoluteLayout.LayoutBounds=".5,0.69,0.8,.5"
+                  AbsoluteLayout.LayoutFlags="All" />
 
-            <Image Source="utensils.png"
-               AbsoluteLayout.LayoutBounds=".1,.15,.02,.5"
-               AbsoluteLayout.LayoutFlags="All" 
-            
-               />
 
-             <Label Text="WEEKLY MEALS" HorizontalOptions="CenterAndExpand" 
-                  TextColor="#FFFFFF" FontAttributes="Bold"
-                  FontSize="Body"
-                  AbsoluteLayout.LayoutBounds=".01,.48,.203,.2"
-                  AbsoluteLayout.LayoutFlags="All" 
-                 
-              />
+        <Image x:Name="left" Source="left.png"
+               AbsoluteLayout.LayoutBounds=".2,-.11,.05,.5"
+               AbsoluteLayout.LayoutFlags="All"
+               Opacity="0.5"/>
 
-             <Image Source="stats.png"
-               AbsoluteLayout.LayoutBounds=".065,.48,.03,.5"
+            <Image x:Name="right" Source="right.png"
+               AbsoluteLayout.LayoutBounds=".8,-.11,.05,.5"
                AbsoluteLayout.LayoutFlags="All" />
 
+            
+         
 
 
-            <Label Text="STATISTICS" HorizontalOptions="CenterAndExpand" 
-                  TextColor="#FFFFFF" FontAttributes="Bold"
-                  FontSize="Body"
-                  AbsoluteLayout.LayoutBounds=".01,.68,.141,.2"
-                  AbsoluteLayout.LayoutFlags="All" 
-                 
-              />
+        <!-- Place new controls here -->
+
+        <Image Source="logob.png"
+               AbsoluteLayout.LayoutBounds=".5,.40,.6,.5"
+               AbsoluteLayout.LayoutFlags="All" />
+               
+         <Image Source="whiteline.png"
+                AbsoluteLayout.LayoutBounds="-.06,.40,.32,.5"
+               AbsoluteLayout.LayoutFlags="All"
+               />
 
 
-             <Button Text="settings"
+        <Image Source="whiteline.png"
+                AbsoluteLayout.LayoutBounds="1.03,.40,.32,.5"
+               AbsoluteLayout.LayoutFlags="All"
+               />
+
+         <Image Source="settings.png"
+               AbsoluteLayout.LayoutBounds=".15,.7,.10,.5"
+               AbsoluteLayout.LayoutFlags="All" 
+               />
+
+         
+
+            <Image Source="utensils.png"
+               AbsoluteLayout.LayoutBounds=".60,.7,.07,.5"
+               AbsoluteLayout.LayoutFlags="All" 
+            
+               />
+
+            
+            <Image Source="buytickets.png"
+               AbsoluteLayout.LayoutBounds=".37,.7,.10,.5"
+               AbsoluteLayout.LayoutFlags="All" />
+
+           
+
+            <Image Source="stats.png"
+               AbsoluteLayout.LayoutBounds="0.85,.7,.10,.5"
+               AbsoluteLayout.LayoutFlags="All" />
+
+       
+               <Button Text="settings"
                HorizontalOptions="Center"
                VerticalOptions="CenterAndExpand" 
                BackgroundColor="Transparent"
                TextColor="Transparent"
-               HeightRequest="100" WidthRequest="100"
-               AbsoluteLayout.LayoutBounds=".016,.33,.05,.14"
+               HeightRequest="50" WidthRequest="50"
+               AbsoluteLayout.LayoutBounds=".10,.67,.2,.4"
                AbsoluteLayout.LayoutFlags="All"
                Clicked="onSettingsButtonClicked"/>
 
@@ -127,23 +101,96 @@
                VerticalOptions="CenterAndExpand" 
                BackgroundColor="Transparent"
                TextColor="Transparent"
-               HeightRequest="100" WidthRequest="100"
-               AbsoluteLayout.LayoutBounds=".1,.32,.05,.14"
+               HeightRequest="50" WidthRequest="50"
+               AbsoluteLayout.LayoutBounds=".63,.67,.2,.4"
                AbsoluteLayout.LayoutFlags="All"
                Clicked="onWeeklymealsButtonClicked"/>
 
-               <Button Text="statistics"
+
+
+            <Button Text="buytickets"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" 
+               BackgroundColor="Transparent"
+               TextColor="Transparent"
+              HeightRequest="50" WidthRequest="50"
+               AbsoluteLayout.LayoutBounds=".35,.67,.2,.4"
+               AbsoluteLayout.LayoutFlags="All"
+               Clicked="onBuyticketsButtonClicked"/>
+
+
+
+            <Button Text="statistics"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" 
+               BackgroundColor="Transparent"
+               TextColor="Transparent"
+               HeightRequest="50" WidthRequest="50"
+               AbsoluteLayout.LayoutBounds=".88,.67,.2,.4"
+               AbsoluteLayout.LayoutFlags="All"
+               Clicked="onStatsButtonClicked"/>
+
+               <Button Text="right"
                HorizontalOptions="Center"
                VerticalOptions="CenterAndExpand" 
                BackgroundColor="Transparent"
                TextColor="Transparent"
                HeightRequest="100" WidthRequest="100"
-               AbsoluteLayout.LayoutBounds=".058,.52,.05,.14"
+               AbsoluteLayout.LayoutBounds=".8,-.17,.05,.5"
                AbsoluteLayout.LayoutFlags="All"
-               Clicked="onStatsButtonClicked"/>
+               Clicked="onRightButtonClicked"/>
+
+             <Button Text="left"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" 
+               BackgroundColor="Transparent"
+               TextColor="Transparent"
+               HeightRequest="100" WidthRequest="100"
+               AbsoluteLayout.LayoutBounds=".2,-.17,.05,.5"
+               AbsoluteLayout.LayoutFlags="All"
+               Clicked="onLeftButtonClicked"/>
 
 
-            
-    </AbsoluteLayout>
-   </RelativeLayout>
+
+              <Button Text="ADD USER"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" 
+               BackgroundColor="#5B0604"
+               TextColor="White"
+               HeightRequest="50" WidthRequest="150"
+               AbsoluteLayout.LayoutBounds=".05,.97,.5,.5"
+               AbsoluteLayout.LayoutFlags="All"
+               CornerRadius="17"
+               FontAttributes="Bold"
+               />
+
+            <Button Text="DELETE USER"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" 
+               BackgroundColor="#5B0604"
+               TextColor="White"
+               HeightRequest="50" WidthRequest="150"
+               AbsoluteLayout.LayoutBounds=".95,.97,.5,.5"
+               AbsoluteLayout.LayoutFlags="All"
+               CornerRadius="17"
+               FontAttributes="Bold"
+               />
+
+            <Button Text="VALIDATOR"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" 
+               BackgroundColor="#5B0604"
+               TextColor="White"
+               HeightRequest="50" WidthRequest="200"
+               AbsoluteLayout.LayoutBounds=".5,.95,.5,.2"
+               AbsoluteLayout.LayoutFlags="All"
+               CornerRadius="17"
+               FontAttributes="Bold"
+               Clicked="onValidatorButtonClicked"/>
+
+            </AbsoluteLayout>
+
+          
+
+  
 </ContentPage>
