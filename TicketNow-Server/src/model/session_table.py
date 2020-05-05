@@ -1,7 +1,7 @@
 import datetime
 
 class SessionTable:
-    __MAX_SESSIONS_PER_USER = 3
+    __MAX_SESSIONS_PER_USER = 10
     
     __authentication_table = dict({})
 
