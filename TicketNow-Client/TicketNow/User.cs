@@ -79,25 +79,6 @@ namespace TicketNow
 
         }
 
-
-        public async Task<bool> putPassword(String old_password, String new_password, string accessToken)
-        {
-            var client = new HttpClient();
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
-
-            var json_old = JsonConvert.SerializeObject(old_password);
-            var json_new = JsonConvert.SerializeObject(new_password);
-            HttpContent content_old = new StringContent(json_old);
-            HttpContent content_new = new StringContent(json_new);
-            content_old.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-            content_new.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-
-            var response_old = await client.PutAsync("ticketnow.ddns.net:5000/api/user", content_old);
-            var response_new = await client.PutAsync("ticketnow.ddns.net:5000/api/user", content_new);
-
-            return true;
-        }
-
     }
 
 }

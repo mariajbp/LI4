@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Net.Http;
 using Xamarin.Forms;
 
 namespace TicketNow
@@ -15,8 +15,30 @@ namespace TicketNow
 
         private async void onCreateAccountButtonClicked(object sender, EventArgs args)
         {
-            await DisplayAlert("", "Your account has been created, please check your institutional email", "Ok");
-            //await DisplayAlert("Erro", "Invalid Email", "Try Again");
+
+            //POST
+            var client = new HttpClient();
+
+            //test with server
+
+            //PARAMETERS
+            var values = new Dictionary<string, string>
+            {
+               { "id_user", username.Text},
+               { "email", email.Text },
+               { "password", password.Text },
+               { "name", name.Text }
+            };
+
+            var request = new FormUrlEncodedContent(values);
+            //URI
+            HttpResponseMessage response = await client.PostAsync("http://ticketnow.ddns.net:5000/api/register", request);
+
+            if(response.IsSuccessStatusCode) await DisplayAlert("", "Your account has been created", "Ok");
+
+            else await DisplayAlert("Erro", "Invalid Entry", "Try Again");
+
+
         }
     }
 }

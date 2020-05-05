@@ -67,7 +67,24 @@
                              Constant=-220}"
                />
 
-           
+           <Entry x:Name="USERNAME"
+               Placeholder="USERNAME"
+               PlaceholderColor="#FFFFFF"
+               RelativeLayout.XConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-125}"
+               RelativeLayout.YConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.5,
+                             Constant=-115}"
+               TextColor="#FFFFFF"
+               BackgroundColor="Transparent"
+               IsPassword="True"
+               HeightRequest="43" WidthRequest="250" FontAttributes="Bold" ClearButtonVisibility="WhileEditing" 
+               />
 
 
 

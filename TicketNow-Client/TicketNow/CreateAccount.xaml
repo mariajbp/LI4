@@ -9,7 +9,7 @@
         <Image Source="logob.png"/>
 
 
-         <Entry
+         <Entry x:Name="email"
                Placeholder="EMAIL"
                PlaceholderColor="#FFFFFF"
                RelativeLayout.XConstraint =
@@ -21,7 +21,64 @@
                "{ConstraintExpression Type=RelativeToParent,
                              Property=Height,
                              Factor=0.5,
-                             Constant=-15}"
+                             Constant=15}"
+               TextColor="#FFFFFF"
+               BackgroundColor="Transparent"
+               HorizontalOptions="Center"
+               HeightRequest="43" WidthRequest="250" FontAttributes="Bold" ClearButtonVisibility="WhileEditing" 
+          />
+
+            <Entry x:Name="username"
+               Placeholder="USERNAME"
+               PlaceholderColor="#FFFFFF"
+               RelativeLayout.XConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-125}"
+               RelativeLayout.YConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.5,
+                             Constant=55}"
+               TextColor="#FFFFFF"
+               BackgroundColor="Transparent"
+               HorizontalOptions="Center"
+               HeightRequest="43" WidthRequest="250" FontAttributes="Bold" ClearButtonVisibility="WhileEditing" 
+          />
+
+             <Entry x:Name="name"
+               Placeholder="NAME"
+               PlaceholderColor="#FFFFFF"
+               RelativeLayout.XConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-125}"
+               RelativeLayout.YConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.5,
+                             Constant=-25}"
+               TextColor="#FFFFFF"
+               BackgroundColor="Transparent"
+               HorizontalOptions="Center"
+               HeightRequest="43" WidthRequest="250" FontAttributes="Bold" ClearButtonVisibility="WhileEditing" 
+          />
+
+             <Entry x:Name="password"
+               Placeholder="PASSWORD"
+               PlaceholderColor="#FFFFFF"
+               RelativeLayout.XConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-125}"
+               RelativeLayout.YConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.5,
+                             Constant=95}"
                TextColor="#FFFFFF"
                BackgroundColor="Transparent"
                HorizontalOptions="Center"
@@ -39,7 +96,7 @@
                "{ConstraintExpression Type=RelativeToParent,
                              Property=Height,
                              Factor=0.5,
-                             Constant=70}"
+                             Constant=180}"
                BackgroundColor="#5B0604"
                CornerRadius="17"
                TextColor="#FFFFFF"

@@ -76,13 +76,13 @@ namespace TicketNow
 
         private async void onSettingsButtonClicked(object sender, EventArgs args)
         {
-            await Navigation.PushAsync(new Settings(token));
+            await Navigation.PushAsync(new Settings( token));
 
         }
 
         private async void onWeeklymealsButtonClicked(object sender, EventArgs args)
         {
-            await Navigation.PushAsync(new WeeklyMeal());
+            await Navigation.PushAsync(new WeeklyMeal(token));
 
         }
 
