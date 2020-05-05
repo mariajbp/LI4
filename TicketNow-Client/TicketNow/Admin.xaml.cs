@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using TicketNow.Services;
-
-
+using ZXing.Net.Mobile.Forms;
 
 namespace TicketNow
 {
@@ -53,12 +53,12 @@ namespace TicketNow
             if (u.cm == 1)
             {
                 meals.Text = "YOU HAVE " + u.cm.ToString() + " COMPLETE MEAL AVAILABLE";
-                // barcod.BarcodeValue = complete.id_ticket;
+                barcod.BarcodeValue = complete.id_ticket + " " + complete.id_user;
             }
             else if (u.cm != 0)
             {
                 meals.Text = "YOU HAVE " + u.cm.ToString() + " COMPLETE MEALS AVAILABLE";
-                // barcod.BarcodeValue = complete.id_ticket;
+                barcod.BarcodeValue = complete.id_ticket + " " + complete.id_user;
             }
             else
             {
@@ -114,13 +114,13 @@ namespace TicketNow
             if (u.sm == 1)
             {
                 meals.Text = "YOU HAVE " + u.sm.ToString() + " SIMPLE MEAL AVAILABLE"; barcod.Opacity = 1;
-                //  barcod.BarcodeValue = simple.id_ticket;
+                barcod.BarcodeValue = simple.id_ticket + " " + simple.id_user;
             }
             else if (u.sm != 0)
             {
                 meals.Text = "YOU HAVE " + u.sm.ToString() + " SIMPLE MEALS AVAILABLE"; barcod.Opacity = 1;
 
-                // barcod.BarcodeValue = simple.id_ticket;
+                barcod.BarcodeValue = simple.id_ticket + " " + simple.id_user;
             }
             else
             {
@@ -139,12 +139,12 @@ namespace TicketNow
             if (u.cm == 1)
             {
                 meals.Text = "YOU HAVE " + u.cm.ToString() + " COMPLETE MEAL AVAILABLE"; barcod.Opacity = 1;
-                //   barcod.BarcodeValue = complete.id_ticket;
+                barcod.BarcodeValue = complete.id_ticket + " " + complete.id_user;
             }
             else if (u.cm != 0)
             {
                 meals.Text = "YOU HAVE " + u.cm.ToString() + " COMPLETE MEALS AVAILABLE"; barcod.Opacity = 1;
-                //  barcod.BarcodeValue = complete.id_ticket;
+                barcod.BarcodeValue = complete.id_ticket + " " + complete.id_user;
             }
             else
             {
@@ -154,20 +154,63 @@ namespace TicketNow
         }
 
         //codigo para a app do validator
-       
 
-        private async void onValidatorButtonClicked(object sender, EventArgs e)
+
+        private void onValidatorButtonClicked(object sender, EventArgs e)
 
         {
-           
-                var scanner = DependencyService.Get<IQrScanningService>();
-                var result = await scanner.ScanAsync();
-                if (result != null)
+            Scanner();
+        }
+
+
+        public async void Scanner()
+        {
+
+            var ScannerPage = new ZXingScannerPage();
+
+            ScannerPage.OnScanResult += (result) =>
+            {
+                // stop scanning
+                ScannerPage.IsScanning = false;
+
+                // Alert with scanning code
+                Device.BeginInvokeOnMainThread(async () =>
                 {
-                    barcod.BarcodeValue = result;
-                }
-            
-         
+                    await Navigation.PopAsync();
+                    await DisplayAlert("", "Done", "OK");
+                    await val(result.Text);
+                });
+            };
+
+
+             await Navigation.PushAsync(ScannerPage);
+
+        }
+
+        public async Task<bool> val(string result)
+        {
+            //POST
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+            string[] words = result.Split(' ');
+
+            //test with server
+
+            //PARAMETERS
+            var values = new Dictionary<string, string>
+            {
+               { "id_user", words[1] },
+               { "id_ticket", words[0] }
+            };
+
+            var request = new FormUrlEncodedContent(values);
+            //URI
+            HttpResponseMessage response = await client.PostAsync("http://ticketnow.ddns.net:5000/api/validator", request);
+
+            return true;
+
+
         }
     }
 }

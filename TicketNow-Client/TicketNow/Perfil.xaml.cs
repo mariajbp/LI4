@@ -31,8 +31,8 @@ namespace TicketNow
             {
                 foreach (var t in tickets)
                 {
-                    if (t.type == 2) this.complete = t;
-                    break;
+                    if (t.type ==2) this.complete = t;
+
                 }
             }
 
@@ -42,7 +42,7 @@ namespace TicketNow
                 foreach (var t in tickets)
                 {
                     if (t.type == 1) this.simple = t;
-                    break;
+                   
                 }
             }
 
@@ -50,12 +50,12 @@ namespace TicketNow
             if (u.cm == 1)
             {
                 meals.Text = "YOU HAVE " + u.cm.ToString() + " COMPLETE MEAL AVAILABLE";
-               // barcod.BarcodeValue = complete.id_ticket;
+               barcod.BarcodeValue = complete.id_ticket+" "+complete.id_user;
             }
             else if (u.cm != 0)
             {
                 meals.Text = "YOU HAVE " + u.cm.ToString() + " COMPLETE MEALS AVAILABLE";
-               // barcod.BarcodeValue = complete.id_ticket;
+                barcod.BarcodeValue =complete.id_ticket + " " + complete.id_user;
             }
             else
             {
@@ -111,13 +111,13 @@ namespace TicketNow
             if (u.sm == 1)
             {
                 meals.Text = "YOU HAVE " + u.sm.ToString() + " SIMPLE MEAL AVAILABLE"; barcod.Opacity = 1;
-              //  barcod.BarcodeValue = simple.id_ticket;
+                barcod.BarcodeValue = simple.id_ticket+" "+simple.id_user;
             }
             else if (u.sm != 0)
             {
                 meals.Text = "YOU HAVE " + u.sm.ToString() + " SIMPLE MEALS AVAILABLE"; barcod.Opacity = 1;
                 Console.WriteLine("AAAAAAAAAAAL" + simple.id_user);
-               // barcod.BarcodeValue = simple.id_ticket;
+                barcod.BarcodeValue = simple.id_ticket + " " + simple.id_user;
             }
             else
             {
@@ -136,12 +136,12 @@ namespace TicketNow
             if (u.cm == 1)
             {
                 meals.Text = "YOU HAVE " + u.cm.ToString() + " COMPLETE MEAL AVAILABLE"; barcod.Opacity = 1;
-             //   barcod.BarcodeValue = complete.id_ticket;
+                barcod.BarcodeValue = complete.id_ticket + " " + complete.id_user;
             }
             else if (u.cm != 0)
             {
                 meals.Text = "YOU HAVE " + u.cm.ToString() + " COMPLETE MEALS AVAILABLE"; barcod.Opacity = 1;
-              //  barcod.BarcodeValue = complete.id_ticket;
+                barcod.BarcodeValue = complete.id_ticket+" "+complete.id_user;
             }
             else
             {

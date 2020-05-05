@@ -1,10 +1,10 @@
 ﻿<Properties StartupConfiguration="{75864FFA-22C1-4DDF-9041-8A49A7F723C7}|Default">
   <MonoDevelop.Ide.ItemProperties.TicketNow.Android AndroidDesignerPreferredTheme="Theme.AppCompat.Light.NoActionBar" PreferredExecutionTarget="Android.pixel_2_pie_9_0_-_api_28" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="TicketNow/ChangePass.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="TicketNow/Perfil.xaml.cs">
     <Files>
-      <File FileName="TicketNow/CreateAccount.xaml.cs" Line="24" Column="25" />
-      <File FileName="TicketNow/BuyTickets2.xaml.cs" Line="87" Column="13" />
-      <File FileName="TicketNow/ChangePass.xaml.cs" Line="12" Column="22" />
+      <File FileName="TicketNow/Admin.xaml.cs" Line="168" Column="1" />
+      <File FileName="TicketNow/Perfil.xaml" Line="1" Column="1" />
+      <File FileName="TicketNow/Perfil.xaml.cs" Line="114" Column="17" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -13,18 +13,14 @@
             <Node name="TicketNow" expanded="True">
               <Node name="Admin.xaml" expanded="True" />
               <Node name="BuyTickets2.xaml" expanded="True" />
-              <Node name="ChangePass.xaml" expanded="True">
-                <Node name="ChangePass.xaml.cs" selected="True" />
-              </Node>
+              <Node name="ChangePass.xaml" expanded="True" />
               <Node name="CreateAccount.xaml" expanded="True" />
               <Node name="MainPage.xaml" expanded="True" />
-              <Node name="Perfil.xaml" expanded="True" />
-              <Node name="Settings.xaml" expanded="True" />
-              <Node name="WeeklyMeal.xaml" expanded="True" />
+              <Node name="Perfil.xaml" expanded="True">
+                <Node name="Perfil.xaml.cs" selected="True" />
+              </Node>
             </Node>
-            <Node name="TicketNow.Android" expanded="True">
-              <Node name="Services" expanded="True" />
-            </Node>
+            <Node name="TicketNow.Android" expanded="True" />
           </Node>
         </State>
       </Pad>
