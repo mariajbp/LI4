@@ -34,7 +34,7 @@ class UserAPI(Resource):
             return { "error" : "No json body found on request" }
         
         try:
-            User.add_user(User(body['id_user'],body['email'],body['password'],body['name']))
+            User.add_user(User(body['id_user'],body['email'],body['password'],body['name'],int(body['permissions'])))
             return success()
         except ErrorCodeException as ec:
             return error_code(ec)
