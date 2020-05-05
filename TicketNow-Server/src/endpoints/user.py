@@ -1,10 +1,10 @@
 from flask_restful import Resource , reqparse
 from flask import request
 from model.users import User
-from flask_jwt_extended import jwt_required , get_jwt_identity
-from common.utils import admin_required , user_required , Permissions
+from flask_jwt_extended import jwt_required , get_jwt_identity , get_raw_jwt
+from common.utils import admin_required , user_required , auth_required , Permissions
 from common.error import ErrorCodeException
-from common.responses import success , error_code , forbidden
+from common.responses import success , error_code , forbidden , error_message
 
 
 class UserAPI(Resource):
@@ -12,8 +12,9 @@ class UserAPI(Resource):
     parser_del.add_argument('id_user', type=str, required=False, help='User Identifier')
 
     parser_put = reqparse.RequestParser()
-    parser_put.add_argument('old_password', type=str, required=False, help='Old Password')
-    parser_put.add_argument('new_password', type=str, required=False, help='New Password')
+    parser_put.add_argument('id_user', type=str, required=True, help='Old Password')
+    parser_put.add_argument('old_password', type=str, required=True, help='Old Password')
+    parser_put.add_argument('new_password', type=str, required=True, help='New Password')
     
     
     @admin_required
@@ -54,19 +55,33 @@ class UserAPI(Resource):
             return error_code(ec)
         
 
-    @admin_required
+    @auth_required
     def put(self):
-        id_user = get_jwt_identity()
+        sender_id_user = get_jwt_identity()
         args = UserAPI.parser_put.parse_args()
+
+        target_id_user = args['id_user']
         old_password = args['old_password']
         new_password = args['new_password']
-
-        if old_password and new_password :
-            return success()
+    
+        if old_password != None and new_password != None :
+            try:
+                u = User.get_user(target_id_user)
+                tmp = User.get_user(sender_id_user)
+                if sender_id_user != target_id_user and not tmp.check_permission(Permissions.ADMIN):
+                    return forbidden() , 403
+                else:
+                    if u.check_password(old_password):
+                        u.set_password(new_password)
+                        return success()
+                    else:
+                        return error_message("Incorrect old password!") , 500
+            except ErrorCodeException as ec:
+                return error_code(ec) , 500
         else:
-            return { "error" : "Argument required" }
+            return error_message("Argument required") , 401
 
-        
+
 """ {
 	"id_user" : "a11111",
 	"email" : "a11111@alunos.uminho.pt",

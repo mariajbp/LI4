@@ -81,6 +81,14 @@ def populate():
         MealType.add_meal_type(MealType("dinner"))
     except:
         pass
+    try:
+        MealType.add_meal_type(MealType("lunch_veg"))
+    except:
+        pass
+    try:
+        MealType.add_meal_type(MealType("dinner_veg"))
+    except:
+        pass
 
     try:
         Location.add_location(Location("azurem"))

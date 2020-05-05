@@ -64,7 +64,12 @@ class User(db.Model):
 
 
     def check_permission(self,const_permition):
+        print("is admin?",self.permissions & const_permition)
         return self.permissions & const_permition
+
+    def set_password(self,password):
+        self.password_hash = generate_password_hash(password)
+        db.session.commit()
 
     def __str__(self):
         return self.id_user
