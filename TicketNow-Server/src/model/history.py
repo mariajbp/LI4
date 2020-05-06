@@ -12,7 +12,7 @@ class History(db.Model):
 
     def __init__(self,id_ticket,id_user,used_datetime=None):
         self.used_datetime = used_datetime
-        self.id_ticket = hexlify(id_ticket).decode('ascii')
+        self.id_ticket = id_ticket
         self.id_user = id_user
 
     @staticmethod
