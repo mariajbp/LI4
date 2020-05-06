@@ -80,7 +80,7 @@ from model.users import User
 
 def set_as_used(id_ticket,id_user):
     
-    t = Ticket.get_ticket(id_ticket)
+    t = Ticket.get_ticket(hexlify(id_ticket).decode('ascii'))
     if t == None:
         raise ErrorCodeException(ErrorCode.TICKET_DOESNT_EXISTS)
 
