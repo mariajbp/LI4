@@ -69,9 +69,15 @@ namespace TicketNow
 
         }
 
+        private async void onRefreshButtonClicked(object sender, EventArgs args)
+        {
+            await u.setInfo(token, u.id_user);
+        }
+
 
         protected override bool OnBackButtonPressed()
         {
+            u.setInfo(token, u.id_user);
             return true;
         }
 
@@ -79,12 +85,14 @@ namespace TicketNow
 
         private async void onSettingsButtonClicked(object sender, EventArgs args)
         {
+            await u.setInfo(token, u.id_user);
             await Navigation.PushAsync(new Settings(token));
 
         }
 
         private async void onWeeklymealsButtonClicked(object sender, EventArgs args)
         {
+            await u.setInfo(token, u.id_user);
             await Navigation.PushAsync(new WeeklyMeal(token));
 
         }
@@ -92,22 +100,24 @@ namespace TicketNow
 
         private async void onBuyticketsButtonClicked(object sender, EventArgs args)
         {
+            await u.setInfo(token, u.id_user);
             await Navigation.PushAsync(new BuyTickets(u.id_user, token));
 
         }
 
         private async void onStatsButtonClicked(object sender, EventArgs args)
         {
+            await u.setInfo(token, u.id_user);
             await Navigation.PushAsync(new Charts());
 
         }
 
 
 
-        private void onRightButtonClicked(object sender, EventArgs args)
+        private async void onRightButtonClicked(object sender, EventArgs args)
         {
 
-
+            await u.setInfo(token, u.id_user);
 
             right.Opacity = 0.5;
             left.Opacity = 1;
@@ -129,9 +139,9 @@ namespace TicketNow
             }
         }
 
-        private void onLeftButtonClicked(object sender, EventArgs args)
+        private async void onLeftButtonClicked(object sender, EventArgs args)
         {
-
+            await u.setInfo(token, u.id_user);
 
 
             right.Opacity = 1;
@@ -179,6 +189,7 @@ namespace TicketNow
                     await Navigation.PopAsync();
                     await DisplayAlert("", "Done", "OK");
                     await val(result.Text);
+
                 });
             };
 
@@ -207,6 +218,8 @@ namespace TicketNow
             var request = new FormUrlEncodedContent(values);
             //URI
             HttpResponseMessage response = await client.PostAsync("http://ticketnow.ddns.net:5000/api/validator", request);
+
+
 
             return true;
 

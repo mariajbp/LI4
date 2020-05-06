@@ -30,8 +30,7 @@ namespace TicketNow
                 //PARAMETERS
                 var values = new Dictionary<string, string>
                 {
-                    { "Username", username },
-                    { "Password", password }
+                   
                 };
 
                 var request = new FormUrlEncodedContent(values);

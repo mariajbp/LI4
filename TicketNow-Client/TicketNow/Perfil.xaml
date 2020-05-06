@@ -17,6 +17,7 @@
                                          AbsoluteLayout.LayoutFlags="PositionProportional" 
                                          BarcodeValue="-1" BarcodeFormat="QR_CODE">
 
+
         <forms:ZXingBarcodeImageView.BarcodeOptions>
             <zxcm:EncodingOptions Width="160" Height="160" Margin="0" />
 
@@ -180,6 +181,17 @@
                AbsoluteLayout.LayoutBounds=".2,-.17,.05,.5"
                AbsoluteLayout.LayoutFlags="All"
                Clicked="onLeftButtonClicked"/>
+
+              <Button Text="refresh"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" 
+               BackgroundColor="Transparent"
+               TextColor="Transparent"
+               HeightRequest="150" WidthRequest="150"
+               AbsoluteLayout.LayoutBounds=".5,-2.5,.5,.9"
+               AbsoluteLayout.LayoutFlags="All"
+               FontAttributes="Bold"
+               Clicked="onRefreshButtonClicked"/>
 
          
 

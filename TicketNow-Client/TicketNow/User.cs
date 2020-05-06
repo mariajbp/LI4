@@ -15,15 +15,17 @@ namespace TicketNow
         public string email { get;  set; }
         public string name { get; set; }
         public IList<Ticket> owned_tickets { get; set; }
-        public int permissoes; //admin:3 user:1
-        public int sm=0; //simple meal
-        public int cm=0;  //complete meal
+        public int permissoes=1; //admin:3 user:1
+        public int sm; //simple meal
+        public int cm;  //complete meal
         
 
        
           //login with token and set information and owned_tickets
         public async Task<bool> setInfo(string token, string id_userr)
         {
+            sm = 0; //simple meal
+            cm = 0;  //complete meal
             var client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 

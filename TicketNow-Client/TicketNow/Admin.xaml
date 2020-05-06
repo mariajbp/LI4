@@ -188,6 +188,17 @@
                FontAttributes="Bold"
                Clicked="onValidatorButtonClicked"/>
 
+             <Button Text="refresh"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" 
+               BackgroundColor="Transparent"
+               TextColor="Transparent"
+               HeightRequest="150" WidthRequest="150"
+               AbsoluteLayout.LayoutBounds=".5,-2.5,.5,.9"
+               AbsoluteLayout.LayoutFlags="All"
+               FontAttributes="Bold"
+               Clicked="onRefreshButtonClicked"/>
+
             </AbsoluteLayout>
 
           
