@@ -35,7 +35,7 @@ namespace TicketNow
                 foreach (var t in tickets)
                 {
                     if (t.type == 2) this.complete = t;
-                    break;
+                
                 }
             }
 
@@ -45,7 +45,7 @@ namespace TicketNow
                 foreach (var t in tickets)
                 {
                     if (t.type == 1) this.simple = t;
-                    break;
+                  
                 }
             }
 

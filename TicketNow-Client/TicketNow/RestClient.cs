@@ -16,9 +16,9 @@ namespace TicketNow
         // This code matches the HTTP Request that we included in our api controller
         public async Task<string> checkLogin(string username, string password)
         {
-            if (username == "a12345" && password == "epah_mas_que_chatice") token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODgyNTE1ODAsIm5iZiI6MTU4ODI1MTU4MCwianRpIjoiMzViMTk5NjgtMTg1MS00Y2JiLTkxN2UtNjczNWUzYTkzNDQ1IiwiZXhwIjoxNjE5Nzg3NTgwLCJpZGVudGl0eSI6ImExMjM0NSIsImZyZXNoIjpmYWxzZSwidHlwZSI6ImFjY2VzcyIsInVzZXJfY2xhaW1zIjp7InBlcm1pc3Npb25zIjo1fX0._-ZUM1O5Iy6f-N8f7WjCti8n0JGIfH6jt4ejpdvwBmQ";
-            else
-            {
+           // if (username == "a12345" && password == "epah_mas_que_chatice") token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODgyNTE1ODAsIm5iZiI6MTU4ODI1MTU4MCwianRpIjoiMzViMTk5NjgtMTg1MS00Y2JiLTkxN2UtNjczNWUzYTkzNDQ1IiwiZXhwIjoxNjE5Nzg3NTgwLCJpZGVudGl0eSI6ImExMjM0NSIsImZyZXNoIjpmYWxzZSwidHlwZSI6ImFjY2VzcyIsInVzZXJfY2xhaW1zIjp7InBlcm1pc3Npb25zIjo1fX0._-ZUM1O5Iy6f-N8f7WjCti8n0JGIfH6jt4ejpdvwBmQ";
+           // else
+           // {
                 var client = new HttpClient();
 
                 //verificar se esta correto
@@ -30,7 +30,7 @@ namespace TicketNow
                 //PARAMETERS
                 var values = new Dictionary<string, string>
                 {
-                   
+
                 };
 
                 var request = new FormUrlEncodedContent(values);
@@ -51,7 +51,7 @@ namespace TicketNow
                     //get token
                     token = accessToken;
                 }
-                  }
+           // }
 
                 return token;
             }
