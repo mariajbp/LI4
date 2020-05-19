@@ -15,7 +15,7 @@ namespace TicketNow
         public string email { get;  set; }
         public string name { get; set; }
         public IList<Ticket> owned_tickets { get; set; }
-        public int permissoes=1; //admin:3 user:1
+        public int permissoes=1; 
         public int sm; //simple meal
         public int cm;  //complete meal
         
@@ -47,10 +47,9 @@ namespace TicketNow
             
             this.id_user = user.Value<string>("id_user");
             this.email = user.Value<string>("email");
+            this.permissoes = user.Value<int>("permissions");
             this.name = user.Value<string>("name");
 
-            if (this.id_user == "a12345") this.permissoes = 3;
-            else if (this.id_user == "a11111") this.permissoes = 1;
 
                 //OWNED_TICKETS
                 //test with server

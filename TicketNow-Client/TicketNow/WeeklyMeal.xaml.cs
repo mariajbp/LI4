@@ -10,8 +10,8 @@ namespace TicketNow
 {
     public partial class WeeklyMeal : ContentPage
     {
-        string token;
-        public IList<Meal> meals { get; set; }
+        private string token;
+        private IList<Meal> meals { get; set; }
 
         public WeeklyMeal(string token)
         {

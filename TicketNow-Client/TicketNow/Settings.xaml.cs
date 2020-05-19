@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using Android.OS;
 using Xamarin.Forms;
 
 namespace TicketNow
 {
     public partial class Settings : ContentPage
     {
-        User u;
-        string token;
+        private User u;
+        private string token;
+        private long LastButtonClickTime = 0;
+
         public Settings(User u,string token)
         {
             this.u = u;
@@ -21,14 +24,18 @@ namespace TicketNow
         
         private async void onChangePasswordClicked(object sender, EventArgs args)
         {
-            if(u.permissoes==1)   
+            if (SystemClock.ElapsedRealtime() - LastButtonClickTime < 1000) return;
+            LastButtonClickTime = SystemClock.ElapsedRealtime();
+            if (u.permissoes==1)   
             await Navigation.PushAsync(new ChangePass(u,token));
-            else if(u.permissoes==3)
+            else if(u.permissoes!=1)
                 await Navigation.PushAsync(new ChangePassAdmin(token));
         }
 
         private async void onLogoutClicked(object sender, EventArgs args)
         {
+            if (SystemClock.ElapsedRealtime() - LastButtonClickTime < 1000) return;
+            LastButtonClickTime = SystemClock.ElapsedRealtime();
             await logout();
             await Navigation.PushAsync(new MainPage());
 

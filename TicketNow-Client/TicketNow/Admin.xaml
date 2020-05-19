@@ -152,7 +152,7 @@
 
 
 
-              <Button Text="ADD USER"
+              <Button Text="ADD MEAL"
                HorizontalOptions="Center"
                VerticalOptions="CenterAndExpand" 
                BackgroundColor="#5B0604"

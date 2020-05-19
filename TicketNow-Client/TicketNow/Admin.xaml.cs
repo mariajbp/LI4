@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using Android.OS;
 using Xamarin.Forms;
 using ZXing.Net.Mobile.Forms;
 
@@ -13,11 +14,12 @@ namespace TicketNow
     public partial class Admin : ContentPage
 
     {
-        public User u;
-        public string token;
-        public Ticket complete;
-        public Ticket simple;
-        public int leftt = 0; //0=right; 1=left;
+        private User u;
+        private string token;
+        private Ticket complete;
+        private Ticket simple;
+        private int leftt = 1; //0=right; 1=left;
+        private long LastButtonClickTime = 0;
 
         public Admin(User u, string token)
         {
@@ -142,12 +144,19 @@ namespace TicketNow
 
         private async void onRefreshButtonClicked(object sender, EventArgs args)
         {
+            if (SystemClock.ElapsedRealtime() - LastButtonClickTime < 1000) return;
+            LastButtonClickTime = SystemClock.ElapsedRealtime();
             this.refresh();
+            
+
         }
 
 
         protected override bool OnBackButtonPressed()
         {
+
+            if (SystemClock.ElapsedRealtime() - LastButtonClickTime < 1000) return;
+            LastButtonClickTime = SystemClock.ElapsedRealtime();
             this.refresh();
             return true;
         }
@@ -156,44 +165,52 @@ namespace TicketNow
 
         private async void onSettingsButtonClicked(object sender, EventArgs args)
         {
+            if (SystemClock.ElapsedRealtime() - LastButtonClickTime < 1000) return;
+            LastButtonClickTime = SystemClock.ElapsedRealtime();
             //refresh user info with new ticke
             this.refresh();
             await Navigation.PushAsync(new Settings(u,token));
+            
 
         }
 
         private async void onWeeklymealsButtonClicked(object sender, EventArgs args)
         {
-            //refresh user info with new ticke
+            if (SystemClock.ElapsedRealtime() - LastButtonClickTime < 1000) return;
+            LastButtonClickTime = SystemClock.ElapsedRealtime();
+            //refresh user info with new ticket
             this.refresh();
             await Navigation.PushAsync(new WeeklyMeal(token));
-
+            
         }
 
 
         private async void onBuyticketsButtonClicked(object sender, EventArgs args)
         {
+            if (SystemClock.ElapsedRealtime() - LastButtonClickTime < 1000) return;
+            LastButtonClickTime = SystemClock.ElapsedRealtime();
             //refresh user info with new ticke
-            await u.setInfo(token, u.id_user);
-            IList<Ticket> tickets = u.owned_tickets;
+            this.refresh();
             await Navigation.PushAsync(new BuyTickets(u.id_user, token));
-
+            
         }
 
         private async void onStatsButtonClicked(object sender, EventArgs args)
         {
+            if (SystemClock.ElapsedRealtime() - LastButtonClickTime < 1000) return;
+            LastButtonClickTime = SystemClock.ElapsedRealtime();
             //refresh user info with new ticke
-            await u.setInfo(token, u.id_user);
-            IList<Ticket> tickets = u.owned_tickets;
+            this.refresh();
             await Navigation.PushAsync(new Charts());
-
+           
         }
 
 
 
         private async void onRightButtonClicked(object sender, EventArgs args)
         {
-
+            if (SystemClock.ElapsedRealtime() - LastButtonClickTime < 1000) return;
+            LastButtonClickTime = SystemClock.ElapsedRealtime();
             this.leftt = 0;
             //refresh user info with new ticke
             await u.setInfo(token, u.id_user);
@@ -236,10 +253,13 @@ namespace TicketNow
                 barcod.Opacity = 0.5;
                 meals.Text = "YOU HAVE 0 SIMPLE MEALS AVAILABLE";
             }
+            
         }
 
         private async void onLeftButtonClicked(object sender, EventArgs args)
         {
+            if (SystemClock.ElapsedRealtime() - LastButtonClickTime < 1000) return;
+            LastButtonClickTime = SystemClock.ElapsedRealtime();
             this.leftt = 1;
             //refresh user info with new ticke
             await u.setInfo(token, u.id_user);
@@ -284,6 +304,8 @@ namespace TicketNow
                 barcod.Opacity = 0.5;
                 meals.Text = "YOU HAVE 0 COMPLETE MEALS AVAILABLE";
             }
+            
+
         }
 
         //codigo para a app do validator
@@ -292,7 +314,10 @@ namespace TicketNow
         private void onValidatorButtonClicked(object sender, EventArgs e)
 
         {
+            if (SystemClock.ElapsedRealtime() - LastButtonClickTime < 1000) return;
+            LastButtonClickTime = SystemClock.ElapsedRealtime();
             Scanner();
+            
         }
 
 

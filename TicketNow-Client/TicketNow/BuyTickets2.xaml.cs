@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using Android.OS;
 using Xamarin.Forms;
 
 namespace TicketNow
@@ -10,11 +11,12 @@ namespace TicketNow
     public partial class BuyTickets2 : ContentPage
     {
 
-        int meal; //0- complete meal-2.75(25);    1- simple meal-2.05
-        int ticket_type;
-        double s = 0;
-        string token;
-        string username;
+        private int meal; //0- complete meal-2.75(25);    1- simple meal-2.05
+        private int ticket_type;
+        private double s = 0;
+        private string token;
+        private string username;
+        private long LastButtonClickTime = 0;
 
         public BuyTickets2(int i, string token, string username)
         {
@@ -65,6 +67,8 @@ namespace TicketNow
 
         private async void onPaymentButtonClicked(object sender, EventArgs args)
         {
+            if (SystemClock.ElapsedRealtime() - LastButtonClickTime < 1000) return;
+            LastButtonClickTime = SystemClock.ElapsedRealtime();
             if (meal == 1)
             {
                 ticket_type = 1;
@@ -110,7 +114,7 @@ namespace TicketNow
             //refresh user info with new tickets
             User u = new User();
             await u.setInfo(token, username);
-            if (u.permissoes == 3) await Navigation.PushAsync(new Admin(u, token));
+            if (u.permissoes != 1) await Navigation.PushAsync(new Admin(u, token));
             else if (u.permissoes == 1) await Navigation.PushAsync(new Perfil(u, token));
            
 

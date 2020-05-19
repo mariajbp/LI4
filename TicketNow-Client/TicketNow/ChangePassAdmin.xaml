@@ -82,7 +82,6 @@
                              Constant=-115}"
                TextColor="#FFFFFF"
                BackgroundColor="Transparent"
-               IsPassword="True"
                HeightRequest="43" WidthRequest="250" FontAttributes="Bold" ClearButtonVisibility="WhileEditing" 
                />
 

@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using Android.OS;
 using Xamarin.Forms;
 
 namespace TicketNow
 {
     public partial class ChangePassAdmin : ContentPage
     {
-        string token;
+        private string token;
+        private long LastButtonClickTime = 0;
+
         public ChangePassAdmin(string token)
         {
            
@@ -20,6 +23,8 @@ namespace TicketNow
 
         private async void onChangePasswordClicked(object sender, EventArgs args)
         {
+            if (SystemClock.ElapsedRealtime() - LastButtonClickTime < 1000) return;
+            LastButtonClickTime = SystemClock.ElapsedRealtime();
             bool match = matchPass(NEWPASS1.Text, NEWPASS2.Text);
             if (match == true)
             {
