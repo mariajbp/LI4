@@ -9,10 +9,11 @@ namespace TicketNow
 {
     public partial class ChangePass : ContentPage
     {
+        User u;
         string token;
-        public ChangePass(string token)
+        public ChangePass(User u,string token)
         {
-           
+            this.u = u;
             this.token = token;
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
@@ -55,7 +56,7 @@ namespace TicketNow
             //PARAMETERS
             var values = new Dictionary<string, string>
             {
-               { "id_user", USERNAME.Text },
+               { "id_user", u.id_user },
                { "old_password", old_password },
                { "new_password", new_password }
             };

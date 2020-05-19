@@ -9,20 +9,22 @@ namespace TicketNow
 {
     public partial class Settings : ContentPage
     {
+        User u;
         string token;
-        public Settings(string token)
+        public Settings(User u,string token)
         {
-        
+            this.u = u;
             this.token = token;
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
         }
-
+        
         private async void onChangePasswordClicked(object sender, EventArgs args)
         {
-
-            await Navigation.PushAsync(new ChangePass(token));
-
+            if(u.permissoes==1)   
+            await Navigation.PushAsync(new ChangePass(u,token));
+            else if(u.permissoes==3)
+                await Navigation.PushAsync(new ChangePassAdmin(token));
         }
 
         private async void onLogoutClicked(object sender, EventArgs args)

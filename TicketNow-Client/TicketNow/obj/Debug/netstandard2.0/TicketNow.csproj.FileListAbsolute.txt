@@ -1,0 +1,15 @@
+/Users/susanamarques/Desktop/LI4/TicketNow-Client/TicketNow/obj/Debug/netstandard2.0/TicketNow.csprojAssemblyReference.cache
+/Users/susanamarques/Desktop/LI4/TicketNow-Client/TicketNow/obj/Debug/netstandard2.0/Admin.xaml.g.cs
+/Users/susanamarques/Desktop/LI4/TicketNow-Client/TicketNow/obj/Debug/netstandard2.0/App.xaml.g.cs
+/Users/susanamarques/Desktop/LI4/TicketNow-Client/TicketNow/obj/Debug/netstandard2.0/BuyTickets.xaml.g.cs
+/Users/susanamarques/Desktop/LI4/TicketNow-Client/TicketNow/obj/Debug/netstandard2.0/BuyTickets2.xaml.g.cs
+/Users/susanamarques/Desktop/LI4/TicketNow-Client/TicketNow/obj/Debug/netstandard2.0/ChangePassAdmin.xaml.g.cs
+/Users/susanamarques/Desktop/LI4/TicketNow-Client/TicketNow/obj/Debug/netstandard2.0/Charts.xaml.g.cs
+/Users/susanamarques/Desktop/LI4/TicketNow-Client/TicketNow/obj/Debug/netstandard2.0/CreateAccount.xaml.g.cs
+/Users/susanamarques/Desktop/LI4/TicketNow-Client/TicketNow/obj/Debug/netstandard2.0/MainPage.xaml.g.cs
+/Users/susanamarques/Desktop/LI4/TicketNow-Client/TicketNow/obj/Debug/netstandard2.0/Perfil.xaml.g.cs
+/Users/susanamarques/Desktop/LI4/TicketNow-Client/TicketNow/obj/Debug/netstandard2.0/Settings.xaml.g.cs
+/Users/susanamarques/Desktop/LI4/TicketNow-Client/TicketNow/obj/Debug/netstandard2.0/WeeklyMeal.xaml.g.cs
+/Users/susanamarques/Desktop/LI4/TicketNow-Client/TicketNow/obj/Debug/netstandard2.0/TicketNow.csproj.CoreCompileInputs.cache
+/Users/susanamarques/Desktop/LI4/TicketNow-Client/TicketNow/obj/Debug/netstandard2.0/TicketNow.AssemblyInfoInputs.cache
+/Users/susanamarques/Desktop/LI4/TicketNow-Client/TicketNow/obj/Debug/netstandard2.0/TicketNow.AssemblyInfo.cs

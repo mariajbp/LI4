@@ -67,25 +67,6 @@
                              Constant=-220}"
                />
 
-           <Entry x:Name="USERNAME"
-               Placeholder="USERNAME"
-               PlaceholderColor="#FFFFFF"
-               RelativeLayout.XConstraint =
-               "{ConstraintExpression Type=RelativeToParent,
-                             Property=Width,
-                             Factor=0.5,
-                             Constant=-125}"
-               RelativeLayout.YConstraint =
-               "{ConstraintExpression Type=RelativeToParent,
-                             Property=Height,
-                             Factor=0.5,
-                             Constant=-115}"
-               TextColor="#FFFFFF"
-               BackgroundColor="Transparent"
-               IsPassword="True"
-               HeightRequest="43" WidthRequest="250" FontAttributes="Bold" ClearButtonVisibility="WhileEditing" 
-               />
-
 
 
           <Entry x:Name="OLDPASS"
@@ -100,7 +81,7 @@
                "{ConstraintExpression Type=RelativeToParent,
                              Property=Height,
                              Factor=0.5,
-                             Constant=-40}"
+                             Constant=-70}"
                TextColor="#FFFFFF"
                BackgroundColor="Transparent"
                IsPassword="True"
@@ -120,7 +101,7 @@
                "{ConstraintExpression Type=RelativeToParent,
                              Property=Height,
                              Factor=0.5,
-                             Constant=40}"
+                             Constant=15}"
                TextColor="#FFFFFF"
                BackgroundColor="Transparent"
                IsPassword="True"
@@ -139,7 +120,7 @@
                "{ConstraintExpression Type=RelativeToParent,
                              Property=Height,
                              Factor=0.5,
-                             Constant=120}"
+                             Constant=100}"
                TextColor="#FFFFFF"
                BackgroundColor="Transparent"
                IsPassword="True"
@@ -157,7 +138,7 @@
                "{ConstraintExpression Type=RelativeToParent,
                              Property=Height,
                              Factor=0.5,
-                             Constant=210}"
+                             Constant=180}"
                BackgroundColor="#5B0604"
                CornerRadius="17"
                TextColor="#FFFFFF"
@@ -168,3 +149,6 @@
         </RelativeLayout>
 </ContentPage>
 
+      
+
+        
