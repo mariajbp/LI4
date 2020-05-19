@@ -83,8 +83,7 @@
                         <StackLayout Orientation="Vertical" Padding="20" IsEnabled="False"
                                      HorizontalOptions="StartAndExpand">
                         
-                        <Label Text="{Binding date}" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" FontSize="Title"/>
-                        <Label Text="{Binding location}" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" FontSize="Title"/>
+                        <Label Text="{Binding Day}" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" FontSize="Title"/>
                       
 
 
@@ -98,7 +97,7 @@
                         <StackLayout Orientation="Vertical"  Padding="20" IsEnabled="False"
                                      HorizontalOptions="Start">
                         
-                        <Label Text="{Binding meal_type}" TextColor="White" FontAttributes="Bold" FontSize="Medium"
+                        <Label Text="{Binding Lun_din}" TextColor="White" FontAttributes="Bold" FontSize="Medium"
                                HorizontalTextAlignment="Start" VerticalTextAlignment="Start" />
                         <Label Text="{Binding Content}" TextColor="White" FontSize="Medium"
                                HorizontalTextAlignment="Start" VerticalTextAlignment="Start" />

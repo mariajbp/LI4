@@ -3,6 +3,10 @@ using Entry = Microcharts.Entry;
 using Xamarin.Forms;
 using SkiaSharp;
 using Microcharts;
+using System.Threading.Tasks;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using Newtonsoft.Json.Linq;
 
 namespace TicketNow
 {
@@ -49,7 +53,7 @@ namespace TicketNow
             }
         };
 
-        public Charts()
+        public Charts(string id_user, string token)
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
@@ -60,5 +64,39 @@ namespace TicketNow
             chart4.Chart = new DonutChart() { Entries = entries };
 
         }
+
+        public async Task<bool> setHistory(string id_user, string token)
+        {
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+            //HISTORY
+            //test with server
+            HttpResponseMessage resp = await client.GetAsync("http://ticketnow.ddns.net:5000/api/user/" + id_user + "/history");
+            HttpContent cont = resp.Content;
+
+            //Read the string.
+            string r = await cont.ReadAsStringAsync();
+
+
+            JObject hist = Newtonsoft.Json.Linq.JObject.Parse(r);
+
+
+            JArray a = (JArray)hist["owned_tickets"];
+
+            IList<Ticket> history = a.ToObject<IList<Ticket>>();
+
+
+
+            //list of tickets (number of tickets)
+            foreach (var t in history)
+            {
+                
+            }
+
+
+            return true;
+        }
     }
+
 }

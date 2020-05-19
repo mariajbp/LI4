@@ -15,6 +15,11 @@ namespace TicketNow
             InitializeComponent();
         }
 
+        protected override bool OnBackButtonPressed()
+        {
+            return true;
+        }
+
         private async void onLoginButtonClicked(object sender, EventArgs args)
         {
             if (SystemClock.ElapsedRealtime() - LastButtonClickTime < 1000) return;

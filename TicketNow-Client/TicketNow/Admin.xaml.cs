@@ -155,7 +155,7 @@ namespace TicketNow
         protected override bool OnBackButtonPressed()
         {
 
-            if (SystemClock.ElapsedRealtime() - LastButtonClickTime < 1000) return;
+            if (SystemClock.ElapsedRealtime() - LastButtonClickTime < 1000) return true;
             LastButtonClickTime = SystemClock.ElapsedRealtime();
             this.refresh();
             return true;
@@ -201,7 +201,7 @@ namespace TicketNow
             LastButtonClickTime = SystemClock.ElapsedRealtime();
             //refresh user info with new ticke
             this.refresh();
-            await Navigation.PushAsync(new Charts());
+            await Navigation.PushAsync(new Charts(u.id_user,token));
            
         }
 
@@ -335,9 +335,9 @@ namespace TicketNow
                 Device.BeginInvokeOnMainThread(async () =>
                 {
                     await Navigation.PopAsync();
-                    await DisplayAlert("", "Done", "OK");
-                    await val(result.Text);
-
+                    var b =await val(result.Text);
+                    if(b==true) await DisplayAlert("", "Done", "OK");
+                    else await DisplayAlert("", "Error", "Try again");
                 });
             };
 
@@ -367,9 +367,9 @@ namespace TicketNow
             //URI
             HttpResponseMessage response = await client.PostAsync("http://ticketnow.ddns.net:5000/api/validator", request);
 
+            if (response.IsSuccessStatusCode) return true;
 
-
-            return true;
+            else return false;
 
 
         }

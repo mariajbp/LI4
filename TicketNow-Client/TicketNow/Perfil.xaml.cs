@@ -18,7 +18,7 @@ namespace TicketNow
         private int leftt = 1; //0=right; 1=left;
         private long LastButtonClickTime=0;
 
-      
+        
 
         public Perfil(User u, string token)
         {
@@ -200,7 +200,7 @@ namespace TicketNow
             if (SystemClock.ElapsedRealtime() - LastButtonClickTime < 1000) return;
             this.refresh();
             LastButtonClickTime = SystemClock.ElapsedRealtime();
-            await Navigation.PushAsync(new Charts());
+            await Navigation.PushAsync(new Charts(u.id_user,token));
             
 
         }
