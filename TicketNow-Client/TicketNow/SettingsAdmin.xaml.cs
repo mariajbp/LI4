@@ -8,27 +8,35 @@ using Xamarin.Forms;
 
 namespace TicketNow
 {
-    public partial class Settings : ContentPage
+    public partial class SettingsAdmin : ContentPage
     {
         private User u;
         private string token;
         private long LastButtonClickTime = 0;
 
-        public Settings(User u,string token)
+        public SettingsAdmin(User u, string token)
         {
-            
+            this.u = u;
             this.token = token;
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
         }
-        
+
         private async void onChangePasswordClicked(object sender, EventArgs args)
         {
             if (SystemClock.ElapsedRealtime() - LastButtonClickTime < 1000) return;
-            LastButtonClickTime = SystemClock.ElapsedRealtime(); 
-            await Navigation.PushAsync(new ChangePass(u,token));
-          
+            LastButtonClickTime = SystemClock.ElapsedRealtime();
+            await Navigation.PushAsync(new ChangePassAdmin(token));
         }
+
+        //arranjar
+        private async void onDeleteUserClicked(object sender, EventArgs args)
+        {
+            if (SystemClock.ElapsedRealtime() - LastButtonClickTime < 1000) return;
+            LastButtonClickTime = SystemClock.ElapsedRealtime();
+            await Navigation.PushAsync(new DeleteUser(token));
+        }
+
 
         private async void onLogoutClicked(object sender, EventArgs args)
         {

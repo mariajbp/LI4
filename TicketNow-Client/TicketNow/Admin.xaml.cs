@@ -169,7 +169,7 @@ namespace TicketNow
             LastButtonClickTime = SystemClock.ElapsedRealtime();
             //refresh user info with new ticke
             this.refresh();
-            await Navigation.PushAsync(new Settings(u,token));
+            await Navigation.PushAsync(new SettingsAdmin(u,token));
             
 
         }
@@ -336,7 +336,8 @@ namespace TicketNow
                 {
                     await Navigation.PopAsync();
                     var b =await val(result.Text);
-                    if(b==true) await DisplayAlert("", "Done", "OK");
+                    //trocar para true
+                    if(b==false) await DisplayAlert("", "Done", "OK");
                     else await DisplayAlert("", "Error", "Try again");
                 });
             };

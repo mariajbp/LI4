@@ -1,19 +1,23 @@
 ﻿<Properties StartupConfiguration="{75864FFA-22C1-4DDF-9041-8A49A7F723C7}|Default">
   <MonoDevelop.Ide.ItemProperties.TicketNow.Android AndroidDesignerPreferredTheme="Theme.AppCompat.Light.NoActionBar" PreferredExecutionTarget="Android.pixel_2_pie_9_0_-_api_28" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="TicketNow/Admin.xaml.cs">
     <Files>
-      <File FileName="TicketNow/Admin.xaml.cs" Line="340" Column="68" />
+      <File FileName="TicketNow/Admin.xaml.cs" Line="175" Column="10" />
+      <File FileName="TicketNow/Admin.xaml" Line="169" Column="38" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="TicketNow" expanded="True">
             <Node name="TicketNow" expanded="True">
-              <Node name="Admin.xaml" expanded="True" />
-              <Node name="Charts.xaml" expanded="True" />
+              <Node name="Admin.xaml" expanded="True">
+                <Node name="Admin.xaml.cs" selected="True" />
+              </Node>
+              <Node name="ChangePassAdmin.xaml" expanded="True" />
+              <Node name="DeleteUser.xaml" expanded="True" />
               <Node name="MainPage.xaml" expanded="True" />
-              <Node name="Perfil.xaml" selected="True" />
-              <Node name="WeeklyMeal.xaml" expanded="True" />
+              <Node name="Settings.xaml" expanded="True" />
+              <Node name="SettingsAdmin.xaml" expanded="True" />
             </Node>
             <Node name="TicketNow.Android" expanded="True">
               <Node name="References" expanded="True" />

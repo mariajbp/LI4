@@ -28,6 +28,7 @@ namespace TicketNow
 
             //get token with username and password: done in the RestClient class
             var token = await _restClient.checkLogin(EntryUsername.Text, EntryPassword.Text);
+            //ARRANJAR PARA QUANDO O SERVER ESTIVER EM BAIXO TAMBÉM
             if (token != null)
             {
 

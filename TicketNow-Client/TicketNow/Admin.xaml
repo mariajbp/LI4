@@ -164,7 +164,9 @@
                FontAttributes="Bold"
                />
 
-            <Button Text="DELETE USER"
+
+
+            <Button Text="DELETE MEAL"
                HorizontalOptions="Center"
                VerticalOptions="CenterAndExpand" 
                BackgroundColor="#5B0604"
