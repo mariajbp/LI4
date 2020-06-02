@@ -9,6 +9,7 @@ from common.utils import auth_required, Permissions
 from common.error import ErrorCode, ErrorCodeException
 from common.responses import error_code , unauthorized , success , error_message
 from model.session_table import SessionTable
+import re
 
 
 class LoginAPI(Resource):
@@ -77,10 +78,25 @@ class RegisterAPI(Resource):
 
         if not (id_user and name and password and email):
             return error_message("Insuficient arguments") , 400
-        # Input validation process here ...
+        
+        ################## Input Validation ##################
+        from common.utils import params_validation, VALID_ID_USER_REGEX , VALID_NAME_REGEX , VALID_PASSWORD_REGEX , VALID_EMAIL_REGEX
+
+        params = [ id_user             , name             , password             , email             ]
+        rgxs   = [ VALID_ID_USER_REGEX , VALID_NAME_REGEX , VALID_PASSWORD_REGEX , VALID_EMAIL_REGEX ]
+
+        
+        
+        try:
+            params_validation(rgxs,params)
+        except ErrorCodeException as ec:
+            return error_code(ec) , 400
+        ######################################################
+
+        
 
         try:
             User.add_user(User(id_user,email,password,name,Permissions.USER))
             return success() , 200
         except ErrorCodeException as ec:
-            return error_code(ec) , 500
+            return error_code(ec) , 400

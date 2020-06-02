@@ -6,8 +6,25 @@ from common.app_init import app
 from flask_jwt_extended import jwt_required , get_jwt_claims
 from common.responses import forbidden
 #from common.utils import Permissions
+from common.error import ErrorCode , ErrorCodeException
 
 from enum import Enum , unique
+import re
+
+
+VALID_ID_USER_REGEX = '[a-zA-Z][a-zA-Z0-9]{1,9}'
+VALID_NAME_REGEX = "^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$"
+VALID_EMAIL_REGEX = '^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$'
+VALID_PASSWORD_REGEX = '^[a-zA-Z]\w{3,61}$'#'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$'
+
+
+def params_validation(rgxs,params):
+    for param,rgx in zip(params,rgxs):
+        print("Validate (" + param + "): ",end='')
+        if re.match(rgx,param) == None:
+            print("false")
+            raise ErrorCodeException(ErrorCode.INVALID_PARAMETER)
+        print("true")
 
 ############## Testing ############## 
 class Permissions:

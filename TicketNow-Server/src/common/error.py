@@ -66,6 +66,8 @@ class ErrorCode(Enum):
     LOCATION_DOESNT_EXISTS = 16
 
     TICKET_DOESNT_BELONG_TO_USER = 17
+
+    INVALID_PARAMETER = 18
     
     
 
@@ -97,6 +99,8 @@ class ErrorCode(Enum):
             "Location does not exists",
 
             "This ticket does not belong to this user",
+            
+            "Invalid parameter",
             
         ]
         return ERROR_MESSAGES[self.value]
