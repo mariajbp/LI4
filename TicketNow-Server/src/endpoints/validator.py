@@ -34,4 +34,4 @@ class ValidatorAPI(Resource):
             return { 
                 "status" : 0,
                 "error" : ec.message()
-            } , 200
+            } , 400

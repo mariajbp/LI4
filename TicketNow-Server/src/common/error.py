@@ -64,6 +64,8 @@ class ErrorCode(Enum):
 
     LOCATION_EXISTS = 15
     LOCATION_DOESNT_EXISTS = 16
+
+    TICKET_DOESNT_BELONG_TO_USER = 17
     
     
 
@@ -93,6 +95,8 @@ class ErrorCode(Enum):
 
             "Location already exists",
             "Location does not exists",
+
+            "This ticket does not belong to this user",
             
         ]
         return ERROR_MESSAGES[self.value]

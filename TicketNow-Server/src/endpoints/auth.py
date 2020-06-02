@@ -20,10 +20,13 @@ class LoginAPI(Resource):
         if not auth or not auth.username or not auth.password:
             return make_response(unauthorized("Fields not specified"), 401, {'WWW-Authenticate' : 'Basic realm="Login required!"'})
 
-        user = User.get_user(auth.username)
+        try:
+            user = User.get_user(auth.username)
+        except ErrorCodeException as ec:
+            return error_code(ec), 401, {'WWW-Authenticate' : 'Basic realm="Login required!"'}
 
-        if not user:
-            return make_response(error_code(ErrorCode.USER_DOESNT_EXISTS) , 401 , {'WWW-Authenticate' : 'Basic realm="Login required!"'})
+        #if not user:
+        #    return make_response(error_code(ErrorCode.USER_DOESNT_EXISTS) , 401 , {'WWW-Authenticate' : 'Basic realm="Login required!"'})
 
         if user.check_password(auth.password):
             token = create_access_token(identity=str(user.id_user), user_claims={ "permissions" : user.permissions }, expires_delta=datetime.timedelta(days=1))
