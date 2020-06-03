@@ -33,6 +33,23 @@ class UserAPI(Resource):
         if not body:
             return { "error" : "No json body found on request" }
         
+        id_user = body['id_user']
+        email = body['email']
+        password = body['password']
+        name = body['name']
+
+        ################## Input Validation ##################
+        from common.utils import params_validation, VALID_ID_USER_REGEX , VALID_NAME_REGEX , VALID_PASSWORD_REGEX , VALID_EMAIL_REGEX
+
+        params = [ id_user             , name             , password             , email             ]
+        rgxs   = [ VALID_ID_USER_REGEX , VALID_NAME_REGEX , VALID_PASSWORD_REGEX , VALID_EMAIL_REGEX ]
+        
+        try:
+            params_validation(rgxs,params)
+        except ErrorCodeException as ec:
+            return error_code(ec) , 400
+        ######################################################
+
         try:
             User.add_user(User(body['id_user'],body['email'],body['password'],body['name'],int(body['permissions'])))
             return success()

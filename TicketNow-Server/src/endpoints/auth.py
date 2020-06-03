@@ -84,8 +84,6 @@ class RegisterAPI(Resource):
 
         params = [ id_user             , name             , password             , email             ]
         rgxs   = [ VALID_ID_USER_REGEX , VALID_NAME_REGEX , VALID_PASSWORD_REGEX , VALID_EMAIL_REGEX ]
-
-        
         
         try:
             params_validation(rgxs,params)
