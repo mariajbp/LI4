@@ -1,11 +1,10 @@
 ﻿<Properties StartupConfiguration="{75864FFA-22C1-4DDF-9041-8A49A7F723C7}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
   <MonoDevelop.Ide.ItemProperties.TicketNow.Android AndroidDesignerPreferredTheme="Theme.AppCompat.Light.NoActionBar" PreferredExecutionTarget="Android.pixel_2_pie_9_0_-_api_28" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="TicketNow/Charts.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="TicketNow/MealData.cs">
     <Files>
-      <File FileName="TicketNow/Charts.xaml" Line="1" Column="1" />
-      <File FileName="TicketNow/Charts.xaml.cs" Line="72" Column="18" />
-      <File FileName="TicketNow/History.cs" Line="9" Column="31" />
-      <File FileName="TicketNow/User.cs" Line="70" Column="41" />
+      <File FileName="TicketNow/DeleteMeal.xaml.cs" Line="65" Column="1" />
+      <File FileName="TicketNow/AddMeal.xaml.cs" Line="70" Column="1" />
+      <File FileName="TicketNow/MealData.cs" Line="8" Column="11" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -16,11 +15,10 @@
               <Node name="Admin.xaml" expanded="True" />
               <Node name="ChangePass.xaml" expanded="True" />
               <Node name="ChangePassAdmin.xaml" expanded="True" />
-              <Node name="Charts.xaml" expanded="True">
-                <Node name="Charts.xaml.cs" selected="True" />
-              </Node>
+              <Node name="Charts.xaml" expanded="True" />
               <Node name="DeleteMeal.xaml" expanded="True" />
               <Node name="MainPage.xaml" expanded="True" />
+              <Node name="MealData.cs" selected="True" />
               <Node name="Perfil.xaml" expanded="True" />
               <Node name="Settings.xaml" expanded="True" />
               <Node name="SettingsAdmin.xaml" expanded="True" />

@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
 using Android.OS;
+using Newtonsoft.Json;
 using Xamarin.Forms;
 
 namespace TicketNow
@@ -40,21 +42,32 @@ namespace TicketNow
         public async Task<bool> deleteMeal(string date, string mealtype,string location, string accessToken)
         {
 
-            //POST
+            //Delete
             var client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
 
-            //PARAMETERS
-            var values = new Dictionary<string, string>
-            {
-               { "date", date },
-               { "meal_type", mealtype },
-               { "location", location }
-            };
 
-            var request = new FormUrlEncodedContent(values);
+            var request = new HttpRequestMessage(HttpMethod.Delete, "http://ticketnow.ddns.net:5000/api/meal");
+
+
+            MealData meal = new MealData();
+            meal.date = date;
+            meal.meal_type = mealtype;
+            meal.location = location;
+
+            var json = JsonConvert.SerializeObject(meal);
+
+            var buffer = System.Text.Encoding.UTF8.GetBytes(json);
+            var byteContent = new ByteArrayContent(buffer);
+
+
+            request.Content = new StringContent(json, UnicodeEncoding.UTF8, "application/json");
+
+   
+
             //URI
-            HttpResponseMessage response = await client.PostAsync("http://ticketnow.ddns.net:5000/api/meal", request);
+            HttpResponseMessage response = await client.SendAsync(request);
+
 
             if (response.IsSuccessStatusCode) return true;
 
