@@ -162,6 +162,7 @@
                AbsoluteLayout.LayoutFlags="All"
                CornerRadius="17"
                FontAttributes="Bold"
+               Clicked="onAddMealClicked"
                />
 
 
@@ -176,6 +177,7 @@
                AbsoluteLayout.LayoutFlags="All"
                CornerRadius="17"
                FontAttributes="Bold"
+               Clicked="onDeleteMealClicked"
                />
 
             <Button Text="VALIDATOR"

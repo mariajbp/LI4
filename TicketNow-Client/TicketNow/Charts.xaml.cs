@@ -12,56 +12,16 @@ namespace TicketNow
 {
     public partial class Charts : ContentPage
     {
-        List<Entry> entries = new List<Entry>
-        {
-            new Entry(200)
-            {
-                Color = SKColor.Parse("490403"),
-                Label = "January",
-                ValueLabel = "200"
-            },
-
-            new Entry(300)
-            {
-                Color = SKColor.Parse("7a0705"),
-                Label = "February",
-                ValueLabel = "200"
-            },
-            new Entry(100)
-            {
-                Color = SKColor.Parse("ab0a07"),
-                Label = "March",
-                ValueLabel = "100"
-            },
-            new Entry(150)
-            {
-                Color = SKColor.Parse("dc0d09"),
-                Label = "April",
-                ValueLabel = "150"
-            },
-            new Entry(300)
-            {
-                Color = SKColor.Parse("f62623"),
-                Label = "May",
-                ValueLabel = "300"
-            },
-            new Entry(350)
-            {
-                Color = SKColor.Parse("f96e6c"),
-                Label = "June",
-                ValueLabel = "350"
-            }
-        };
+        List<Entry> entries = new List<Entry>();
+        List<Entry> entries1 = new List<Entry>();
+        List<Entry> entries2 = new List<Entry>();
 
         public Charts(string id_user, string token)
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
 
-            chart1.Chart = new BarChart() { Entries = entries };
-            chart2.Chart = new LineChart() { Entries = entries };
-            chart3.Chart = new PointChart() { Entries = entries };
-            chart4.Chart = new DonutChart() { Entries = entries };
+            var x= this.setHistory(id_user, token);
 
         }
 
@@ -82,17 +42,64 @@ namespace TicketNow
             JObject hist = Newtonsoft.Json.Linq.JObject.Parse(r);
 
 
-            JArray a = (JArray)hist["owned_tickets"];
+            JArray a = (JArray)hist["history"];
 
-            IList<Ticket> history = a.ToObject<IList<Ticket>>();
+            IList<History> history = a.ToObject<IList<History>>();
 
-
+            IList<string> datas =new List<string>();
 
             //list of tickets (number of tickets)
+            int i = 0; var color = "0";
             foreach (var t in history)
             {
-                
+                string[] data=t.used_datetime.Split(' ');
+                datas.Add(data[0]);
             }
+
+            var noDups = new HashSet<string>(datas);
+            
+            //Day
+            foreach (var n in noDups)
+            {
+                i = 0;
+                foreach (var d in datas)
+                {
+                    if (n == d) i++;
+                }
+
+                if (color == "490403") color = "ab0a07";
+                else if (color == "ab0a07") color = "dc0d09";
+                else if (color == "dc0d09") color = "f62623";
+                else if (color == "f62623") color = "f96e6c";
+                else if (color == "f96e6c") color = "0";
+                else if (color == "0") color = "490403";
+
+                this.entries.Add(new Entry(i)
+                {
+                    Color = SKColor.Parse(color),
+                    Label = n,
+                    ValueLabel = i.ToString()
+                }
+                   ) ;
+
+            }
+
+
+            //WEEK
+
+
+
+
+
+            //MONTH
+
+
+
+
+
+            chart1.Chart = new BarChart() { Entries = entries, LabelTextSize=38, Margin=30, MinValue=0 };
+            chart2.Chart = new LineChart() { Entries = entries, LabelTextSize = 38, Margin=30,MinValue=0 };
+            chart3.Chart = new DonutChart() { Entries = entries, LabelTextSize = 40};
 
 
             return true;

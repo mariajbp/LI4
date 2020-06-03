@@ -167,12 +167,33 @@ namespace TicketNow
         {
             if (SystemClock.ElapsedRealtime() - LastButtonClickTime < 1000) return;
             LastButtonClickTime = SystemClock.ElapsedRealtime();
-            //refresh user info with new ticke
+            //refresh user info with new ticket
             this.refresh();
             await Navigation.PushAsync(new SettingsAdmin(u,token));
             
+        }
+
+        private async void onAddMealClicked(object sender, EventArgs args)
+        {
+            if (SystemClock.ElapsedRealtime() - LastButtonClickTime < 1000) return;
+            LastButtonClickTime = SystemClock.ElapsedRealtime();
+            //refresh user info with new ticke
+            this.refresh();
+            await Navigation.PushAsync(new AddMeal(u, token));
 
         }
+
+
+        private async void onDeleteMealClicked(object sender, EventArgs args)
+        {
+            if (SystemClock.ElapsedRealtime() - LastButtonClickTime < 1000) return;
+            LastButtonClickTime = SystemClock.ElapsedRealtime();
+            //refresh user info with new ticke
+            this.refresh();
+            await Navigation.PushAsync(new DeleteMeal(u, token));
+
+        }
+
 
         private async void onWeeklymealsButtonClicked(object sender, EventArgs args)
         {
@@ -336,8 +357,7 @@ namespace TicketNow
                 {
                     await Navigation.PopAsync();
                     var b =await val(result.Text);
-                    //trocar para true
-                    if(b==false) await DisplayAlert("", "Done", "OK");
+                    if(b==true) await DisplayAlert("", "Done", "OK");
                     else await DisplayAlert("", "Error", "Try again");
                 });
             };
