@@ -35,12 +35,14 @@ class History(db.Model):
 
     @staticmethod
     def add_entry(entry):
-        try:
-            History.get_entry(entry.id_ticket)
+        #try:
+        e = History.query.filter_by(id_ticket=entry.id_ticket).first()
+        if e != None:
             raise ErrorCodeException(ErrorCode.HISTORY_ENTRY_EXISTS)
-        except ErrorCodeException as ec:
-            db.session.add(entry)
-            db.session.commit() 
+        #except ErrorCodeException as ec:
+        db.session.add(entry)
+        db.session.commit() 
+        
 
         
 

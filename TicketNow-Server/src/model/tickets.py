@@ -74,7 +74,7 @@ class Ticket(db.Model):
             "type" : self.type,
             "used" : self.used
         }
-
+#id_user=a11111&id_ticket=c75f48d84a067fb07f86a7312f693596f4a959fbca4daa1af64b9f693be71780
 from model.history import History
 from model.users import User
 
@@ -84,6 +84,9 @@ def set_as_used(id_ticket,id_user):
     if t == None:
         raise ErrorCodeException(ErrorCode.TICKET_DOESNT_EXISTS)
 
+    if t.id_user != id_user:
+        raise ErrorCodeException(ErrorCode.TICKET_DOESNT_BELONG_TO_USER)
+
     if User.get_user(id_user) == None:
         raise ErrorCodeException(ErrorCode.USER_DOESNT_EXISTS)
     
@@ -91,4 +94,4 @@ def set_as_used(id_ticket,id_user):
         raise ErrorCodeException(ErrorCode.TICKET_ALREADY_USED)
     t.set_used()
     
-    History.add_entry(History(id_ticket=id_ticket,id_user=id_user))
+    History.add_entry(History(id_ticket=unhexlify(id_ticket),id_user=id_user))

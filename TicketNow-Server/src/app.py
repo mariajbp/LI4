@@ -7,7 +7,7 @@ from functools import wraps
 
 from common.app_init import app , api , db
 from common.utils import auth_required
-from endpoints.auth import LoginAPI , LogoutAPI , SessionTable
+from endpoints.auth import LoginAPI , LogoutAPI , RegisterAPI
 from endpoints.user import UserAPI , UserInfoAPI 
 from endpoints.ticket import TicketAPI
 from endpoints.user_ticket import UserTicketAPI
@@ -37,7 +37,7 @@ api.add_resource(ValidatorAPI, base_endpoint + '/validator')
 api.add_resource(KioskAPI, base_endpoint + '/kiosk/ticket')
 api.add_resource(UserHistoryAPI, base_endpoint + '/user/<id_user>/history')
 api.add_resource(MealAPI, base_endpoint + '/meal')
-
+api.add_resource(RegisterAPI, base_endpoint + '/register')
 
 #########################################################################
 
@@ -79,6 +79,14 @@ def populate():
         pass
     try:
         MealType.add_meal_type(MealType("dinner"))
+    except:
+        pass
+    try:
+        MealType.add_meal_type(MealType("lunch_veg"))
+    except:
+        pass
+    try:
+        MealType.add_meal_type(MealType("dinner_veg"))
     except:
         pass
 

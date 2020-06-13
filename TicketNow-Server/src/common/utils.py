@@ -5,9 +5,25 @@ from model.users import User
 from common.app_init import app
 from flask_jwt_extended import jwt_required , get_jwt_claims
 from common.responses import forbidden
-#from common.utils import Permissions
+from common.error import ErrorCode , ErrorCodeException
 
 from enum import Enum , unique
+import re
+
+
+VALID_ID_USER_REGEX = '[a-zA-Z][a-zA-Z0-9]{1,9}'
+VALID_NAME_REGEX = "^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$"
+VALID_EMAIL_REGEX = '^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$'
+VALID_PASSWORD_REGEX = '^[a-zA-Z]\w{3,61}$'#'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$'
+VALID_ID_TICKET_REGEX = '^[0-9a-fA-F]{64}$'
+VALID_DATE_REGEX = '^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|1[0-9]|2[0-9]|3[0-1])$'
+
+
+def params_validation(rgxs,params):
+    for param,rgx in zip(params,rgxs):
+        if re.match(rgx,param) == None:
+            raise ErrorCodeException(ErrorCode.INVALID_PARAMETER)
+
 
 ############## Testing ############## 
 class Permissions:
