@@ -39,8 +39,6 @@ api.add_resource(UserHistoryAPI, base_endpoint + '/user/<id_user>/history')
 api.add_resource(MealAPI, base_endpoint + '/meal')
 api.add_resource(RegisterAPI, base_endpoint + '/register')
 
-
-
 #########################################################################
 
 def populate():

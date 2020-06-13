@@ -68,6 +68,9 @@ class ErrorCode(Enum):
     TICKET_DOESNT_BELONG_TO_USER = 17
 
     INVALID_PARAMETER = 18
+
+    TRANSACTION_EXISTS = 19
+    TRANSACTION_DOESNT_EXISTS = 20
     
     
 
@@ -101,7 +104,9 @@ class ErrorCode(Enum):
             "This ticket does not belong to this user",
             
             "Invalid parameter",
-            
+
+            "Transaction already exists",
+            "Transaction does not exists"   
         ]
         return ERROR_MESSAGES[self.value]
 
