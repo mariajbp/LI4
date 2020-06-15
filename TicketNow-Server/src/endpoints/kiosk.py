@@ -1,6 +1,7 @@
 from flask_restful import Resource , reqparse
 from flask import request
 from model.tickets import Ticket
+from model.transaction import Transaction
 from model.ticket_types import TicketType
 #from model.users import User
 from flask_jwt_extended import get_jwt_identity
@@ -8,6 +9,7 @@ from common.utils import user_required
 from common.error import ErrorCodeException
 from common.responses import success , error_code , error_message
 import requests
+import datetime
 
 
 ###################### PAYPAL AUXILIAR PROCEDURES ###################### 
@@ -20,6 +22,11 @@ def status_link(order_id):
 
 def capture_link(order_id):
     return 'https://api.sandbox.paypal.com/v2/checkout/orders/{}/capture'.format(order_id)
+
+def gen_oauth2_token(username, password):
+    url = 'https://api.sandbox.paypal.com/v1/oauth2/token?grant_type=client_credentials'
+    response = requests.post(url, auth = (username, password))
+    return response.json()['access_token'] if response.status_code == 200 else None
 
 def gen_order(auth_token, price):
     url = 'https://api.sandbox.paypal.com/v2/checkout/orders'
@@ -59,7 +66,7 @@ def capture_order(auth_token, order_id):
 class KioskAPI(Resource):
     __MAX_TICKET_AMOUNT = 100
 
-    __OAUTH_TOKEN = 'A21AAFT7PJ5p88zfNcpn7-Zzz4EpxOz9xDK5Ajrl998eOpJDMZUXyRnNS0TwR-oahrZl13mOFQ2K23YQRsAk4uCRPCxbZWU-Q'
+    __OAUTH_TOKEN = gen_oauth2_token('AVuNdJP1b1ysHIWfqsbVvBOs57ZSC3pO7cUXjmx6X6OpCp6WWS89KdxRORun9Vp1gHzeLeqsQT5mtazx','EHOYdoXBy_acDWOpKmo0Iw3XdvG0PUJ7pVBB51D3UnwLg8umt_7MLO6__cspUUPyZdwVMxyUT6wBRbWS')#'A21AAFT7PJ5p88zfNcpn7-Zzz4EpxOz9xDK5Ajrl998eOpJDMZUXyRnNS0TwR-oahrZl13mOFQ2K23YQRsAk4uCRPCxbZWU-Q'
     awaiting_transactions = {}
 
     #parser_get = reqparse.RequestParser()
@@ -139,6 +146,10 @@ class KioskAPI(Resource):
         
 
         context = KioskAPI.awaiting_transactions[id_transaction]
+
+        if context['id_user'] != target_id_user:
+            return error_message("Forbidden") , 401
+            
         if not capture_order(KioskAPI.__OAUTH_TOKEN,id_transaction):
             return { 
             "transaction_status" : "Payment"
@@ -147,15 +158,19 @@ class KioskAPI(Resource):
         bought = []
         from binascii import hexlify
         try:
+            total_price = context['price']*context['amount']
+            dtt_now = datetime.datetime.now()
             for i in range(context['amount']):
                 tckt = Ticket(target_id_user, context['ticket_type'])
                 #print(str(tckt.id_ticket))
 
                 bought.append(hexlify(tckt.id_ticket).decode('ascii'))
                 Ticket.add_ticket(tckt)
+                Transaction.add_transaction(Transaction(id_transaction, context['id_user'], tckt.id_ticket, total_price, dtt_now))
         except ErrorCodeException as ec:
             return error_code(ec) , 500
-        except:
+        except Exception as e:
+            print(e)
             return error_message("Something unexpected occurred") , 500
 
         return { 
