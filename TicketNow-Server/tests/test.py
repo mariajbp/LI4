@@ -61,4 +61,10 @@ def populate_meals(num=10):
             print(response)
 
 # Insere 10 refeições de frango desde o dia de hoje ate aos proximos dias
-populate_meals(10)
+#populate_meals(10)
+
+
+import datetime
+
+dt = datetime.date.fromisoformat('2020-06-17')
+print(dt)

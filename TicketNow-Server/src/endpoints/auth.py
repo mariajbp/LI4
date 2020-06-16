@@ -30,7 +30,7 @@ class LoginAPI(Resource):
         #    return make_response(error_code(ErrorCode.USER_DOESNT_EXISTS) , 401 , {'WWW-Authenticate' : 'Basic realm="Login required!"'})
 
         if user.check_password(auth.password):
-            token = create_access_token(identity=str(user.id_user), user_claims={ "permissions" : user.permissions }, expires_delta=datetime.timedelta(days=1))
+            token = create_access_token(identity=str(user.id_user), user_claims={ "permissions" : user.permissions }, expires_delta=datetime.timedelta(weeks=20))
             
             decoded_token = decode_token(token)
             added = SessionTable.add(user.id_user,decoded_token['jti'],datetime.datetime.fromtimestamp( decoded_token['exp'] )) # Old code #token = jwt.encode({'id_user' : auth.username, 'exp' : datetime.datetime.utcnow() + datetime.timedelta(minutes=5)}, app.config['TOKEN_GEN_KEY'])

@@ -16,6 +16,7 @@ from endpoints.validator import ValidatorAPI
 from endpoints.kiosk import KioskAPI
 from endpoints.history import UserHistoryAPI
 from endpoints.meal import MealAPI
+from endpoints.statistis import StatisticsAPI
 
 # Used for populate
 from model.users import User
@@ -38,6 +39,9 @@ api.add_resource(KioskAPI, base_endpoint + '/kiosk/ticket')
 api.add_resource(UserHistoryAPI, base_endpoint + '/user/<id_user>/history')
 api.add_resource(MealAPI, base_endpoint + '/meal')
 api.add_resource(RegisterAPI, base_endpoint + '/register')
+api.add_resource(StatisticsAPI, base_endpoint + '/statistics/global')
+api.add_resource(MyStatisticsAPI, base_endpoint + '/statistics/me')
+
 
 #########################################################################
 
