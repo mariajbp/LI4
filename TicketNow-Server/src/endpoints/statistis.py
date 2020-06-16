@@ -4,11 +4,7 @@ from model.history import History
 from flask_jwt_extended import get_jwt_identity
 from common.utils import auth_required
 import datetime
-#from common.error import ErrorCodeException
-from common.responses import error_message, error_code , unauthorized
-#from common.utils import user_required
-
-
+from common.responses import error_message
 
 
 class StatisticsAPI(Resource):
@@ -56,6 +52,7 @@ class StatisticsAPI(Resource):
             print(e)
             return error_message("Something unexpected occured!"), 500
 
+
 class MyStatisticsAPI(Resource):
     parser_get = reqparse.RequestParser()
     parser_get.add_argument('begin', type=str, required=False, help='Inital date')
@@ -100,8 +97,3 @@ class MyStatisticsAPI(Resource):
         except Exception as e:
             print(e)
             return error_message("Something unexpected occured!"), 500
-        
-        #History.query.filter(History.used_datetime >= begin , History.used_datetime <= end)
-        # SELECT DATE(used_datetime) as used_date,id_user FROM History WHERE DATE(used_datetime) > '2020-05-01' AND DATE(used_datetime) < '2020-06-03';
-
-    # TODO: Add the rest of the methods POST PUT DELETE

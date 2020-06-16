@@ -61,8 +61,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `ticketnow`.`Transaction`;
 CREATE TABLE IF NOT EXISTS `ticketnow`.`Transaction` (
-  `id_transaction` VARCHAR(16) NOT NULL,
-  `item_number` TINYINT NOT NULL,
+  `id_transaction` VARCHAR(18) NOT NULL,
   `id_user` VARCHAR(10) NOT NULL,
   `id_ticket` BINARY(32) NOT NULL,
   `total_price` FLOAT NOT NULL,
@@ -75,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `ticketnow`.`Transaction` (
   REFERENCES `ticketnow`.`User` (`id_user`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  PRIMARY KEY (`id_transaction`,`item_number`))
+  PRIMARY KEY (`id_transaction`,`id_ticket`))
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -140,3 +139,20 @@ CREATE TABLE IF NOT EXISTS `ticketnow`.`Meal` (
     ON UPDATE NO ACTION,
   PRIMARY KEY (`date`,`id_location`,`id_meal_type`))
 ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Procedures / Functions / Tiggers
+-- -----------------------------------------------------
+DELIMITER $$
+CREATE FUNCTION is_lunch(tm TIME) 
+RETURNS BOOLEAN
+DETERMINISTIC
+BEGIN
+    IF(tm < '16:30:00') THEN
+        RETURN TRUE;
+    ELSE
+        RETURN FALSE; 
+    END IF;
+END $$
+DELIMITER ;
