@@ -26,7 +26,10 @@ dev_jti_whitelist = [
     "35b19968-1851-4cbb-917e-6735e3a93445",
     "204bf68c-46fc-4751-8acc-7308fc7ad4cb",
 
-    "fceda392-a2f1-4efd-90a4-726f309cfd04"
+    "fceda392-a2f1-4efd-90a4-726f309cfd04",
+
+    "16a47149-72de-457e-9336-0b59eded799f",
+    "dc15bbb4-25bf-442d-a9ad-fc555a57d063" 
     ]
 
 

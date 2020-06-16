@@ -30,7 +30,7 @@ class Transaction(db.Model):
 
     @staticmethod
     def add_transaction(transaction):
-        e = History.query.filter_by(id_transaction=transaction.id_transaction, id_ticket=transaction.id_ticket).first()
+        e = Transaction.query.filter_by(id_transaction=transaction.id_transaction, id_ticket=transaction.id_ticket).first()
         if e != None:
             raise ErrorCodeException(ErrorCode.TRANSACTION_EXISTS)
         

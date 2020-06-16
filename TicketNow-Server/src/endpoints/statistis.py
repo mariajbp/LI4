@@ -1,30 +1,107 @@
-#from flask_restful import Resource , reqparse
-#from flask import request
-#from model.history import History
-#from flask_jwt_extended import get_jwt_identity
-#from common.utils import auth_required
+from flask_restful import Resource , reqparse
+from flask import request
+from model.history import History
+from flask_jwt_extended import get_jwt_identity
+from common.utils import auth_required
+import datetime
 #from common.error import ErrorCodeException
-#from common.responses import error_code , unauthorized
+from common.responses import error_message, error_code , unauthorized
 #from common.utils import user_required
 
 
 
 
 class StatisticsAPI(Resource):
+    parser_get = reqparse.RequestParser()
+    parser_get.add_argument('begin', type=str, required=False, help='Inital date')
+    parser_get.add_argument('end', type=str, required=False, help='End date')
 
-
+    @auth_required
     def get(self):
-        pass
-        """ 
-        sender_id_user = get_jwt_identity()
-        if sender_id_user != id_user:
-            return unauthorized("Forbiden!"), 403
+        args = StatisticsAPI.parser_get.parse_args()
+        
+        #sender_id_user = get_jwt_identity()
+
+        
+        today = datetime.date.today() 
+        today_minus_week = today - datetime.timedelta(weeks=-1)
+
+        begin = datetime.date.fromisoformat(args['begin']) if args['begin'] != None else today_minus_week
+        end   = datetime.date.fromisoformat(args['end']) if args['end'] != None else today
+        
+        if begin > end:
+            return error_message("Invalid dates interval!"), 400
+        
         try:
-            user_hist = History.get_all(id_user)
-            return { "history" : [ he.to_json() for he in user_hist ] if user_hist else [] } , 200
-        except ErrorCodeException as ec:
-            return error_code(ec) , 500 
-        """
+            res = History.db.session.execute('SELECT DATE(used_datetime) as used_date, is_lunch(TIME(used_datetime)) as is_lunch FROM History h WHERE DATE(h.used_datetime) > :begin AND DATE(h.used_datetime) < :end;', {'begin': begin , 'end': end})
+            hmm = {}
+            for row in res:
+                ud = str(row['used_date'])
+                if ud not in hmm:
+                   hmm[ud] = {
+                       'lunch' : 0,
+                       'dinner' : 0
+                   }
+
+                if row['is_lunch']:
+                    hmm[ud]['lunch'] += 1
+                else:
+                    hmm[ud]['dinner'] += 1
+                
+                print()
+            return {
+                "statistics" : hmm
+            } , 200
+        except Exception as e:
+            print(e)
+            return error_message("Something unexpected occured!"), 500
+
+class MyStatisticsAPI(Resource):
+    parser_get = reqparse.RequestParser()
+    parser_get.add_argument('begin', type=str, required=False, help='Inital date')
+    parser_get.add_argument('end', type=str, required=False, help='End date')
+
+    @auth_required
+    def get(self):
+        args = StatisticsAPI.parser_get.parse_args()
+        
+        sender_id_user = get_jwt_identity()
+
+        
+        today = datetime.date.today() 
+        today_minus_week = today - datetime.timedelta(weeks=-1)
+
+        begin = datetime.date.fromisoformat(args['begin']) if args['begin'] != None else today_minus_week
+        end   = datetime.date.fromisoformat(args['end']) if args['end'] != None else today
+        
+        if begin > end or :
+            return error_message("Invalid dates interval!"), 400
+        
+        try:
+            res = History.db.session.execute('SELECT DATE(used_datetime) as used_date, is_lunch(TIME(used_datetime)) as is_lunch FROM History h WHERE DATE(h.used_datetime) > :begin AND DATE(h.used_datetime) < :end AND id_user = :id_user;', {'begin': begin , 'end': end, 'id_user': sender_id_user})
+            hmm = {}
+            for row in res:
+                ud = str(row['used_date'])
+                if ud not in hmm:
+                   hmm[ud] = {
+                       'lunch' : 0,
+                       'dinner' : 0
+                   }
+
+                if row['is_lunch']:
+                    hmm[ud]['lunch'] += 1
+                else:
+                    hmm[ud]['dinner'] += 1
+                
+                print()
+            return {
+                "statistics" : hmm
+            } , 200
+        except Exception as e:
+            print(e)
+            return error_message("Something unexpected occured!"), 500
+        
+        #History.query.filter(History.used_datetime >= begin , History.used_datetime <= end)
         # SELECT DATE(used_datetime) as used_date,id_user FROM History WHERE DATE(used_datetime) > '2020-05-01' AND DATE(used_datetime) < '2020-06-03';
 
     # TODO: Add the rest of the methods POST PUT DELETE
