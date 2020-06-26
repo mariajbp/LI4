@@ -71,7 +71,7 @@ class MyStatisticsAPI(Resource):
         begin = datetime.date.fromisoformat(args['begin']) if args['begin'] != None else today_minus_week
         end   = datetime.date.fromisoformat(args['end']) if args['end'] != None else today
         
-        if begin > end or :
+        if begin > end:
             return error_message("Invalid dates interval!"), 400
         
         try:

@@ -16,7 +16,7 @@ from endpoints.validator import ValidatorAPI
 from endpoints.kiosk import KioskAPI
 from endpoints.history import UserHistoryAPI
 from endpoints.meal import MealAPI
-from endpoints.statistis import StatisticsAPI
+from endpoints.statistis import StatisticsAPI, MyStatisticsAPI
 
 # Used for populate
 from model.users import User
