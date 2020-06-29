@@ -4,7 +4,9 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Android.OS;
+using Newtonsoft.Json.Linq;
 using Xamarin.Forms;
+using Xamarin.Essentials;
 
 namespace TicketNow
 {
@@ -105,10 +107,25 @@ namespace TicketNow
 
             var request = new FormUrlEncodedContent(values);
             //URI
-            HttpResponseMessage response = await client.PostAsync("http://ticketnow.ddns.net:5000/api/kiosk/ticket", request);
+            HttpResponseMessage response = await client.PostAsync("http://ticket-now.ddns.net:5000/api/kiosk/ticket", request);
+
+            string r = await response.Content.ReadAsStringAsync();
 
 
-            await DisplayAlert("", "Payment Successful", "Ok");
+            JObject jObject = Newtonsoft.Json.Linq.JObject.Parse(r);
+
+            string res = jObject.Value<string>("transaction_status");
+
+            if (res == "Payment")
+            {
+
+                string s = jObject.Value<string>("paypal_link");
+
+                await Browser.OpenAsync(s);
+
+            }
+
+            else if (res=="Success") await DisplayAlert("", "Payment Successful", "Ok"); ;
 
 
             //refresh user info with new tickets

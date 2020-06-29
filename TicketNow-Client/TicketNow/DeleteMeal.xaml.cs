@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Android.OS;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Xamarin.Forms;
 
 namespace TicketNow
@@ -29,17 +30,19 @@ namespace TicketNow
             if (SystemClock.ElapsedRealtime() - LastButtonClickTime < 1000) return;
             LastButtonClickTime = SystemClock.ElapsedRealtime();
 
-                bool res = await this.deleteMeal(date.Text, mealtype.Text, location.Text, token);
-                if (res)
-                {
-                    await DisplayAlert("", "Success", "Ok");
-                }
+            string datee = date.Date.Year + "-" + date.Date.Month + "-" + date.Date.Day;
+
+            bool res = await this.deleteMeal(datee, mealtype.Text, location.Text, token);
+            if (res)
+            {
+                await DisplayAlert("", "Success", "Ok");
+            }
 
         }
 
 
 
-        public async Task<bool> deleteMeal(string date, string mealtype,string location, string accessToken)
+        public async Task<bool> deleteMeal(string date, string mealtype, string location, string accessToken)
         {
 
             //Delete
@@ -47,7 +50,7 @@ namespace TicketNow
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
 
 
-            var request = new HttpRequestMessage(HttpMethod.Delete, "http://ticketnow.ddns.net:5000/api/meal");
+            var request = new HttpRequestMessage(HttpMethod.Delete, "http://ticket-now.ddns.net:5000/api/meal");
 
 
             MealData meal = new MealData();
@@ -63,17 +66,40 @@ namespace TicketNow
 
             request.Content = new StringContent(json, UnicodeEncoding.UTF8, "application/json");
 
-   
+
 
             //URI
             HttpResponseMessage response = await client.SendAsync(request);
 
+            string r = await response.Content.ReadAsStringAsync();
+
+
+            JObject jObject = Newtonsoft.Json.Linq.JObject.Parse(r);
+
+            string s = jObject.Value<string>("error");
 
             if (response.IsSuccessStatusCode) return true;
 
-            else return false;
+
+            else if (s.Equals("Meal does not exists"))
+            {
+                await DisplayAlert("", "Meal does not exists", "Ok");
+            }
+            else if (s.Equals("Meal type does not exists"))
+            {
+                await DisplayAlert("", "Please choose a meal type between Lunch and Dinner", "Ok");
+            }
+            else if (s.Equals("Location does not exists"))
+            {
+                await DisplayAlert("", "Please choose a location between Gualtar and Azurém", "Ok");
+            }
+
+
+            return false;
+
         }
 
-    }
 
+
+    }
 }

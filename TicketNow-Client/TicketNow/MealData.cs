@@ -5,13 +5,15 @@ namespace TicketNow
     public class MealData
     {
 
-        public string date;
-        public string meal_type;
-        public string location;
-        public string soup;
-        public string main_dish;
-        public string description;
+        public string date { get; set; }
+        public string meal_type { get; set; }
+        public string location { get; set; }
+        public string soup { get; set; }
+        public string main_dish { get; set; }
+        public string description { get; set; }
 
-
+        public MealData()
+        {
+        }
     }
 }

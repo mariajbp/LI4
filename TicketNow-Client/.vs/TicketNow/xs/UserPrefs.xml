@@ -1,10 +1,9 @@
 ﻿<Properties StartupConfiguration="{75864FFA-22C1-4DDF-9041-8A49A7F723C7}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
   <MonoDevelop.Ide.ItemProperties.TicketNow.Android AndroidDesignerPreferredTheme="Theme.AppCompat.Light.NoActionBar" PreferredExecutionTarget="Android.pixel_2_pie_9_0_-_api_28" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="TicketNow/MealData.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="TicketNow/Charts.xaml">
     <Files>
-      <File FileName="TicketNow/DeleteMeal.xaml.cs" Line="65" Column="1" />
-      <File FileName="TicketNow/AddMeal.xaml.cs" Line="70" Column="1" />
-      <File FileName="TicketNow/MealData.cs" Line="8" Column="11" />
+      <File FileName="TicketNow/Charts.xaml" Line="47" Column="42" />
+      <File FileName="TicketNow/Charts.xaml.cs" Line="81" Column="46" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,21 +11,22 @@
           <Node name="TicketNow" expanded="True">
             <Node name="TicketNow" expanded="True">
               <Node name="AddMeal.xaml" expanded="True" />
-              <Node name="Admin.xaml" expanded="True" />
-              <Node name="ChangePass.xaml" expanded="True" />
-              <Node name="ChangePassAdmin.xaml" expanded="True" />
-              <Node name="Charts.xaml" expanded="True" />
+              <Node name="BuyTickets2.xaml" expanded="True" />
+              <Node name="Charts.xaml" expanded="True" selected="True" />
+              <Node name="CreateAccount.xaml" expanded="True" />
               <Node name="DeleteMeal.xaml" expanded="True" />
+              <Node name="DeleteUser.xaml" expanded="True" />
               <Node name="MainPage.xaml" expanded="True" />
-              <Node name="MealData.cs" selected="True" />
               <Node name="Perfil.xaml" expanded="True" />
               <Node name="Settings.xaml" expanded="True" />
               <Node name="SettingsAdmin.xaml" expanded="True" />
+              <Node name="WeeklyMeal.xaml" expanded="True" />
             </Node>
             <Node name="TicketNow.Android" expanded="True">
-              <Node name="References" expanded="True" />
               <Node name="Assets" expanded="True" />
-              <Node name="Properties" expanded="True" />
+              <Node name="Resources" expanded="True">
+                <Node name="values" expanded="True" />
+              </Node>
             </Node>
           </Node>
         </State>

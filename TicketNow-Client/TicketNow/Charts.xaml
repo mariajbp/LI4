@@ -6,15 +6,60 @@
              BackgroundImage ="bg.png">
 
     <ScrollView>
+
         <StackLayout Orientation="Vertical">
+
+
+            <AbsoluteLayout>
+
+    <Label x:Name="beg" Text="Begin" FontSize="Subtitle" FontAttributes="Bold"
+                   TextColor="White"
+                   AbsoluteLayout.LayoutBounds=".2,.1,.32,.15"
+                   AbsoluteLayout.LayoutFlags="All"/>
+
+        <Label x:Name="endd" Text="End" FontSize="Subtitle" FontAttributes="Bold"
+                   TextColor="White"
+                   AbsoluteLayout.LayoutBounds=".2,.22,.32,.15"
+                   AbsoluteLayout.LayoutFlags="All"/>
+
+     <DatePicker x:Name="begin"
+            
+            Format="dd, MMMM yyyy"
+            MinimumDate="01/01/2020"
+            MaximumDate="01/01/2120"
+            Date="{Binding SelectedDate}"
+             AbsoluteLayout.LayoutBounds=".65,.08,.55,.07"
+             AbsoluteLayout.LayoutFlags="All"
+            BackgroundColor="Transparent"
+           
+                HeightRequest="38" WidthRequest="280" FontAttributes="Bold"
+                TextColor="#FFFFFF"
+                FontSize="Large"
+                />
+
+        <DatePicker x:Name="end"
+            
+            Format="dd, MMMM yyyy"
+            MinimumDate="01/01/2020"
+            MaximumDate="01/01/2120"
+            Date="{Binding SelectedDate}"
+          
+            BackgroundColor="Transparent"
+                    AbsoluteLayout.LayoutBounds=".65,.185,.55,.07"
+             AbsoluteLayout.LayoutFlags="All"
+          
+                HeightRequest="43" WidthRequest="280" FontAttributes="Bold"
+                TextColor="#FFFFFF"
+                FontSize="Large"
+                />
+
             <forms:ChartView x:Name="chart1" HeightRequest="500" />
             <forms:ChartView x:Name="chart2" HeightRequest="200"/>
             <forms:ChartView x:Name="chart3" HeightRequest="200"/>
             <forms:ChartView x:Name="chart4" HeightRequest="200"/>
+                 </AbsoluteLayout>
         </StackLayout>
     </ScrollView>
-
-   
 
 
 

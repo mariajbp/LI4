@@ -32,7 +32,7 @@ namespace TicketNow
 
             var request = new FormUrlEncodedContent(values);
             //URI
-            HttpResponseMessage response = await client.PostAsync("http://ticketnow.ddns.net:5000/api/register", request);
+            HttpResponseMessage response = await client.PostAsync("http://ticket-now.ddns.net:5000/api/register", request);
 
             if(response.IsSuccessStatusCode) await DisplayAlert("", "Your account has been created", "Ok");
 

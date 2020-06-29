@@ -67,12 +67,14 @@
                              Constant=-265}"
                />
 
-
-
-          <Entry x:Name="date"
-               Placeholder="DATE"
-               PlaceholderColor="#FFFFFF"
-               RelativeLayout.XConstraint =
+             <DatePicker x:Name="date"
+            Format="dd-MM-yyyy"
+            MinimumDate="01/01/2020"
+            MaximumDate="01/01/2120"
+            Date="{Binding SelectedDate}"
+          
+            BackgroundColor="Transparent"
+             RelativeLayout.XConstraint =
                "{ConstraintExpression Type=RelativeToParent,
                              Property=Width,
                              Factor=0.5,
@@ -81,12 +83,13 @@
                "{ConstraintExpression Type=RelativeToParent,
                              Property=Height,
                              Factor=0.5,
-                             Constant=-160}"
-               TextColor="#FFFFFF"
-               BackgroundColor="Transparent"
-               HeightRequest="43" WidthRequest="250" FontAttributes="Bold" ClearButtonVisibility="WhileEditing" 
-               />
+                             Constant =-160}"
+                HeightRequest="43" WidthRequest="250" FontAttributes="Bold"
+                TextColor="#FFFFFF"
+                FontSize="Large"
+                />
 
+          
 
          <Entry x:Name="mealtype"
                Placeholder="MEAL TYPE"

@@ -47,7 +47,7 @@ namespace TicketNow
 
 
             //URI
-            HttpResponseMessage response = await client.DeleteAsync("http://ticketnow.ddns.net:5000/api/user?id_user="+id_user);
+            HttpResponseMessage response = await client.DeleteAsync("http://ticket-now.ddns.net:5000/api/user?id_user="+id_user);
 
             if (response.IsSuccessStatusCode) return true;
 

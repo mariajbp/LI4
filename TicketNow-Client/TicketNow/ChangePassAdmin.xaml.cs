@@ -67,7 +67,7 @@ namespace TicketNow
 
             var request = new FormUrlEncodedContent(values);
             //URI
-            HttpResponseMessage response = await client.PutAsync("http://ticketnow.ddns.net:5000/api/user", request);
+            HttpResponseMessage response = await client.PutAsync("http://ticket-now.ddns.net:5000/api/user", request);
 
             if (response.IsSuccessStatusCode) return true;
 

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Android.OS;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Xamarin.Forms;
 
 namespace TicketNow
@@ -30,11 +31,14 @@ namespace TicketNow
             if (SystemClock.ElapsedRealtime() - LastButtonClickTime < 1000) return;
             LastButtonClickTime = SystemClock.ElapsedRealtime();
 
-            bool res = await this.addMeal(date.Text, mealtype.Text, location.Text,soup.Text,maindish.Text,description.Text, token);
+            string datee = date.Date.Year + "-" + date.Date.Month + "-" + date.Date.Day;
+
+            bool res = await this.addMeal(datee, mealtype.Text, location.Text,soup.Text,maindish.Text,description.Text, token);
             if (res)
             {
                 await DisplayAlert("", "Success", "Ok");
             }
+            
 
         }
 
@@ -69,12 +73,36 @@ namespace TicketNow
             byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
             //URI
-            HttpResponseMessage response =await client.PostAsync("http://ticketnow.ddns.net:5000/api/meal", byteContent);
+            HttpResponseMessage response =await client.PostAsync("http://ticket-now.ddns.net:5000/api/meal", byteContent);
 
+            string r = await response.Content.ReadAsStringAsync();
+
+
+            JObject jObject = Newtonsoft.Json.Linq.JObject.Parse(r);
+
+            string s = jObject.Value<string>("error");
 
             if (response.IsSuccessStatusCode) return true;
 
-            else return false;
+
+            else if (s.Equals("Meal type does not exists"))
+            {
+                await DisplayAlert("", "Please choose a meal type between Lunch and Dinner", "Ok");
+            }
+            else if (s.Equals("Location does not exists"))
+            {
+                await DisplayAlert("", "Please choose a location between Gualtar and Azurém", "Ok");
+            }
+            else if (s.Equals("Invalid date format (ISO Date format required)!"))
+            {
+                await DisplayAlert("", "Please insert a correct data format (YYYY-MM-DD)", "Ok");
+            }
+            else if (s.Equals("Meal already exists"))
+            {
+                await DisplayAlert("", "This meal already exists", "Ok");
+            }
+
+            return false;
         }
 
     }

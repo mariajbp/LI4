@@ -32,7 +32,7 @@ namespace TicketNow
             //LOGIN
             //test with server
 
-            HttpResponseMessage response = await client.GetAsync("http://ticketnow.ddns.net:5000/api/user/"+ id_userr);
+            HttpResponseMessage response = await client.GetAsync("http://ticket-now.ddns.net:5000/api/user/"+ id_userr);
             HttpContent content = response.Content;
 
             //Read the string.
@@ -53,7 +53,7 @@ namespace TicketNow
 
                 //OWNED_TICKETS
                 //test with server
-                HttpResponseMessage resp = await client.GetAsync("http://ticketnow.ddns.net:5000/api/user/"+id_userr+"/tickets");
+                HttpResponseMessage resp = await client.GetAsync("http://ticket-now.ddns.net:5000/api/user/"+id_userr+"/tickets");
             HttpContent cont = resp.Content;
 
             //Read the string.

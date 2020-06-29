@@ -32,7 +32,7 @@ namespace TicketNow
 
             //HISTORY
             //test with server
-            HttpResponseMessage resp = await client.GetAsync("http://ticketnow.ddns.net:5000/api/user/" + id_user + "/history");
+            HttpResponseMessage resp = await client.GetAsync("http://ticket-now.ddns.net:5000/api/user/" + id_user + "/history");
             HttpContent cont = resp.Content;
 
             //Read the string.
@@ -83,19 +83,6 @@ namespace TicketNow
                    ) ;
 
             }
-
-
-            //WEEK
-
-
-
-
-
-            //MONTH
-
-
-
-
 
             chart1.Chart = new BarChart() { Entries = entries, LabelTextSize=38, Margin=30, MinValue=0 };
             chart2.Chart = new LineChart() { Entries = entries, LabelTextSize = 38, Margin=30,MinValue=0 };
