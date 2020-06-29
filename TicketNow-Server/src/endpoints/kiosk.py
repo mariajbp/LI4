@@ -14,6 +14,9 @@ import datetime
 
 ###################### PAYPAL AUXILIAR PROCEDURES ###################### 
 
+PP_USERNAME = 'AVuNdJP1b1ysHIWfqsbVvBOs57ZSC3pO7cUXjmx6X6OpCp6WWS89KdxRORun9Vp1gHzeLeqsQT5mtazx'
+PP_PASSWORD = 'EHOYdoXBy_acDWOpKmo0Iw3XdvG0PUJ7pVBB51D3UnwLg8umt_7MLO6__cspUUPyZdwVMxyUT6wBRbWS'
+
 def approve_link(order_id):
     return 'https://www.sandbox.paypal.com/checkoutnow?token={}'.format(order_id)
 
@@ -66,7 +69,7 @@ def capture_order(auth_token, order_id):
 class KioskAPI(Resource):
     __MAX_TICKET_AMOUNT = 100
 
-    __OAUTH_TOKEN = gen_oauth2_token('AVuNdJP1b1ysHIWfqsbVvBOs57ZSC3pO7cUXjmx6X6OpCp6WWS89KdxRORun9Vp1gHzeLeqsQT5mtazx','EHOYdoXBy_acDWOpKmo0Iw3XdvG0PUJ7pVBB51D3UnwLg8umt_7MLO6__cspUUPyZdwVMxyUT6wBRbWS')#'A21AAFT7PJ5p88zfNcpn7-Zzz4EpxOz9xDK5Ajrl998eOpJDMZUXyRnNS0TwR-oahrZl13mOFQ2K23YQRsAk4uCRPCxbZWU-Q'
+    __OAUTH_TOKEN = gen_oauth2_token(PP_USERNAME,PP_PASSWORD)#'A21AAFT7PJ5p88zfNcpn7-Zzz4EpxOz9xDK5Ajrl998eOpJDMZUXyRnNS0TwR-oahrZl13mOFQ2K23YQRsAk4uCRPCxbZWU-Q'
     awaiting_transactions = {}
 
     #parser_get = reqparse.RequestParser()
@@ -114,9 +117,13 @@ class KioskAPI(Resource):
             return error_message("Invalid amount MAX = " + str(__MAX_TICKET_AMOUNT)) , 500
         
         order_id = gen_order(KioskAPI.__OAUTH_TOKEN, price*amount)
-        print(order_id)
+        
         if order_id == None:
-            return error_message("Something unexpected ocurred") , 500
+            KioskAPI.__OAUTH_TOKEN = gen_oauth2_token(PP_USERNAME,PP_PASSWORD)
+            order_id = gen_order(KioskAPI.__OAUTH_TOKEN, price*amount)
+            print("Logged in")
+            if order_id == None:
+                return error_message("Something unexpected ocurred") , 500
         
         KioskAPI.awaiting_transactions[order_id] = {
             "amount" : amount,
