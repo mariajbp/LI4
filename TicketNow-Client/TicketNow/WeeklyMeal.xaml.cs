@@ -55,11 +55,27 @@ private void onLocationButtonClicked( object sender, EventArgs args)
             {
 
                 local.Text = "Azurém";
+                linhadir.Opacity = 0.5;
+                linhadir1.Opacity = 0.5;
+                linhaesq.Opacity = 1;
+                linhaesq1.Opacity = 1;
+                utensesq.Opacity = 1;
+                utensdir.Opacity = 0.5;
+                normalmeal.Opacity = 1;
+                veg.Opacity = 0.5;
                 menuNormal();
             }
             else
             {
                 local.Text = "Gualtar";
+                linhadir.Opacity = 0.5;
+                linhadir1.Opacity = 0.5;
+                linhaesq.Opacity = 1;
+                linhaesq1.Opacity = 1;
+                utensesq.Opacity = 1;
+                utensdir.Opacity = 0.5;
+                normalmeal.Opacity = 1;
+                veg.Opacity = 0.5;
                 menuNormal();
             }
            
@@ -76,7 +92,7 @@ private void onVegetarianButtonClicked(object sender, EventArgs args)
             utensdir.Opacity = 1;
             normalmeal.Opacity = 0.5;
             veg.Opacity = 1;
-            //menuVegetarian();
+            menuVegetarian();
         }
 
         private void onMealsButtonClicked(object sender, EventArgs args)
@@ -105,21 +121,56 @@ private void onVegetarianButtonClicked(object sender, EventArgs args)
             }
             foreach (var me in this.mealss)
             {
-  
-                if((me.location == "gualtar" && g==1) || (me.location=="azurem" && g==2)) { 
+                if (me.meal_type == "lunch" || me.meal_type == "dinner")
+                {
+                    if ((me.location == "gualtar" && g==1) || (me.location=="azurem" && g==2)) { 
                 s.Add(new MealData {date = me.date, location= char.ToUpper(me.location[0])+me.location.Substring(1),
                 meal_type= char.ToUpper(me.meal_type[0]) + me.meal_type.Substring(1), soup=me.soup, main_dish=me.main_dish,description=me.description});
                 }
+                    }
             }
 
             lv.ItemsSource = s;
 
         }
 
-   
-      
+        public void menuVegetarian()
+        {
+            IList<MealData> s = new List<MealData>();
+            int g;
+            if (local.Text == "Gualtar") g = 1;
+            else g = 2;
+            if (this.mealss == null)
+            {
+                lv.ItemsSource = s;
+                return;
+            }
+            foreach (var me in this.mealss)
+            {
+                if (me.meal_type == "veg_dinner" || me.meal_type=="veg_lunch"){
+                if ((me.location == "gualtar" && g == 1) || (me.location == "azurem" && g == 2))
+                    {
+                        s.Add(new MealData
+                        {
+                            
+                            date = me.date,
+                            location = char.ToUpper(me.location[0]) + me.location.Substring(1),
+                            meal_type = char.ToUpper(me.meal_type[4]) + me.meal_type.Substring(5),
+                            soup = me.soup,
+                            main_dish = me.main_dish,
+                            description = me.description
+                        });
+                    } }
+            }
 
-        
+            lv.ItemsSource = s;
+
+        }
+
+
+
+
+
 
 
     }

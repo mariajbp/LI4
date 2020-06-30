@@ -31,7 +31,7 @@ namespace TicketNow
             if (SystemClock.ElapsedRealtime() - LastButtonClickTime < 1000) return;
             LastButtonClickTime = SystemClock.ElapsedRealtime();
 
-            string datee = date.Date.Year + "-" + date.Date.Month + "-" + date.Date.Day;
+            string datee = date.Date.Year + "-" + date.Date.Month.ToString().PadLeft(2, '0') + "-" + date.Date.Day.ToString().PadLeft(2, '0');
 
             bool res = await this.addMeal(datee, mealtype.Text, location.Text,soup.Text,maindish.Text,description.Text, token);
             if (res)
@@ -59,8 +59,10 @@ namespace TicketNow
             meal.main_dish = maindish;
             meal.description = description;
 
+           
 
-           var json = JsonConvert.SerializeObject(meal);
+
+            var json = JsonConvert.SerializeObject(meal);
 
         
 
@@ -82,12 +84,15 @@ namespace TicketNow
 
             string s = jObject.Value<string>("error");
 
+
+            
+
             if (response.IsSuccessStatusCode) return true;
 
 
             else if (s.Equals("Meal type does not exists"))
             {
-                await DisplayAlert("", "Please choose a meal type between Lunch and Dinner", "Ok");
+                await DisplayAlert("", "Please choose a meal type between Lunch, Dinner, Veg_dinner, Veg_lunch", "Ok");
             }
             else if (s.Equals("Location does not exists"))
             {

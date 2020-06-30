@@ -6,22 +6,7 @@
 
          <!-- Place new controls here -->
           
-            <Button Text="ADD MEAL"
-               RelativeLayout.XConstraint =
-               "{ConstraintExpression Type=RelativeToParent,
-                             Property=Width,
-                             Factor=0.5,
-                             Constant=-140}"
-               RelativeLayout.YConstraint =
-               "{ConstraintExpression Type=RelativeToParent,
-                             Property=Height,
-                             Factor=0.5,
-                             Constant=-275}"
-               BackgroundColor="Transparent"
-               TextColor="#FFFFFF"
-               HeightRequest="60" WidthRequest="270" FontAttributes="Bold"
-               FontSize="Title"
-                />
+            
 
              <Image Source="whiteline.png"
                HeightRequest="43" WidthRequest="240"
@@ -67,10 +52,10 @@
                              Constant=-265}"
                />
 
-             <DatePicker x:Name="date"
-            Format="dd-MM-yyyy"
-            MinimumDate="01/01/2020"
-            MaximumDate="01/01/2120"
+            <DatePicker x:Name="date"
+            Format="yyyy-MM-dd"
+            MinimumDate="2020-01-01"
+            MaximumDate="2120-01-01"
             Date="{Binding SelectedDate}"
           
             BackgroundColor="Transparent"

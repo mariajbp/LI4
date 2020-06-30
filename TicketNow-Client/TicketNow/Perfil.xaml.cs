@@ -200,7 +200,7 @@ namespace TicketNow
             if (SystemClock.ElapsedRealtime() - LastButtonClickTime < 1000) return;
             this.refresh();
             LastButtonClickTime = SystemClock.ElapsedRealtime();
-            await Navigation.PushAsync(new Charts(u.id_user,token));
+            await Navigation.PushAsync(new Charts(token));
             
 
         }

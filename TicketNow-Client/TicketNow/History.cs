@@ -4,12 +4,20 @@ namespace TicketNow
     public class History
     {
 
-        public string used_datetime;
-        public string id_ticket;
-        public string id_user;
+        public string date;
+        public string lunch;
+        public string dinner;
 
         public History()
         {
         }
+
+        public History(string date, string lunch, string d)
+        {
+            this.date = date;
+            this.lunch = lunch;
+            this.dinner = d;
+        }
+        
     }
 }

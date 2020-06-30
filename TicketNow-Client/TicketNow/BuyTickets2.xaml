@@ -86,7 +86,8 @@
                   AbsoluteLayout.LayoutBounds=".5,1.4,1.4,.5"
                   AbsoluteLayout.LayoutFlags="All" />
 
-            <Button Text="PAYMENT"
+            <Button x:Name="pay"
+                Text="PAYMENT"
                AbsoluteLayout.LayoutBounds=".5,.85,.5,.065"
                AbsoluteLayout.LayoutFlags="All" 
                BackgroundColor="#5B0604"

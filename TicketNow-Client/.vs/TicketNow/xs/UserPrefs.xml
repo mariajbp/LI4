@@ -1,9 +1,9 @@
 ﻿<Properties StartupConfiguration="{75864FFA-22C1-4DDF-9041-8A49A7F723C7}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
   <MonoDevelop.Ide.ItemProperties.TicketNow.Android AndroidDesignerPreferredTheme="Theme.AppCompat.Light.NoActionBar" PreferredExecutionTarget="Android.pixel_2_pie_9_0_-_api_28" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="TicketNow/Charts.xaml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="TicketNow/Charts.xaml.cs">
     <Files>
-      <File FileName="TicketNow/Charts.xaml" Line="47" Column="42" />
-      <File FileName="TicketNow/Charts.xaml.cs" Line="81" Column="46" />
+      <File FileName="TicketNow/Charts.xaml.cs" Line="119" Column="30" />
+      <File FileName="TicketNow/Charts.xaml" Line="111" Column="11" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -11,15 +11,15 @@
           <Node name="TicketNow" expanded="True">
             <Node name="TicketNow" expanded="True">
               <Node name="AddMeal.xaml" expanded="True" />
+              <Node name="Admin.xaml" expanded="True" />
               <Node name="BuyTickets2.xaml" expanded="True" />
-              <Node name="Charts.xaml" expanded="True" selected="True" />
-              <Node name="CreateAccount.xaml" expanded="True" />
+              <Node name="Charts.xaml" expanded="True">
+                <Node name="Charts.xaml.cs" selected="True" />
+              </Node>
               <Node name="DeleteMeal.xaml" expanded="True" />
-              <Node name="DeleteUser.xaml" expanded="True" />
               <Node name="MainPage.xaml" expanded="True" />
               <Node name="Perfil.xaml" expanded="True" />
               <Node name="Settings.xaml" expanded="True" />
-              <Node name="SettingsAdmin.xaml" expanded="True" />
               <Node name="WeeklyMeal.xaml" expanded="True" />
             </Node>
             <Node name="TicketNow.Android" expanded="True">
@@ -36,7 +36,9 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/susanamarques/Desktop/LI4/TicketNow-Client/TicketNow/Charts.xaml" relfile="TicketNow/Charts.xaml" line="90" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

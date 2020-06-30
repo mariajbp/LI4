@@ -30,7 +30,7 @@ namespace TicketNow
             if (SystemClock.ElapsedRealtime() - LastButtonClickTime < 1000) return;
             LastButtonClickTime = SystemClock.ElapsedRealtime();
 
-            string datee = date.Date.Year + "-" + date.Date.Month + "-" + date.Date.Day;
+            string datee = date.Date.Year + "-" + date.Date.Month.ToString().PadLeft(2, '0') + "-" + date.Date.Day.ToString().PadLeft(2, '0');
 
             bool res = await this.deleteMeal(datee, mealtype.Text, location.Text, token);
             if (res)
@@ -57,6 +57,8 @@ namespace TicketNow
             meal.date = date;
             meal.meal_type = mealtype;
             meal.location = location;
+
+            
 
             var json = JsonConvert.SerializeObject(meal);
 
@@ -87,11 +89,15 @@ namespace TicketNow
             }
             else if (s.Equals("Meal type does not exists"))
             {
-                await DisplayAlert("", "Please choose a meal type between Lunch and Dinner", "Ok");
+                await DisplayAlert("", "Please choose a meal type between Lunch, Dinner, Veg_dinner, Veg_lunch", "Ok");
             }
             else if (s.Equals("Location does not exists"))
             {
                 await DisplayAlert("", "Please choose a location between Gualtar and Azurém", "Ok");
+            }
+            else if (s.Equals("Arguments required"))
+            {
+                await DisplayAlert("", "Arguments required", "Ok");
             }
 
 

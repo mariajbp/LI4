@@ -222,7 +222,7 @@ namespace TicketNow
             LastButtonClickTime = SystemClock.ElapsedRealtime();
             //refresh user info with new ticke
             this.refresh();
-            await Navigation.PushAsync(new Charts(u.id_user,token));
+            await Navigation.PushAsync(new Charts(token));
            
         }
 

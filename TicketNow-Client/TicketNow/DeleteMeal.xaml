@@ -69,9 +69,9 @@
 
 
             <DatePicker x:Name="date"
-            Format="dd-MM-yyyy"
-            MinimumDate="01/01/2020"
-            MaximumDate="01/01/2120"
+            Format="yyyy-MM-dd"
+            MinimumDate="2020-01-01"
+            MaximumDate="2120-01-01"
             Date="{Binding SelectedDate}"
              BackgroundColor="Transparent"
              RelativeLayout.XConstraint =

@@ -69,6 +69,7 @@ namespace TicketNow
 
         private async void onPaymentButtonClicked(object sender, EventArgs args)
         {
+            pay.IsEnabled = false;
             if (SystemClock.ElapsedRealtime() - LastButtonClickTime < 1000) return;
             LastButtonClickTime = SystemClock.ElapsedRealtime();
             if (meal == 1)
@@ -115,27 +116,66 @@ namespace TicketNow
             JObject jObject = Newtonsoft.Json.Linq.JObject.Parse(r);
 
             string res = jObject.Value<string>("transaction_status");
-
+            
             if (res == "Payment")
             {
 
                 string s = jObject.Value<string>("paypal_link");
 
-                await Browser.OpenAsync(s);
+                string id = jObject.Value<string>("id_transaction");
+
+               
+                await recursive(client,id,s);
 
             }
 
-            else if (res=="Success") await DisplayAlert("", "Payment Successful", "Ok"); ;
-
-
+      
             //refresh user info with new tickets
             User u = new User();
             await u.setInfo(token, username);
             if (u.permissoes != 1) await Navigation.PushAsync(new Admin(u, token));
             else if (u.permissoes == 1) await Navigation.PushAsync(new Perfil(u, token));
-           
+            pay.IsEnabled = true;
 
             return true;
         }
+
+public async Task<bool> recursive(HttpClient client, string id,string s)
+        {
+            await Browser.OpenAsync(s);
+
+            await Task.Delay(5800);
+
+            string action = await DisplayActionSheet("Finish payment?", "Cancel", null, "Yes");
+
+            if (action == "Yes")
+            {
+                var method = new HttpMethod("PATCH");
+
+                var requestt = new HttpRequestMessage(method, "http://ticket-now.ddns.net:5000/api/kiosk/ticket?id_transaction=" + id);
+
+                var responsee = await client.SendAsync(requestt);
+
+                string ll = await responsee.Content.ReadAsStringAsync();
+
+                JObject jObjectt = Newtonsoft.Json.Linq.JObject.Parse(ll);
+
+                string w = jObjectt.Value<string>("transaction_status");
+
+                if (w == "Success"){
+                    await DisplayAlert("", "Payment Successfully Completed", "Ok");
+                    return true;
+                }
+
+                if (w == "Complete") await DisplayAlert("", "Payment Expired", "Ok");
+
+                if (w == "Payment")
+                {
+                    await DisplayAlert("", "Payment not completed, please access your paypal account", "Ok");
+                    await recursive(client,id,s);
+                }
+            } return true;
+        }
+
     }
 }

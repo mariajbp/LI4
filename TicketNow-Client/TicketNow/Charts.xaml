@@ -9,55 +9,109 @@
 
         <StackLayout Orientation="Vertical">
 
+    <StackLayout Orientation="Horizontal">
 
-            <AbsoluteLayout>
+        <Label Text="Begin:"
+        Margin="50,30,0,0"
+               HeightRequest="44" WidthRequest="70" FontAttributes="Bold"
+                TextColor="#FFFFFF"
+                FontSize="Large"
+        />
 
-    <Label x:Name="beg" Text="Begin" FontSize="Subtitle" FontAttributes="Bold"
-                   TextColor="White"
-                   AbsoluteLayout.LayoutBounds=".2,.1,.32,.15"
-                   AbsoluteLayout.LayoutFlags="All"/>
 
-        <Label x:Name="endd" Text="End" FontSize="Subtitle" FontAttributes="Bold"
-                   TextColor="White"
-                   AbsoluteLayout.LayoutBounds=".2,.22,.32,.15"
-                   AbsoluteLayout.LayoutFlags="All"/>
-
-     <DatePicker x:Name="begin"
-            
+     <DatePicker x:Name="begin" BackgroundColor="Transparent"
+            Margin="0,26"
             Format="dd, MMMM yyyy"
             MinimumDate="01/01/2020"
-            MaximumDate="01/01/2120"
+            MaximumDate="{Binding SelectedDate}"
             Date="{Binding SelectedDate}"
-             AbsoluteLayout.LayoutBounds=".65,.08,.55,.07"
-             AbsoluteLayout.LayoutFlags="All"
-            BackgroundColor="Transparent"
+       
            
-                HeightRequest="38" WidthRequest="280" FontAttributes="Bold"
+           
+                HeightRequest="44" WidthRequest="220" FontAttributes="Bold"
                 TextColor="#FFFFFF"
                 FontSize="Large"
-                />
+              />
+        </StackLayout>
 
+            <StackLayout Orientation="Horizontal">
+
+        <Label Text="End:"
+         Margin="70,5,-20,0"
+               HeightRequest="44" WidthRequest="70" FontAttributes="Bold"
+                TextColor="#FFFFFF"
+                FontSize="Large"
+        />
         <DatePicker x:Name="end"
-            
+            Margin="0,0"
             Format="dd, MMMM yyyy"
             MinimumDate="01/01/2020"
-            MaximumDate="01/01/2120"
+            MaximumDate="{Binding SelectedDate}"
             Date="{Binding SelectedDate}"
-          
+            VerticalOptions="Center"
             BackgroundColor="Transparent"
-                    AbsoluteLayout.LayoutBounds=".65,.185,.55,.07"
-             AbsoluteLayout.LayoutFlags="All"
+       
           
-                HeightRequest="43" WidthRequest="280" FontAttributes="Bold"
+                HeightRequest="44" WidthRequest="220" FontAttributes="Bold"
                 TextColor="#FFFFFF"
                 FontSize="Large"
                 />
+                </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="ME"
+               Margin="70,20,1,0"
+               BackgroundColor="#5B0604"
+               TextColor="#FFFFFF"
+               HeightRequest="60" WidthRequest="120" FontAttributes="Bold"
+                Clicked="onGlobalButtonClicked"
+               FontSize="Title"
+                />
+
+                <Button Text="GLOBAL"
+               Margin="0,20,1,0"
+               BackgroundColor="#5B0604"
+               TextColor="#FFFFFF" 
+               HeightRequest="60" WidthRequest="120" FontAttributes="Bold"
+               Clicked="onGlobalButtonClicked"
+               FontSize="Title"
+                />
+            </StackLayout>
+
+            <Label
+                x:Name="lun"
+                IsVisible="false"
+                Text="Lunch"
+        Margin="50,30,0,0"
+               HeightRequest="44" WidthRequest="70" FontAttributes="Bold"
+                TextColor="#FFFFFF"
+                FontSize="Large"
+           />
 
             <forms:ChartView x:Name="chart1" HeightRequest="500" />
-            <forms:ChartView x:Name="chart2" HeightRequest="200"/>
+
+            <Label
+                x:Name="din"
+                IsVisible="false"
+                Text="Dinner"
+        Margin="50,30,0,0"
+               HeightRequest="44" WidthRequest="70" FontAttributes="Bold"
+                TextColor="#FFFFFF"
+                FontSize="Large"
+        />
+             <forms:ChartView x:Name="chart4" HeightRequest="500"/>
+
+            <Label
+                x:Name="glo"
+                IsVisible="false"
+                Text="Globally"
+        Margin="50,30,0,0"
+               HeightRequest="44" WidthRequest="70" FontAttributes="Bold"
+                TextColor="#FFFFFF"
+                FontSize="Large"
+        />
             <forms:ChartView x:Name="chart3" HeightRequest="200"/>
-            <forms:ChartView x:Name="chart4" HeightRequest="200"/>
-                 </AbsoluteLayout>
+           
+             
         </StackLayout>
     </ScrollView>
 
