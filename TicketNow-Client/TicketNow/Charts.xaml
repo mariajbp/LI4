@@ -59,6 +59,7 @@
                 </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Button Text="ME"
+                 CornerRadius="35"
                Margin="70,20,1,0"
                BackgroundColor="#5B0604"
                TextColor="#FFFFFF"
@@ -69,8 +70,9 @@
 
                 <Button Text="GLOBAL"
                Margin="0,20,1,0"
-               BackgroundColor="#5B0604"
-               TextColor="#FFFFFF" 
+               BackgroundColor="#5B0604 "
+               TextColor="#FFFFFF"
+                CornerRadius="35"
                HeightRequest="60" WidthRequest="120" FontAttributes="Bold"
                Clicked="onGlobalButtonClicked"
                FontSize="Title"
@@ -81,8 +83,8 @@
                 x:Name="lun"
                 IsVisible="false"
                 Text="Lunch"
-        Margin="50,30,0,0"
-               HeightRequest="44" WidthRequest="70" FontAttributes="Bold"
+        Margin="35,30,0,0"
+               HeightRequest="64" WidthRequest="70" FontAttributes="Bold"
                 TextColor="#FFFFFF"
                 FontSize="Large"
            />
@@ -93,8 +95,8 @@
                 x:Name="din"
                 IsVisible="false"
                 Text="Dinner"
-        Margin="50,30,0,0"
-               HeightRequest="64" WidthRequest="70" FontAttributes="Bold"
+        Margin="35,30,0,0"
+               HeightRequest="44" WidthRequest="70" FontAttributes="Bold"
                 TextColor="#FFFFFF"
                 FontSize="Large"
         />

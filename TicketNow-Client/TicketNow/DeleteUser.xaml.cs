@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Android.OS;
+using Newtonsoft.Json.Linq;
 using Xamarin.Forms;
 
 namespace TicketNow
@@ -25,15 +26,20 @@ namespace TicketNow
         {
             if (SystemClock.ElapsedRealtime() - LastButtonClickTime < 1000) return;
             LastButtonClickTime = SystemClock.ElapsedRealtime();
-           
+            if (String.IsNullOrWhiteSpace(USERNAME.Text))
+            {
+                await DisplayAlert("", "Invalid Parameter", "Try Again");
+                return;
+            }
 
-                bool res = await this.deleteUser(USERNAME.Text, token);
-                if (res)
+            bool res = await this.deleteUser(USERNAME.Text, token);
+           
+            if (res)
                 {
                     await DisplayAlert("", "User deleted with success", "Ok");
                 }
-                //FALTA ARRANJAR SE O ID FOR INVALIDO
-                else await DisplayAlert("", "Invalid ID", "Try Again");
+                
+                else await DisplayAlert("", "User does not exist", "Try Again");
            
         }
 
@@ -49,7 +55,18 @@ namespace TicketNow
             //URI
             HttpResponseMessage response = await client.DeleteAsync("http://ticket-now.ddns.net:5000/api/user?id_user="+id_user);
 
-            if (response.IsSuccessStatusCode) return true;
+            string r = await response.Content.ReadAsStringAsync();
+
+
+            JObject jObject = Newtonsoft.Json.Linq.JObject.Parse(r);
+
+            string s = jObject.Value<string>("message");
+
+
+             if (s.Equals("Success"))
+            {
+                return true;
+            }
 
             else return false;
         }

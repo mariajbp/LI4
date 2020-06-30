@@ -33,6 +33,22 @@ namespace TicketNow
 
             string datee = date.Date.Year + "-" + date.Date.Month.ToString().PadLeft(2, '0') + "-" + date.Date.Day.ToString().PadLeft(2, '0');
 
+            if (String.IsNullOrWhiteSpace(soup.Text))
+            {
+                await DisplayAlert("", "Invalid Parameter", "Try Again");
+                return;
+            }
+            if (String.IsNullOrWhiteSpace(maindish.Text))
+            {
+                await DisplayAlert("", "Invalid Parameter", "Try Again");
+                return;
+            }
+            if (String.IsNullOrWhiteSpace(description.Text))
+            {
+                await DisplayAlert("", "Invalid Parameter", "Try Again");
+                return;
+            }
+
             bool res = await this.addMeal(datee, mealtype.Text, location.Text,soup.Text,maindish.Text,description.Text, token);
             if (res)
             {
@@ -59,7 +75,7 @@ namespace TicketNow
             meal.main_dish = maindish;
             meal.description = description;
 
-           
+         
 
 
             var json = JsonConvert.SerializeObject(meal);

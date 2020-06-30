@@ -89,14 +89,21 @@ namespace TicketNow
             }
             {
                 if (history == null) Console.WriteLine("sad");
-                int sum_lunch = 0; int sum_din = 0;
+                int sum_lunch = 0; int sum_din = 0; string color = "490403";
                 foreach (var d in history)
                 {
+                    if (color == "490403") color = "ab0a07";
+                    else if (color == "ab0a07") color = "dc0d09";
+                    else if (color == "dc0d09") color = "f62623";
+                    else if (color == "f62623") color = "f96e6c";
+                    else if (color == "f96e6c") color = "0";
+                    else if (color == "0") color = "490403";
+
                     sum_lunch = sum_lunch + Int32.Parse(d.lunch);
                     sum_din = sum_din + Int32.Parse(d.dinner);
                     entries.Add(new Entry(Convert.ToUInt32(d.lunch))
                     {
-                        Color = SKColor.Parse("490403"),
+                        Color = SKColor.Parse(color),
                         Label = d.date,
                         ValueLabel = d.lunch
                     }
@@ -104,7 +111,7 @@ namespace TicketNow
 
                     entries1.Add(new Entry(Convert.ToUInt32(d.dinner))
                     {
-                        Color = SKColor.Parse("490403"),
+                        Color = SKColor.Parse(color),
                         Label = d.date,
                         ValueLabel = d.dinner
                     }
@@ -130,7 +137,7 @@ namespace TicketNow
                 
                 if (s.Count == 0)
                 {
-                    lun.Text = "There's nothing here, yet! Please select another date range";
+                    lun.Text = "There's nothing here, yet... Please select another date range!";
                     lun.IsVisible = true;
                     chart1.Chart = new BarChart() { Entries = entries, BackgroundColor = SKColors.Transparent, LabelTextSize = 38, Margin = 30, MinValue = 0 };
                     chart4.Chart = new BarChart() { Entries = entries1, BackgroundColor = SKColors.Transparent, LabelTextSize = 38, Margin = 30, MinValue = 0 };
@@ -146,13 +153,7 @@ namespace TicketNow
                     chart3.Chart = new DonutChart() { Entries = entries2, LabelTextSize = 40 };
                 }
 
-                /* if (color == "490403") color = "ab0a07";
-                 else if (color == "ab0a07") color = "dc0d09";
-                 else if (color == "dc0d09") color = "f62623";
-                 else if (color == "f62623") color = "f96e6c";
-                 else if (color == "f96e6c") color = "0";
-                 else if (color == "0") color = "490403";
-                 */
+                
 
             }
             return true;
@@ -224,17 +225,26 @@ namespace TicketNow
                 History h = new History(datee, lunchh, dinneer);
                 history.Add(h);
                 int dat = s.Count;
+                
             }
-            {
+            {  
+                 
                 if (history == null) Console.WriteLine("sad");
-                int sum_lunch = 0; int sum_din = 0;
+                int sum_lunch = 0; int sum_din = 0; string color = "490403";
                 foreach (var d in history)
                 {
+                    if (color == "490403") color = "ab0a07";
+                    else if (color == "ab0a07") color = "dc0d09";
+                    else if (color == "dc0d09") color = "f62623";
+                    else if (color == "f62623") color = "f96e6c";
+                    else if (color == "f96e6c") color = "0";
+                    else if (color == "0") color = "490403";
+
                     sum_lunch = sum_lunch + Int32.Parse(d.lunch);
                     sum_din = sum_din + Int32.Parse(d.dinner);
                     entries.Add(new Entry(Convert.ToUInt32(d.lunch))
                     {
-                        Color = SKColor.Parse("490403"),
+                        Color = SKColor.Parse(color),
                         Label = d.date,
                         ValueLabel = d.lunch
                     }
@@ -242,7 +252,7 @@ namespace TicketNow
 
                     entries1.Add(new Entry(Convert.ToUInt32(d.dinner))
                     {
-                        Color = SKColor.Parse("490403"),
+                        Color = SKColor.Parse(color),
                         Label = d.date,
                         ValueLabel = d.dinner
                     }
@@ -267,7 +277,7 @@ namespace TicketNow
                    );
                 if (s.Count ==0)
                 {
-                    lun.Text = "There's nothing here, yet! Please select another date range";
+                    lun.Text = "There's nothing here, yet... Please select another date range!";
                     lun.IsVisible = true;
                     chart1.Chart = new BarChart() { Entries = entries, BackgroundColor = SKColors.Transparent, LabelTextSize = 38, Margin = 30, MinValue = 0 };
                     chart4.Chart = new BarChart() { Entries = entries1, BackgroundColor = SKColors.Transparent, LabelTextSize = 38, Margin = 30, MinValue = 0 };
@@ -285,13 +295,7 @@ namespace TicketNow
 
 
 
-                /* if (color == "490403") color = "ab0a07";
-                 else if (color == "ab0a07") color = "dc0d09";
-                 else if (color == "dc0d09") color = "f62623";
-                 else if (color == "f62623") color = "f96e6c";
-                 else if (color == "f96e6c") color = "0";
-                 else if (color == "0") color = "490403";
-                 */
+               
             }
         }
     }
