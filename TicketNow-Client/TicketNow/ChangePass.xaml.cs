@@ -29,7 +29,9 @@ namespace TicketNow
             bool match = matchPass(NEWPASS1.Text, NEWPASS2.Text);
             if (match == true)
             {
-
+                if (String.IsNullOrWhiteSpace(NEWPASS1.Text)) {
+                    await DisplayAlert("", "Invalid Credentials", "Try Again");
+                    return; }
                 bool res = await this.putPassword(OLDPASS.Text, NEWPASS1.Text, token);
                 if (res)
                 {

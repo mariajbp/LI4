@@ -63,7 +63,7 @@
                BackgroundColor="#5B0604"
                TextColor="#FFFFFF"
                HeightRequest="60" WidthRequest="120" FontAttributes="Bold"
-                Clicked="onGlobalButtonClicked"
+                Clicked="onMeButtonClicked"
                FontSize="Title"
                 />
 
@@ -94,7 +94,7 @@
                 IsVisible="false"
                 Text="Dinner"
         Margin="50,30,0,0"
-               HeightRequest="44" WidthRequest="70" FontAttributes="Bold"
+               HeightRequest="64" WidthRequest="70" FontAttributes="Bold"
                 TextColor="#FFFFFF"
                 FontSize="Large"
         />

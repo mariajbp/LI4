@@ -16,7 +16,7 @@ namespace TicketNow
 
         public Settings(User u,string token)
         {
-            
+            this.u=u;
             this.token = token;
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
