@@ -1,6 +1,6 @@
 import random
 import requests
-from datetime import datetime, timedelta
+from datetime import datetime, date, timedelta
 import string
 
 first_names = ['Adelaide','Adélia','Adelina','Adriana','Ágata','Aida','Albertina','Alexandra','Alice','Amália','Amanda','Amélia','Ana','Anastácia','Andreia','Ângela','Angélica','Angelina','Anita','Augusta','Aurora','Bárbara','Beatriz','Benedita','Berta','Bianca','Bruna','Camila','Cândida','Carina','Carla','Carlota','Carmen','Carmo','Carolina','Catarina','Cátia','Cecília','Celeste','Célia','Cidália','Clara','Clarisse','Cláudia','Conceição','Constança','Cristiana','Cristina','Dalila','Daniela','Débora','Delfina','Denise','Deolinda','Diana','Dina','Dora','Dores','Dulce','Edite','Eduarda','Elisa','Elisabete','Elsa','Ema','Emanuela','Emília','Érica','Esmeralda','Estefânia','Estela','Eugênia','Eva','Fábia','Fabiana','Fabíola','Fátima','Fernanda','Fernando','Filipa','Flávia','Francisca','Gabriela','Gisela','Glória','Graça','Graça','Helena','Helga','Heloísa','Hermínia','Iara','Inês','Irene','Irina','Íris','Isa','Isabel','Isadora','Ivete','Ivone','Jacinta','Jaqueline','Jéssica','Joana','Julia','Juliana','Julieta','Lara','Laura','Leila','Leonor','Letícia','Lídia','Liliana','Lúcia','Luciana','Luísa','Lurdes','Luz','Luzia','Madalena','Mafalda','Manuela','Mara','Márcia','Margarida','Maria','Mariana','Marina','Marisa','Marlene','Marta','Matilde','Micaela','Milena','Mónica','Nádia','Natacha','Natália','Neusa','Nicole','Odélia','Odete','Ofélia','Olga','Olímpia','Olinda','Olívia','Orlanda','Palmira','Patrícia','Paula','Pilar','Priscila','Rafaela','Raquel','Rebeca','Regina','Renata','Rita','Roberta','Romana','Rosa','Rosana','Rosária','Rosário','Rute','Sabrina','Salomé','Samanta','Sandra','Sara','Silvana','Sílvia','Simone','Sofia','Solange','Sónia','Soraia','Susana','Susete','Tâmara','Tânia','Tatiana','Telma','Teresa','Valentina','Valéria','Vanda','Vanessa','Vânia','Vera','Verónica','Violeta','Virgínia','Vitória','Viviana','Zélia','Zita','Zulmira','Abílio','Adelino','Adolfo','Adriano','Afonso','Albano','Alberto','Alexandre','Alfredo','Álvaro','Américo','André','Ângelo','Aníbal','António','Armando','Armando','Artur','Augusto','Belmiro','Benjamim','Bernardo','Bruno','Caetano','Camilo','Cândido','Carlos','César','Cláudio','Cristiano','Cristóvão','Daniel','David','Delfim','Dinis','Diogo','Domingos','Duarte','Edgar','Edmundo','Eduardo','Elias','Emanuel','Emílio','Eusébio','Fábio','Fabrício','Fernando','Filipe','Flávio','Francisco','Frederico','Gabriel','Gaspar','Gil','Gilberto','Gonçalo','Gregório','Guilherme','Gustavo','Heitor','Hélder','Hélio','Henrique','Hilário','Hildebrando','Horácio','Hugo','Humberto','Igor','Inácio','Ismael','Ivan','Ivo','Jacinto','Jaime','João','Joaquim','Joel','Jorge','José','Julio','Leandro','Leonardo','Leopoldo','Lino','Lourenço','Lucas','Luciano','Lúcio','Luís','Manuel','Marcelo','Márcio','Marco','Marcos','Maria','Mário','Martim','Mateus','Matias','Maurício','Mauro','Miguel','Napoleão','Nelson','Nicolau','Norberto','Nuno','Olavo','Omar','Orlando','Óscar','Osvaldo','Otávio','Patrício','Patrício','Paulino','Paulo','Pedro','Rafael','Raimundo','Ramiro','Raul','Renato','Ricardo','Roberto','Rodolfo','Rodrigo','Rogério','Romeu','Ronaldo','Ruben','Rui','Salomão','Salvador','Samuel','Sandro','Santiago','Sebastião','Sérgio','Silvano','Silvino','Sílvio','Simão','Telmo','Teodoro','Tiago','Tomás','Tomé','Valdemar','Valentim','Valentino','Valter','Vasco','Vicente','Vítor','Vitorino','William','Xavier','Zacarias']
@@ -77,26 +77,94 @@ def make_ticket_n_transaction():
     mt = random.choice(mealtypes)
 
     res = "INSERT INTO Ticket VALUES(X'{}', '{}', {}, 0);".format(id_ticket, uid, mt[0])
-    res += "\nINSERT INTO Transaction VALUES('{}', '{}', X'{}', {}, '{}');".format(id_ticket, uid, random_hex(32), mt[1], str(transaction_date)[:19])
+    res += "\nINSERT INTO Transaction VALUES('{}', '{}', X'{}', {}, '{}');".format(random_id_transaction(), uid, random_hex(32), mt[1], str(transaction_date)[:19])
 
     return res
 
 
 def make_meals():
     td50 = timedelta(days=50)
+    td1 = timedelta(days=1)
+
+    now = date.today()
+    start = now - td50
+    end = now + td50
+
+    res = ""
+    date_it = start
+    while (date_it < end):
+        # Make azurem meals
+        #   Normal
+        #       Lunch
+        res += "INSERT INTO Meal VALUES('{}', 1, '{}', '{}', 1, NULL);\n".format(str(date_it)[:19], random.choice(soups), random.choice(main_dishes))
+        #       Dinner
+        res += "INSERT INTO Meal VALUES('{}', 1, '{}', '{}', 2, NULL);\n".format(str(date_it)[:19], random.choice(soups), random.choice(main_dishes))
+        #   Vegetarian
+        #       Lunch
+        res += "INSERT INTO Meal VALUES('{}', 1, '{}', '{}', 3, NULL);\n".format(str(date_it)[:19], random.choice(soups), random.choice(veg_main_dishes))
+        #       Dinner
+        res += "INSERT INTO Meal VALUES('{}', 1, '{}', '{}', 4, NULL);\n".format(str(date_it)[:19], random.choice(soups), random.choice(veg_main_dishes))
+        
+        # Make gualtar meals
+        #   Normal
+        #       Lunch
+        res += "INSERT INTO Meal VALUES('{}', 2, '{}', '{}', 1, NULL);\n".format(str(date_it)[:19], random.choice(soups), random.choice(main_dishes))
+        #       Dinner
+        res += "INSERT INTO Meal VALUES('{}', 2, '{}', '{}', 3, NULL);\n".format(str(date_it)[:19], random.choice(soups), random.choice(veg_main_dishes))
+        #   Vegetarian
+        #       Lunch
+        res += "INSERT INTO Meal VALUES('{}', 2, '{}', '{}', 2, NULL);\n".format(str(date_it)[:19], random.choice(soups), random.choice(main_dishes))
+        #       Dinner
+        res += "INSERT INTO Meal VALUES('{}', 2, '{}', '{}', 4, NULL);\n".format(str(date_it)[:19], random.choice(soups), random.choice(veg_main_dishes))
+        
+        date_it += td1
     
-    random.choice(soups)
-    random.choice(main_dishes)
-    random.choice(veg_main_dishes)
+    return res
+
+
+def use_some_ticket():
+    uid = random.choice(used_id_user)
+    if not uid in owned_tickets:
+        return use_some_ticket()
+    
+    try:
+        ticket_data_to_use = random.choice(owned_tickets[uid])
+    except:
+        return use_some_ticket()
+        
+
+    owned_tickets[uid].remove(ticket_data_to_use)
+
+    end = datetime.now()
+    start = ticket_data_to_use['bought_date']
+
+    used_datetime = start + (end - start) * random.random()
+
+    res = "UPDATE Ticket SET used = 1 WHERE id_ticket = X'{}';".format(ticket_data_to_use['id_ticket'])
+    res += "INSERT INTO History VALUES('{}', X'{}', '{}');".format(used_datetime, ticket_data_to_use['id_ticket'], uid)
+
+    return res
+
+    
+
 
 
 def gen_all():
-    for i in range(10):
+    for _ in range(100):
         if not register_new_user():
             return None
+    print()
 
-    for i in range(10):
+    for _ in range(1000):
         print(make_ticket_n_transaction())
+    print()
+
+    print(make_meals())
+    print()
+
+    for _ in range(600):
+        print(use_some_ticket())
+    print()
 
 
 if __name__ == '__main__':
