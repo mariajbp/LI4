@@ -108,7 +108,7 @@ namespace TicketNow
 
             else if (s.Equals("Meal type does not exists"))
             {
-                await DisplayAlert("", "Please choose a meal type between Lunch, Dinner, Veg_dinner, Veg_lunch", "Ok");
+                await DisplayAlert("", "Please choose a meal type between Lunch, Dinner, Lunch_veg, Dinner_veg", "Ok");
             }
             else if (s.Equals("Location does not exists"))
             {
