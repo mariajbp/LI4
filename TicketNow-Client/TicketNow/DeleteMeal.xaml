@@ -53,7 +53,7 @@
                />
            
 
-            <Image Source="settings.png"
+            <Image Source="logoutensils.png"
                 HeightRequest="43" WidthRequest="250"
                RelativeLayout.XConstraint =
                "{ConstraintExpression Type=RelativeToParent,

@@ -146,9 +146,9 @@ public async Task<bool> recursive(HttpClient client, string id,string s)
 
             await Task.Delay(5800);
 
-            string action = await DisplayActionSheet("Finish payment?", "Cancel", null, "Yes");
+            bool action = await DisplayAlert("", "Finish payment?", "Yes", "No");
 
-            if (action == "Yes")
+            if (action)
             {
                 var method = new HttpMethod("PATCH");
 
@@ -174,7 +174,9 @@ public async Task<bool> recursive(HttpClient client, string id,string s)
                     await DisplayAlert("", "Payment not completed, please access your paypal account", "Ok");
                     await recursive(client,id,s);
                 }
-            } return true;
+                return true;
+            } 
+            else return false;
         }
 
     }

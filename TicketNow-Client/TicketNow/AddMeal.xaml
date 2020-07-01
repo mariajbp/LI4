@@ -6,7 +6,22 @@
 
          <!-- Place new controls here -->
           
-            
+             <Button Text="ADD MEAL"
+               RelativeLayout.XConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-120}"
+               RelativeLayout.YConstraint =
+               "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.5,
+                             Constant=-270}"
+               BackgroundColor="Transparent"
+               TextColor="#FFFFFF"
+               HeightRequest="60" WidthRequest="270" FontAttributes="Bold"
+               FontSize="Title"
+                />
 
              <Image Source="whiteline.png"
                HeightRequest="43" WidthRequest="240"
@@ -38,7 +53,7 @@
                />
            
 
-            <Image Source="settings.png"
+            <Image Source="logoutensils.png"
                 HeightRequest="43" WidthRequest="250"
                RelativeLayout.XConstraint =
                "{ConstraintExpression Type=RelativeToParent,
