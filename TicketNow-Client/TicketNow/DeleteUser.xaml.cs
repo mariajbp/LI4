@@ -56,14 +56,20 @@ namespace TicketNow
             HttpResponseMessage response = await client.DeleteAsync("http://ticket-now.ddns.net:5000/api/user?id_user="+id_user);
 
             string r = await response.Content.ReadAsStringAsync();
-
+            Console.Write(r);
 
             JObject jObject = Newtonsoft.Json.Linq.JObject.Parse(r);
 
-            string s = jObject.Value<string>("message");
+            var data = jObject.Children();
+            string datee =" ";
+            foreach (var q in data)
+            {
 
+                JProperty jProperty = q.ToObject<JProperty>();
+                datee = jProperty.Name;
+            }
 
-             if (s.Equals("Success"))
+                if (datee.Equals("message"))
             {
                 return true;
             }

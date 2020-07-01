@@ -141,7 +141,7 @@ namespace TicketNow
                     lun.IsVisible = true;
                     chart1.Chart = new BarChart() { Entries = entries, BackgroundColor = SKColors.Transparent, LabelTextSize = 38, Margin = 30, MinValue = 0 };
                     chart4.Chart = new BarChart() { Entries = entries1, BackgroundColor = SKColors.Transparent, LabelTextSize = 38, Margin = 30, MinValue = 0 };
-                    chart3.Chart = new DonutChart() { Entries = entries2, BackgroundColor = SKColors.Transparent, LabelTextSize = 40 };
+                    chart3.Chart =null;
                 }
                 else
                 {
