@@ -41,9 +41,9 @@ def register_new_user(id_user=None):
     	"name": new_user_name()
     }
 
-    #response = requests.post('http://localhost:5000/api/register', json=body)
+    response = requests.post('http://ticket-now.ddns.net:5000/api/register', json=body)
 
-    return True#response.status == 200
+    return response.status_code == 200
 
 
 def random_hex(size=8):
