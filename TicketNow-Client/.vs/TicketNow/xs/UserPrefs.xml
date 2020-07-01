@@ -1,20 +1,12 @@
 ﻿<Properties StartupConfiguration="{75864FFA-22C1-4DDF-9041-8A49A7F723C7}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
   <MonoDevelop.Ide.ItemProperties.TicketNow.Android AndroidDesignerPreferredTheme="Theme.AppCompat.Light.NoActionBar" PreferredExecutionTarget="Android.pixel_2_pie_9_0_-_api_28" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="TicketNow/BuyTickets2.xaml.cs">
-    <Files>
-      <File FileName="TicketNow/BuyTickets.xaml.cs" Line="1" Column="1" />
-      <File FileName="TicketNow/BuyTickets.xaml" Line="66" Column="1" />
-      <File FileName="TicketNow/BuyTickets2.xaml.cs" Line="15" Column="1" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="TicketNow" expanded="True">
-            <Node name="TicketNow" expanded="True">
-              <Node name="BuyTickets.xaml" expanded="True" />
-              <Node name="BuyTickets2.xaml" expanded="True" selected="True" />
-            </Node>
-            <Node name="TicketNow.Android" expanded="True">
+            <Node name="TicketNow" expanded="True" />
+            <Node name="TicketNow.Android" expanded="True" selected="True">
               <Node name="Resources" expanded="True">
                 <Node name="drawable" expanded="True" />
               </Node>
