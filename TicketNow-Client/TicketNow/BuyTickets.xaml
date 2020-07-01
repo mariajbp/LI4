@@ -58,7 +58,7 @@
                   AbsoluteLayout.LayoutBounds=".99,0.93,0.8,.5"
                   AbsoluteLayout.LayoutFlags="All" />
 
-            <Label Text="2,75€ per unit" 
+            <Label Text="2,70€ per unit" 
                   TextColor="#FFFFFF" FontAttributes="Bold"
                   FontSize="Small"
                   AbsoluteLayout.LayoutBounds=".99,0.98,0.8,.5"

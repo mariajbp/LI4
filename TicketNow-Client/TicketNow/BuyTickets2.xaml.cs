@@ -13,7 +13,7 @@ namespace TicketNow
     public partial class BuyTickets2 : ContentPage
     {
 
-        private int meal; //0- complete meal-2.75(25);    1- simple meal-2.05
+        private int meal; //0- complete meal-2.70(25);    1- simple meal-2.05
         private int ticket_type;
         private double s = 0;
         private string token;
@@ -27,7 +27,7 @@ namespace TicketNow
             this.meal = i;
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
-            if (meal == 0) { total.Text = "TOTAL: 2.75 €"; }
+            if (meal == 0) { total.Text = "TOTAL: 2.70 €"; }
             if (meal == 1) { total.Text = "TOTAL: 2.05 €"; }
         }
 
@@ -42,7 +42,7 @@ namespace TicketNow
                 quantity.Text = tmp.ToString();
             }
             this.s = 0;
-            if (meal == 0) this.s = tmp * 2.75;
+            if (meal == 0) this.s = tmp * 2.70;
             if (meal == 1) this.s = tmp * 2.05;
             total.Text = "TOTAL: " + this.s.ToString("0.00") + " €";
 
@@ -61,7 +61,7 @@ namespace TicketNow
             }
             this.s = 0;
             if (meal == 0 && tmp == 10) this.s = 25.00;
-            if (meal == 0 && tmp != 10) this.s = tmp * 2.75;
+            if (meal == 0 && tmp != 10) this.s = tmp * 2.70;
             if (meal == 1) this.s = tmp * 2.05;
             total.Text = "TOTAL: " + this.s.ToString("0.00") + " €";
 
