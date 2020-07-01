@@ -1,19 +1,23 @@
 ﻿<Properties StartupConfiguration="{75864FFA-22C1-4DDF-9041-8A49A7F723C7}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
   <MonoDevelop.Ide.ItemProperties.TicketNow.Android AndroidDesignerPreferredTheme="Theme.AppCompat.Light.NoActionBar" PreferredExecutionTarget="Android.pixel_2_pie_9_0_-_api_28" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="TicketNow.Android/Resources/values/styles.xml">
     <Files>
-      <File FileName="TicketNow/DeleteUser.xaml.cs" Line="23" Column="10" />
+      <File FileName="TicketNow.Android/Resources/values/colors.xml" Line="7" Column="11" />
+      <File FileName="TicketNow/AddMeal.xaml" Line="180" Column="33" />
+      <File FileName="TicketNow.Android/Resources/values/styles.xml" Line="15" Column="46" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="TicketNow" expanded="True">
-            <Node name="TicketNow" expanded="True">
-              <Node name="ChangePassAdmin.xaml" expanded="True" />
-              <Node name="CreateAccount.xaml" expanded="True" />
-              <Node name="DeleteUser.xaml" expanded="True" />
+            <Node name="TicketNow" expanded="True" />
+            <Node name="TicketNow.Android" expanded="True">
+              <Node name="Resources" expanded="True">
+                <Node name="values" expanded="True">
+                  <Node name="styles.xml" selected="True" />
+                </Node>
+              </Node>
             </Node>
-            <Node name="TicketNow.Android" expanded="True" selected="True" />
           </Node>
         </State>
       </Pad>
