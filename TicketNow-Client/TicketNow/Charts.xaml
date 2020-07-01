@@ -9,10 +9,10 @@
 
         <StackLayout Orientation="Vertical">
 
-    <StackLayout Orientation="Horizontal">
+    <StackLayout Orientation="Horizontal"  HorizontalOptions="Center">
 
         <Label Text="Begin:"
-        Margin="50,30,0,0"
+        Margin="0,30,-15,0"
                HeightRequest="44" WidthRequest="70" FontAttributes="Bold"
                 TextColor="#FFFFFF"
                 FontSize="Large"
@@ -28,16 +28,16 @@
        
            
            
-                HeightRequest="44" WidthRequest="220" FontAttributes="Bold"
+                HeightRequest="44" WidthRequest="180" FontAttributes="Bold"
                 TextColor="#FFFFFF"
                 FontSize="Large"
               />
         </StackLayout>
 
-            <StackLayout Orientation="Horizontal">
+            <StackLayout Orientation="Horizontal"  HorizontalOptions="Center">
 
         <Label Text="End:"
-         Margin="70,5,-20,0"
+         Margin="15,5,-30,0"
                HeightRequest="44" WidthRequest="70" FontAttributes="Bold"
                 TextColor="#FFFFFF"
                 FontSize="Large"
@@ -52,15 +52,15 @@
             BackgroundColor="Transparent"
        
           
-                HeightRequest="44" WidthRequest="220" FontAttributes="Bold"
+                HeightRequest="44" WidthRequest="180" FontAttributes="Bold"
                 TextColor="#FFFFFF"
                 FontSize="Large"
                 />
                 </StackLayout>
-            <StackLayout Orientation="Horizontal">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                 <Button Text="ME"
-                 CornerRadius="35"
-               Margin="70,20,1,0"
+               CornerRadius="35"
+               Margin="0,20,10,0"
                BackgroundColor="#5B0604"
                TextColor="#FFFFFF"
                HeightRequest="60" WidthRequest="120" FontAttributes="Bold"
@@ -69,7 +69,7 @@
                 />
 
                 <Button Text="GLOBAL"
-               Margin="0,20,1,0"
+               Margin="0,20,10,0"
                BackgroundColor="#5B0604 "
                TextColor="#FFFFFF"
                 CornerRadius="35"
@@ -95,7 +95,7 @@
                 x:Name="din"
                 IsVisible="false"
                 Text="Dinner"
-        Margin="35,30,0,0"
+        Margin="35,45,0,0"
                HeightRequest="44" WidthRequest="70" FontAttributes="Bold"
                 TextColor="#FFFFFF"
                 FontSize="Large"
