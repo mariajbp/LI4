@@ -67,11 +67,11 @@ def populate():
         
     # Insert some ticket types
     try:
-        TicketType.add_type(TicketType(1,1.8,"simple"))
+        TicketType.add_type(TicketType(1,2.05,"simple"))
     except:
         pass
     try:
-        TicketType.add_type(TicketType(2,2.5,"complete"))
+        TicketType.add_type(TicketType(2,2.7,"complete"))
     except:
         pass
 
