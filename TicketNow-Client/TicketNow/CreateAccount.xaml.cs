@@ -78,7 +78,7 @@ namespace TicketNow
             {
                 await DisplayAlert("", "Insuficient arguments", "Try Again");
             }
-            else await DisplayAlert("Erro", "Invalid Entry: the name can't have numbers, and both the password and the username have to start with a letter", "Try Again");
+            else await DisplayAlert("Erro", "Invalid Entry: The Name can't have numbers, and both the Password and the User ID have to start with a letter", "Try Again");
 
 
         }

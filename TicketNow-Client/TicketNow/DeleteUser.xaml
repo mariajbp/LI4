@@ -68,7 +68,7 @@
                />
 
            <Entry x:Name="USERNAME"
-               Placeholder="USERNAME"
+               Placeholder="USER ID"
                PlaceholderColor="#FFFFFF"
                RelativeLayout.XConstraint =
                "{ConstraintExpression Type=RelativeToParent,
