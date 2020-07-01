@@ -114,7 +114,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `ticketnow`.`MealType`;
 CREATE TABLE IF NOT EXISTS `ticketnow`.`MealType` (
   `id_meal_type` INT NOT NULL AUTO_INCREMENT,
-  `name` TINYTEXT NOT NULL UNIQUE,
+  `name` TINYTEXT NOT NULL,
   PRIMARY KEY (`id_meal_type`))
 ENGINE = InnoDB;
 
