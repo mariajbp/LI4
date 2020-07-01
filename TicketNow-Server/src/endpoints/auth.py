@@ -94,7 +94,7 @@ class RegisterAPI(Resource):
         
 
         try:
-            User.add_user(User(id_user,email,password,name,Permissions.USER))
+            User.add_user(User(id_user, email, password, name, Permissions.USER))
             return success() , 200
         except ErrorCodeException as ec:
             return error_code(ec) , 400

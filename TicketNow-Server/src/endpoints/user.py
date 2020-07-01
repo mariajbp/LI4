@@ -19,7 +19,10 @@ class UserAPI(Resource):
     
     @admin_required
     def get(self):
-        sender_user = User.get_user(get_jwt_identity())
+        try:
+            sender_user = User.get_user(get_jwt_identity())
+        except ErrorCodeException as ec:
+            return error_code(ec) , 401
 
         # If id_user hasn't been specified check permissions for listing all users
         if not sender_user.check_permission(Permissions.ADMIN):
@@ -109,8 +112,11 @@ class UserAPI(Resource):
 class UserInfoAPI(Resource):
     @user_required
     def get(self,id_user):
-        sender_user = User.get_user(get_jwt_identity())
-
+        try:
+            sender_user = User.get_user(get_jwt_identity())
+        except ErrorCodeException as ec:
+            return error_code(ec) , 401
+            
         # Check permissions for listing other users rather than himself
         if (not sender_user.check_permission(Permissions.ADMIN)) and (not id_user == sender_user.id_user):
             return forbidden() , 403
@@ -118,5 +124,5 @@ class UserInfoAPI(Resource):
         try:
             return { "user" : User.get_user(id_user).to_json() }
         except ErrorCodeException as ec:
-            return error_code(ec)
+            return error_code(ec) , 401
         # Also check if argument user exists

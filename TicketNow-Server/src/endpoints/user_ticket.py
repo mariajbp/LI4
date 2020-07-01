@@ -18,7 +18,10 @@ class UserTicketAPI(Resource):
         
         target_id_ticket = args['id_ticket']
         
-        sender_user = User.get_user(get_jwt_identity())
+        try:
+            sender_user = User.get_user(get_jwt_identity())
+        except ErrorCodeException as ec:
+            return error_code(ec) , 401
 
         if sender_user.id_user != id_user and not sender_user.check_permission(Permissions.ADMIN):
             return {'error' : 'Unauthorized!'}, 401

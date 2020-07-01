@@ -52,18 +52,18 @@ def populate():
         User.add_user(User("a12345","a12345@alunos.uminho.pt","epah_mas_que_chatice","António Barosa",permissions=5))
     except:
         pass
-    try:
-        User.add_user(User("a11111","a11111@alunos.uminho.pt","epah_mas_que_chatice","Adelino Costa"))
-    except:
-        pass
-    try:
-        User.add_user(User("a22222","a22222@alunos.uminho.pt","epah_mas_que_chatice","Rosa Matilde"))
-    except:
-        pass
-    try:
-        User.add_user(User("a33333","a33333@alunos.uminho.pt","epah_mas_que_chatice","Fernando Magalhães"))
-    except:
-        pass 
+    #try:
+    #    User.add_user(User("a11111","a11111@alunos.uminho.pt","epah_mas_que_chatice","Adelino Costa"))
+    #except:
+    #    pass
+    #try:
+    #    User.add_user(User("a22222","a22222@alunos.uminho.pt","epah_mas_que_chatice","Rosa Matilde"))
+    #except:
+    #    pass
+    #try:
+    #    User.add_user(User("a33333","a33333@alunos.uminho.pt","epah_mas_que_chatice","Fernando Magalhães"))
+    #except:
+    #    pass 
         
     # Insert some ticket types
     try:
@@ -103,11 +103,11 @@ def populate():
     except:
         pass
 
-    from datetime import date
-    try:
-        Meal.add_meal(Meal(date.fromisoformat('2019-12-04'),1,1,soup="Sopa de Frango",main_dish="Frango"))
-    except:
-        pass
+    #from datetime import date
+    #try:
+    #    Meal.add_meal(Meal(date.fromisoformat('2019-12-04'),1,1,soup="Sopa de Frango",main_dish="Frango"))
+    #except:
+    #    pass
     # Insert some tickets
     #try:
     #    Ticket.add_ticket(Ticket("a12345",1,unhexlify('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'))) 

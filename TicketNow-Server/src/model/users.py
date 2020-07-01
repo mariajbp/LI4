@@ -22,6 +22,7 @@ class User(db.Model):
     @staticmethod
     def get_user(id_user):
         u = User.query.filter_by(id_user=id_user).first()
+        print(u)
         if u == None:
             raise ErrorCodeException(ErrorCode.USER_DOESNT_EXISTS)
         return u

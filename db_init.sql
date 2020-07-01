@@ -42,7 +42,7 @@ DROP TABLE IF EXISTS `ticketnow`.`History`;
 CREATE TABLE IF NOT EXISTS `ticketnow`.`History` (
   `used_datetime` DATETIME NOT NULL,
   `id_ticket` BINARY(32) NOT NULL,
-  `id_user` VARCHAR(10) NOT NULL,
+  `id_user` VARCHAR(10),
   INDEX used_datetime_idx (`used_datetime` ASC),
   CONSTRAINT FOREIGN KEY (`id_ticket`)
   REFERENCES `ticketnow`.`Ticket` (`id_ticket`)
@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `ticketnow`.`History` (
     ON UPDATE NO ACTION,
   CONSTRAINT FOREIGN KEY (`id_user`)
   REFERENCES `ticketnow`.`User` (`id_user`)
-    ON DELETE NO ACTION
+    ON DELETE SET NULL
     ON UPDATE NO ACTION,
     PRIMARY KEY (`id_ticket`))
 ENGINE = InnoDB;
@@ -62,7 +62,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `ticketnow`.`Transaction`;
 CREATE TABLE IF NOT EXISTS `ticketnow`.`Transaction` (
   `id_transaction` VARCHAR(18) NOT NULL,
-  `id_user` VARCHAR(10) NOT NULL,
+  `id_user` VARCHAR(10),
   `id_ticket` BINARY(32) NOT NULL,
   `total_price` FLOAT NOT NULL,
   `datetime` DATETIME NOT NULL,
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `ticketnow`.`Transaction` (
     ON UPDATE NO ACTION,
   CONSTRAINT FOREIGN KEY (`id_user`)
   REFERENCES `ticketnow`.`User` (`id_user`)
-    ON DELETE NO ACTION
+    ON DELETE SET NULL
     ON UPDATE NO ACTION,
   PRIMARY KEY (`id_transaction`,`id_ticket`))
 ENGINE = InnoDB;
@@ -83,12 +83,12 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `ticketnow`.`Ticket`;
 CREATE TABLE IF NOT EXISTS `ticketnow`.`Ticket` (
   `id_ticket` BINARY(32) NOT NULL,
-  `id_user` VARCHAR(10) NOT NULL,
+  `id_user` VARCHAR(10),
   `type` TINYINT NOT NULL,
   `used` BOOLEAN DEFAULT false NOT NULL,
   CONSTRAINT FOREIGN KEY (`id_user`)
   REFERENCES `ticketnow`.`User` (`id_user`)
-    ON DELETE NO ACTION
+    ON DELETE SET NULL
     ON UPDATE NO ACTION,
   CONSTRAINT FOREIGN KEY (`type`)
   REFERENCES `ticketnow`.`TicketType` (`type`)
@@ -114,7 +114,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `ticketnow`.`MealType`;
 CREATE TABLE IF NOT EXISTS `ticketnow`.`MealType` (
   `id_meal_type` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(32) NOT NULL UNIQUE,
+  `name` TINYTEXT NOT NULL UNIQUE,
   PRIMARY KEY (`id_meal_type`))
 ENGINE = InnoDB;
 
@@ -125,10 +125,10 @@ DROP TABLE IF EXISTS `ticketnow`.`Meal`;
 CREATE TABLE IF NOT EXISTS `ticketnow`.`Meal` (
   `date` DATE NOT NULL,
   `id_location` INT NOT NULL,
-  `soup` VARCHAR(32),
-  `main_dish` VARCHAR(32),
+  `soup` TINYTEXT,
+  `main_dish` TINYTEXT,
   `id_meal_type` INT NOT NULL,
-  `description` VARCHAR(64),
+  `description` TINYTEXT,
   CONSTRAINT FOREIGN KEY (`id_location`)
   REFERENCES `ticketnow`.`Location` (`id_location`)
     ON DELETE NO ACTION
@@ -144,6 +144,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Procedures / Functions / Tiggers
 -- -----------------------------------------------------
+DROP PROCEDURE IF EXISTS is_lunch;
 DELIMITER $$
 CREATE FUNCTION is_lunch(tm TIME) 
 RETURNS BOOLEAN
