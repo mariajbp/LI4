@@ -77,7 +77,7 @@ def make_ticket_n_transaction():
     mt = random.choice(mealtypes)
 
     res = "INSERT INTO Ticket VALUES(X'{}', '{}', {}, 0);".format(id_ticket, uid, mt[0])
-    res += "\nINSERT INTO Transaction VALUES('{}', '{}', X'{}', {}, '{}');".format(random_id_transaction(), uid, random_hex(32), mt[1], str(transaction_date)[:19])
+    res += "\nINSERT INTO Transaction VALUES('{}', '{}', X'{}', {}, '{}');".format(random_id_transaction(), uid, id_ticket, mt[1], str(transaction_date)[:19])
 
     return res
 
