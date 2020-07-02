@@ -107,14 +107,20 @@ namespace TicketNow
 
                     sum_lunch = sum_lunch + Int32.Parse(d.lunch);
                     sum_din = sum_din + Int32.Parse(d.dinner);
+
+                if (d.lunch != "0")
+                {
                     entries.Add(new ChartEntry(Convert.ToUInt32(d.lunch))
                     {
                         Color = SKColor.Parse(color),
                         Label = d.date.Year + "-" + d.date.Month.ToString().PadLeft(2, '0') + "-" + d.date.Day.ToString().PadLeft(2, '0'),
                         ValueLabel = d.lunch
                     }
-                           );
 
+                           );
+                }
+                if (d.dinner != "0")
+                {
                     entries1.Add(new ChartEntry(Convert.ToUInt32(d.dinner))
                     {
                         Color = SKColor.Parse(color),
@@ -122,6 +128,7 @@ namespace TicketNow
                         ValueLabel = d.dinner
                     }
                        );
+                }
 
                 }
 

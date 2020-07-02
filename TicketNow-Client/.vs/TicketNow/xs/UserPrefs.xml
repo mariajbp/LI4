@@ -2,7 +2,8 @@
   <MonoDevelop.Ide.ItemProperties.TicketNow.Android AndroidDesignerPreferredTheme="Theme.AppCompat.Light.NoActionBar" PreferredExecutionTarget="Android.pixel_2_pie_9_0_-_api_28" />
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="TicketNow/Charts.xaml.cs" Line="293" Column="14" />
+      <File FileName="TicketNow/Charts.xaml.cs" Line="88" Column="1" />
+      <File FileName="TicketNow/Charts.xaml" Line="116" Column="20" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
