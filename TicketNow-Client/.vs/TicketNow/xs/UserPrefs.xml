@@ -1,9 +1,9 @@
 ﻿<Properties StartupConfiguration="{75864FFA-22C1-4DDF-9041-8A49A7F723C7}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
   <MonoDevelop.Ide.ItemProperties.TicketNow.Android AndroidDesignerPreferredTheme="Theme.AppCompat.Light.NoActionBar" PreferredExecutionTarget="Android.pixel_2_pie_9_0_-_api_28" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="TicketNow/Charts.xaml.cs">
     <Files>
       <File FileName="TicketNow/Charts.xaml.cs" Line="88" Column="1" />
-      <File FileName="TicketNow/Charts.xaml" Line="116" Column="20" />
+      <File FileName="TicketNow/Charts.xaml" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -13,6 +13,10 @@
             <Node name="TicketNow.Android" expanded="True" selected="True">
               <Node name="Assets" expanded="True" />
               <Node name="Properties" expanded="True" />
+              <Node name="Resources" expanded="True">
+                <Node name="drawable" expanded="True" />
+                <Node name="drawable-nodpi" expanded="True" />
+              </Node>
             </Node>
           </Node>
         </State>
