@@ -2,23 +2,14 @@
   <MonoDevelop.Ide.ItemProperties.TicketNow.Android AndroidDesignerPreferredTheme="Theme.AppCompat.Light.NoActionBar" PreferredExecutionTarget="Android.pixel_2_pie_9_0_-_api_28" />
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="TicketNow/Charts.xaml.cs" Line="234" Column="40" />
-      <File FileName="TicketNow/Charts.xaml" Line="94" Column="27" />
+      <File FileName="TicketNow/Charts.xaml.cs" Line="293" Column="14" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="TicketNow" expanded="True">
-            <Node name="TicketNow" expanded="True">
-              <Node name="AddMeal.xaml" expanded="True" />
-              <Node name="BuyTickets2.xaml" expanded="True" />
-              <Node name="Charts.xaml" expanded="True" />
-              <Node name="DeleteMeal.xaml" expanded="True" />
-              <Node name="DeleteUser.xaml" expanded="True" />
-              <Node name="WeeklyMeal.xaml" expanded="True" />
-            </Node>
+            <Node name="TicketNow" expanded="True" />
             <Node name="TicketNow.Android" expanded="True" selected="True">
-              <Node name="Packages" expanded="True" />
               <Node name="Assets" expanded="True" />
               <Node name="Properties" expanded="True" />
             </Node>

@@ -150,7 +150,7 @@ namespace TicketNow
                     chart4.Chart = new BarChart() { Entries = entries1, BackgroundColor = SKColors.Transparent, LabelTextSize = 38, Margin = 30, MinValue = 0 };
                     chart3.Chart =null;
                 }
-            else if (sum_din == 0 && s.Count <= 4)
+            else if (sum_din == 0 && s.Count <= 3)
             {
 
                 glo.IsVisible = true;
@@ -160,7 +160,7 @@ namespace TicketNow
                 chart4.HeightRequest = 0;
                 chart3.Chart = new DonutChart() { Entries = entries2, LabelTextSize = 35 };
             }
-            else if (sum_din == 0 && s.Count > 4)
+            else if (sum_din == 0 && s.Count > 3)
             {
 
                 glo.IsVisible = true;
@@ -172,7 +172,7 @@ namespace TicketNow
             }
 
 
-            else if (sum_lunch == 0 && s.Count <= 4)
+            else if (sum_lunch == 0 && s.Count <= 3)
             {
 
                 glo.IsVisible = true;
@@ -182,7 +182,7 @@ namespace TicketNow
                 chart1.HeightRequest = 0;
                 chart3.Chart = new DonutChart() { Entries = entries2, LabelTextSize = 35 };
             }
-            else if (sum_lunch == 0 && s.Count > 4)
+            else if (sum_lunch == 0 && s.Count > 3)
             {
 
                 glo.IsVisible = true;
@@ -193,7 +193,7 @@ namespace TicketNow
                 chart3.Chart = new DonutChart() { Entries = entries2, LabelTextSize = 35 };
             }
 
-            else if (s.Count <= 4)
+            else if (s.Count <= 3)
             {
                 glo.IsVisible = true;
                 din.IsVisible = true;
@@ -355,7 +355,7 @@ namespace TicketNow
                     chart4.Chart = new BarChart() { Entries = entries1, LabelTextSize = 38, Margin = 30, MinValue = 0 };
                     chart3.Chart = null;
                 }
-                else if (sum_din == 0 && s.Count<=4)
+                else if (sum_din == 0 && s.Count<=3)
                 {
                     
                     glo.IsVisible = true;
@@ -365,7 +365,7 @@ namespace TicketNow
                     chart4.HeightRequest = 0;
                     chart3.Chart = new DonutChart() { Entries = entries2, LabelTextSize = 35 };
                 }
-                else if (sum_din == 0 && s.Count > 4)
+                else if (sum_din == 0 && s.Count > 3)
                 {
 
                     glo.IsVisible = true;
@@ -377,7 +377,7 @@ namespace TicketNow
                 }
 
 
-                else if (sum_lunch == 0 && s.Count <= 4)
+                else if (sum_lunch == 0 && s.Count <= 3)
                 {
 
                     glo.IsVisible = true;
@@ -387,7 +387,7 @@ namespace TicketNow
                     chart1.HeightRequest = 0;
                     chart3.Chart = new DonutChart() { Entries = entries2, LabelTextSize = 35 };
                 }
-                else if (sum_lunch == 0 && s.Count > 4)
+                else if (sum_lunch == 0 && s.Count > 3)
                 {
 
                     glo.IsVisible = true;
@@ -399,7 +399,7 @@ namespace TicketNow
                 }
 
 
-                else if (s.Count <= 4)
+                else if (s.Count <= 3)
                 {
                     glo.IsVisible = true;
                     din.IsVisible = true;
