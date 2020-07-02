@@ -147,7 +147,7 @@ private void onVegetarianButtonClicked(object sender, EventArgs args)
             }
             foreach (var me in this.mealss)
             {
-                if (me.meal_type == "veg_dinner" || me.meal_type=="veg_lunch"){
+                if (me.meal_type == "dinner_veg" ){
                 if ((me.location == "gualtar" && g == 1) || (me.location == "azurem" && g == 2))
                     {
                         s.Add(new MealData
@@ -155,12 +155,30 @@ private void onVegetarianButtonClicked(object sender, EventArgs args)
                             
                             date = me.date,
                             location = char.ToUpper(me.location[0]) + me.location.Substring(1),
-                            meal_type = char.ToUpper(me.meal_type[4]) + me.meal_type.Substring(5),
+                            meal_type = "Dinner",
                             soup = me.soup,
                             main_dish = me.main_dish,
                             description = me.description
                         });
                     } }
+
+                if ( me.meal_type == "lunch_veg")
+                {
+                    if ((me.location == "gualtar" && g == 1) || (me.location == "azurem" && g == 2))
+                    {
+                        s.Add(new MealData
+                        {
+
+                            date = me.date,
+                            location = char.ToUpper(me.location[0]) + me.location.Substring(1),
+                            meal_type = "Lunch",
+                            soup = me.soup,
+                            main_dish = me.main_dish,
+                            description = me.description
+                        });
+                    }
+                }
+
             }
 
             lv.ItemsSource = s;

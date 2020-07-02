@@ -32,14 +32,20 @@ namespace TicketNow
                 return;
             }
 
-            bool res = await this.deleteUser(USERNAME.Text, token);
-           
-            if (res)
+            bool action = await DisplayAlert("", "Are you sure you want to delete the user: " + USERNAME.Text+"?", "Yes", "No");
+
+            if (action) {
+                bool res = await this.deleteUser(USERNAME.Text, token);
+
+                if (res)
                 {
                     await DisplayAlert("", "User deleted with success", "Ok");
                 }
-                
+
                 else await DisplayAlert("", "User does not exist", "Try Again");
+            }
+
+
            
         }
 

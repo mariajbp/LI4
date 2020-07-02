@@ -4,7 +4,7 @@ namespace TicketNow
     public class History
     {
 
-        public string date;
+        public DateTime date;
         public string lunch;
         public string dinner;
 
@@ -12,7 +12,7 @@ namespace TicketNow
         {
         }
 
-        public History(string date, string lunch, string d)
+        public History(DateTime date, string lunch, string d)
         {
             this.date = date;
             this.lunch = lunch;
