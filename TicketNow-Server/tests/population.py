@@ -57,7 +57,7 @@ def random_id_transaction():
 
 def make_ticket_n_transaction():
     uid = random.choice(used_id_user)
-    id_ticket = random_hex(32)
+    id_ticket = random_hex(64)
     used_id_ticket.append(id_ticket)
 
     if not uid in owned_tickets:
