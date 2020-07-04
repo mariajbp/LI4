@@ -116,12 +116,25 @@ class KioskAPI(Resource):
         if amount > self.__MAX_TICKET_AMOUNT or amount <= 0:
             return error_message("Invalid amount MAX = " + str(__MAX_TICKET_AMOUNT)) , 500
         
-        order_id = gen_order(KioskAPI.__OAUTH_TOKEN, price*amount)
+
+        def discount_price(ticket_type, price, amount):
+            res = 0
+            if ticket_type == 2:
+                res = 0
+                while amount >= 10:
+                    res += 25.0#10 * price
+                    amount -= 10
+            return res + amount*price
+            
+
+        order_price = discount_price(ticket_type, price, amount)
+
+        order_id = gen_order(KioskAPI.__OAUTH_TOKEN, order_price)
         
         if order_id == None:
             KioskAPI.__OAUTH_TOKEN = gen_oauth2_token(PP_USERNAME,PP_PASSWORD)
-            order_id = gen_order(KioskAPI.__OAUTH_TOKEN, price*amount)
-            print("Logged in")
+            order_id = gen_order(KioskAPI.__OAUTH_TOKEN, order_price)
+            
             if order_id == None:
                 return error_message("Something unexpected ocurred") , 500
         
@@ -135,7 +148,7 @@ class KioskAPI(Resource):
         
         return { 
             "transaction_status" : "Payment",
-            "total_price" : price*amount,
+            "total_price" : order_price,
             "id_transaction": order_id,
             "paypal_link" : approve_link(order_id)
             } , 201
