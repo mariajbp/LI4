@@ -187,7 +187,7 @@ namespace TicketNow
                 glo.IsVisible = true;
                 din.IsVisible = true;
                 lun.IsVisible = false;
-                chart4.Chart = new BarChart() { Entries = entries, ValueLabelOrientation = Orientation.Horizontal, LabelOrientation = Orientation.Horizontal, LabelTextSize = 38, Margin = 30, MinValue = 0 };
+                chart4.Chart = new BarChart() { Entries = entries1, ValueLabelOrientation = Orientation.Horizontal, LabelOrientation = Orientation.Horizontal, LabelTextSize = 38, Margin = 30, MinValue = 0 };
                 chart1.HeightRequest = 0;
                 chart3.Chart = new DonutChart() { Entries = entries2, LabelTextSize = 35 };
             }
@@ -197,13 +197,15 @@ namespace TicketNow
                 glo.IsVisible = true;
                 din.IsVisible = true;
                 lun.IsVisible = false;
-                chart4.Chart = new BarChart() { Entries = entries, ValueLabelOrientation = Orientation.Horizontal, LabelOrientation = Orientation.Vertical, LabelTextSize = 38, Margin = 30, MinValue = 0 };
+                chart4.Chart = new BarChart() { Entries = entries1, ValueLabelOrientation = Orientation.Horizontal, LabelOrientation = Orientation.Vertical, LabelTextSize = 38, Margin = 30, MinValue = 0 };
                 chart1.HeightRequest = 0;
                 chart3.Chart = new DonutChart() { Entries = entries2, LabelTextSize = 35 };
             }
 
             else if (s.Count <= 3)
             {
+
+                lun.IsVisible = true;
                 glo.IsVisible = true;
                 din.IsVisible = true;
                 lun.Text = "Lunch";
@@ -213,6 +215,7 @@ namespace TicketNow
             }
             else
                 {
+                    lun.IsVisible = true;
                     glo.IsVisible = true;
                     din.IsVisible = true;
                     lun.Text="Lunch";
@@ -394,7 +397,7 @@ namespace TicketNow
                     glo.IsVisible = true;
                     din.IsVisible = true;
                     lun.IsVisible = false;
-                    chart4.Chart = new BarChart() { Entries = entries, ValueLabelOrientation = Orientation.Horizontal, LabelOrientation = Orientation.Horizontal, LabelTextSize = 38, Margin = 30, MinValue = 0 };
+                    chart4.Chart = new BarChart() { Entries = entries1, ValueLabelOrientation = Orientation.Horizontal, LabelOrientation = Orientation.Horizontal, LabelTextSize = 38, Margin = 30, MinValue = 0 };
                     chart1.HeightRequest = 0;
                     chart3.Chart = new DonutChart() { Entries = entries2, LabelTextSize = 35 };
                 }
@@ -404,7 +407,7 @@ namespace TicketNow
                     glo.IsVisible = true;
                     din.IsVisible = true;
                     lun.IsVisible = false;
-                    chart4.Chart = new BarChart() { Entries = entries, ValueLabelOrientation = Orientation.Horizontal, LabelOrientation = Orientation.Vertical, LabelTextSize = 38, Margin = 30, MinValue = 0 };
+                    chart4.Chart = new BarChart() { Entries = entries1, ValueLabelOrientation = Orientation.Horizontal, LabelOrientation = Orientation.Vertical, LabelTextSize = 38, Margin = 30, MinValue = 0 };
                     chart1.HeightRequest = 0;
                     chart3.Chart = new DonutChart() { Entries = entries2, LabelTextSize = 35 };
                 }
@@ -412,6 +415,7 @@ namespace TicketNow
 
                 else if (s.Count <= 3)
                 {
+                    lun.IsVisible = true;
                     glo.IsVisible = true;
                     din.IsVisible = true;
                     lun.Text = "Lunch";
@@ -421,6 +425,7 @@ namespace TicketNow
                 }
                 else
                 {
+                    lun.IsVisible = true;
                     glo.IsVisible = true;
                     din.IsVisible = true;
                     lun.Text = "Lunch";
