@@ -163,6 +163,7 @@ namespace TicketNow
                 glo.IsVisible = true;
                 din.IsVisible = false;
                 lun.IsVisible = true;
+                lun.Text = "Lunch";
                 chart1.Chart = new BarChart() { Entries = entries, ValueLabelOrientation = Orientation.Horizontal, LabelOrientation = Orientation.Horizontal, LabelTextSize = 38, Margin = 30, MinValue = 0 };
                 chart4.HeightRequest = 0;
                 chart3.Chart = new DonutChart() { Entries = entries2, LabelTextSize = 35 };
@@ -173,6 +174,7 @@ namespace TicketNow
                 glo.IsVisible = true;
                 din.IsVisible = false;
                 lun.IsVisible = true;
+                lun.Text = "Lunch";
                 chart1.Chart = new BarChart() { Entries = entries, ValueLabelOrientation = Orientation.Horizontal, LabelOrientation = Orientation.Vertical, LabelTextSize = 38, Margin = 30, MinValue = 0 };
                 chart4.HeightRequest = 0;
                 chart3.Chart = new DonutChart() { Entries = entries2, LabelTextSize = 35 };
@@ -368,6 +370,7 @@ namespace TicketNow
                     glo.IsVisible = true;
                     din.IsVisible = false;
                     lun.IsVisible = true;
+                    lun.Text = "Lunch";
                     chart1.Chart = new BarChart() { Entries = entries, ValueLabelOrientation = Orientation.Horizontal, LabelOrientation = Orientation.Horizontal, LabelTextSize = 38, Margin = 30, MinValue = 0};
                     chart4.HeightRequest = 0;
                     chart3.Chart = new DonutChart() { Entries = entries2, LabelTextSize = 35 };
@@ -378,6 +381,7 @@ namespace TicketNow
                     glo.IsVisible = true;
                     din.IsVisible = false;
                     lun.IsVisible = true;
+                    lun.Text = "Lunch";
                     chart1.Chart = new BarChart() { Entries = entries, ValueLabelOrientation = Orientation.Horizontal, LabelOrientation = Orientation.Vertical, LabelTextSize = 38, Margin = 30, MinValue = 0 };
                     chart4.HeightRequest = 0;
                     chart3.Chart = new DonutChart() { Entries = entries2, LabelTextSize = 35 };
